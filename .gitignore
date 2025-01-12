@@ -1,5 +1,8 @@
 /Library
 /Logs
 /UserSettings
-/GGJ.sln
 /*.vsconfig
+/.vs
+/obj
+/GGJ2024.sln
+/*.csproj
