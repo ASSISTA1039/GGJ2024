@@ -32,39 +32,33 @@ public class BlockEditor : Editor
         EditorGUILayout.Space();
         if(GUILayout.Button("X正向移动并生成"))
         {
-            // 调用 GBlock 方法
-            spawner.RemindBlockUpdate(1,0,0);
             spawner.GBlockQ(spawner.prefab, spawner.x, spawner.y, spawner.z, spawner.scale);
+            spawner.RemindBlockUpdate(1,0,0);
         }
         if (GUILayout.Button("X反向移动并生成"))
         {
-            // 调用 GBlock 方法
-            spawner.RemindBlockUpdate(-1, 0, 0);
             spawner.GBlockQ(spawner.prefab, spawner.x, spawner.y, spawner.z, spawner.scale);
+            spawner.RemindBlockUpdate(-1, 0, 0);
         }
         if (GUILayout.Button("Y正向移动并生成"))
         {
-            // 调用 GBlock 方法
-            spawner.RemindBlockUpdate(0, 1, 0);
             spawner.GBlockQ(spawner.prefab, spawner.x, spawner.y, spawner.z, spawner.scale);
+            spawner.RemindBlockUpdate(0, 1, 0);
         }
         if (GUILayout.Button("Y反向移动并生成"))
         {
-            // 调用 GBlock 方法
-            spawner.RemindBlockUpdate(0, -1, 0);
             spawner.GBlockQ(spawner.prefab, spawner.x, spawner.y, spawner.z, spawner.scale);
+            spawner.RemindBlockUpdate(0, -1, 0);
         }
         if (GUILayout.Button("Z正向移动并生成"))
         {
-            // 调用 GBlock 方法
-            spawner.RemindBlockUpdate(0, 0, 1);
             spawner.GBlockQ(spawner.prefab, spawner.x, spawner.y, spawner.z, spawner.scale);
+            spawner.RemindBlockUpdate(0, 0, 1);
         }
         if (GUILayout.Button("Z反向移动并生成"))
         {
-            // 调用 GBlock 方法
-            spawner.RemindBlockUpdate(0, 0, -1);
             spawner.GBlockQ(spawner.prefab, spawner.x, spawner.y, spawner.z, spawner.scale);
+            spawner.RemindBlockUpdate(0, 0, -1);
         }
         // 添加空隙
         EditorGUILayout.Space();
