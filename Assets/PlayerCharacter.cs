@@ -60,30 +60,30 @@ public class PlayerCharacter : MonoBehaviour
             }
             vel = new Vector3(velocity.x, velocity.y, velocity.z);
         }
-        else //if (type == RotationType.Up)
+        else if (type == RotationType.Up)
         {
             vel = Quaternion.Euler(0, 135, 0) * new Vector3(input.x, 0, input.y) * MoveSpeed;
         }
-        //else
-        //{
-        //    Vector3 dir = Vector3.zero;
-        //    switch (GameManager.Instance.rotationType)
-        //    {
-        //        case RotationType.Front:
-        //            dir = Vector3.right;
-        //            break;
-        //        case RotationType.Right:
-        //            dir = Vector3.forward;
-        //            break;
-        //        case RotationType.Back:
-        //            dir = Vector3.left;
-        //            break;
-        //        case RotationType.Left:
-        //            dir = Vector3.back;
-        //            break;
-        //    }
-        //    vel = dir * MoveSpeed * input.x;
-        //}
+        else
+        {
+            Vector3 dir = Vector3.zero;
+            switch (GameManager.Instance.rotationType)
+            {
+                case RotationType.Front:
+                    dir = Vector3.right;
+                    break;
+                case RotationType.Right:
+                    dir = Vector3.forward;
+                    break;
+                case RotationType.Back:
+                    dir = Vector3.left;
+                    break;
+                case RotationType.Left:
+                    dir = Vector3.back;
+                    break;
+            }
+            vel = dir * MoveSpeed * input.x;
+        }
 
         if (isJump && isGround)
         {
@@ -94,7 +94,7 @@ public class PlayerCharacter : MonoBehaviour
 
     public void FollowCollider()
     {
-        if(CurBoxCollider!= null)
+        if (CurBoxCollider != null)
         {
             transform.position = new Vector3(CurBoxCollider.position.x,
             CurBoxCollider.position.y + yOffset, CurBoxCollider.position.z);

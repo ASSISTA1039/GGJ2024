@@ -57,12 +57,12 @@ public class CameraController : MonoBehaviour
     //隐藏鼠标
     private void UpdateCursor()
     {
-        //隐藏鼠标指针
-        Cursor.visible = false;
-        //固定鼠标指针在屏幕中心
-        Cursor.lockState = CursorLockMode.Locked;
+        ////隐藏鼠标指针
+        //Cursor.visible = false;
+        ////固定鼠标指针在屏幕中心
+        //Cursor.lockState = CursorLockMode.Locked;
 
-        CharacterInputSystem.Instance.EnablePlayerLAtk();
+        //CharacterInputSystem.Instance.EnablePlayerLAtk();
     }
 
     //获取鼠标输入（上下左右滑动）

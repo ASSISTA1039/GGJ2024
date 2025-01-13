@@ -71,13 +71,13 @@ public class CharacterInputSystem : SingletonBase<CharacterInputSystem>
     /// </summary>
     public void EnablePlayerLAtk() => disablePlayerLAtk = true;
 
-
+    
     public void SetPlayerLAtk()
     {
         _playerLAtk = true;
         StartCoroutine(PlayerLAtkCoroutine());
     }
-
+    
     IEnumerator PlayerLAtkCoroutine()
     {
         yield return new WaitForSeconds(0.1f);
@@ -103,6 +103,7 @@ public class CharacterInputSystem : SingletonBase<CharacterInputSystem>
     }
     private void Update()
     {
+
 
     }
 }

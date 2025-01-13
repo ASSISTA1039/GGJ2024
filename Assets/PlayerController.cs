@@ -46,6 +46,7 @@ public class PlayerController : MonoBehaviour
                 GameManager.Instance.isThird = true;
                 Camera.main.orthographic = false;
                 Camera.main.GetComponent<CameraController>().enabled = true;
+                GameManager.Instance.ChangeTypeToThird();
             }
             else
             {

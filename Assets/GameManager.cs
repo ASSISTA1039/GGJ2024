@@ -207,10 +207,10 @@ public class GameManager : MonoBehaviour
         rotationType = RotationType.Up;
     }
     ////修改RotationType枚举为斜上方视角
-    //public void ChangeTypeToThird()
-    //{
-    //    rotationType = RotationType.Third;
-    //}
+    public void ChangeTypeToThird()
+    {
+        rotationType = RotationType.Third;
+    }
 
     /// <summary>
     /// 逐个读取方块的tranfrom坐标，并在对应位置生成碰撞体。
