@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     Vector3 MaxPos;                                  //所有方块最大的位置
     Transform[] Colliders;                           //所有碰撞体
     Vector3[] ColliderOldPos;                        //所有碰撞体的初始位置
-    public Transform Cubes;                          //所有方块的父物体  
+    public Transform Cube;                          //所有方块的父物体  
     public Transform CollidersParent;                //所有碰撞体的父物体
     public Transform UpPos;                          //斜上方视角碰撞体位置
 
@@ -43,19 +43,22 @@ public class GameManager : MonoBehaviour
             ColliderMove(value);
         }
     }
-    void Start()
+    public void Awake()
     {
         Instance = this;
+    }
+    public void Start()
+    {
         CurCamera = Camera.main.transform;
-        Center = GetCenter();
-        CreatCollider();
-        _rotationType = RotationType.Left;
+        Center = GetCenter(Cube);
+        CreatCollider(Cube);
+        _rotationType = RotationType.Up;
         CameraMove(_rotationType, false);
-        ColliderMove(_rotationType);
+        //ColliderMove(_rotationType);
     }
 
-
     //碰撞体移动
+    
     void ColliderMove(RotationType type)
     {
         for (int i = 0; i < Colliders.Length; i++)
@@ -70,7 +73,7 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                Colliders[i].position = UpPos.GetChild(i).position;
+                //Colliders[i].position = UpPos.GetChild(i).position;
             }
         }
         Player.FollowCollider();
@@ -140,7 +143,7 @@ public class GameManager : MonoBehaviour
 
 
     //获取到所有方块的中心点
-    public Vector3 GetCenter()
+    public Vector3 GetCenter(Transform Cubes)
     {
         MinPos = Cubes.GetChild(0).position;
         for (int i = 1; i < Cubes.childCount; i++)
@@ -161,6 +164,12 @@ public class GameManager : MonoBehaviour
     //修改RotationType枚举
     public void ChangeRotationType(bool isRight)
     {
+        if (rotationType == RotationType.Third|| rotationType == RotationType.Up)
+        {
+            // 阻止更改方向
+            return;
+        }
+
         if (rotationType == RotationType.Up)
         {
             rotationType = RotationType.Left;
@@ -188,6 +197,7 @@ public class GameManager : MonoBehaviour
             {
                 rotationType--;
             }
+
         }
     }
 
@@ -202,8 +212,11 @@ public class GameManager : MonoBehaviour
     //    rotationType = RotationType.Third;
     //}
 
-    //创建碰撞体
-    void CreatCollider()
+    /// <summary>
+    /// 逐个读取方块的tranfrom坐标，并在对应位置生成碰撞体。
+    /// </summary>
+    /// <param name="Cubes">方块父物体</param>
+    public void CreatCollider(Transform Cubes)
     {
         ColliderOldPos = new Vector3[Cubes.childCount];
         Colliders = new Transform[Cubes.childCount];
