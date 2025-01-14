@@ -690,16 +690,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StartProcedure: TitleProcedure
---- !u!4 &1047392346 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1164097060319259986, guid: 506e1db5d75cef447978a10c64501f2b, type: 3}
-  m_PrefabInstance: {fileID: 3090266391638986642}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1317656320 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3574722607650268534, guid: c33420175c22dde4f8a37d4e79d595fd, type: 3}
-  m_PrefabInstance: {fileID: 2036209153266769084}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1473358863 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7750129760809655700, guid: 3a2d4edc1b8ae704da659cfea9d19a97, type: 3}
@@ -1128,9 +1118,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 622db145703eda44c92c49437c444052, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Cube: {fileID: 1047392346}
+  Cube: {fileID: 5174856207680421665, guid: 3b4da1a5f12457a498a6249d349f94be, type: 3}
   CollidersParent: {fileID: 705487161}
-  UpPos: {fileID: 1317656320}
+  UpPos: {fileID: 0}
   Player: {fileID: 1902596590}
   isThird: 0
   _rotationType: 0
@@ -1178,6 +1168,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gridSize: 1
   dragPlaneHeight: 0
+  directionx: 0
+  directiony: 0
+  directionz: 0
+  rotationAngle: 0
+  duration: 0
 --- !u!1001 &2036209153266769084
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1297,7 +1292,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7473939793175279861, guid: 506e1db5d75cef447978a10c64501f2b, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
     public PlayerCharacter Player;
 
     public bool isThird;                             //是否进入第三人称视角状态
-    
+
     [SerializeField]
     private RotationType _rotationType;              //当前的旋转方向
     public RotationType rotationType
@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour
     }
 
     //碰撞体移动
-    
+
     void ColliderMove(RotationType type)
     {
         for (int i = 0; i < Colliders.Length; i++)
@@ -164,12 +164,11 @@ public class GameManager : MonoBehaviour
     //修改RotationType枚举
     public void ChangeRotationType(bool isRight)
     {
-        if (rotationType == RotationType.Third|| rotationType == RotationType.Up)
+        if (rotationType == RotationType.Third || rotationType == RotationType.Up)
         {
             // 阻止更改方向
             return;
         }
-
         if (rotationType == RotationType.Up)
         {
             rotationType = RotationType.Left;
@@ -212,22 +211,71 @@ public class GameManager : MonoBehaviour
         rotationType = RotationType.Third;
     }
 
+
     /// <summary>
-    /// 逐个读取方块的tranfrom坐标，并在对应位置生成碰撞体。
+    /// 遍历方块的所有子物体及其子物体，在保留父物体结构的基础上，将其碰撞体移动到 CollidersParent 下。
+    /// 如果原物体包含某些 tag，则碰撞体也会包含对应的 tag。
+    /// 父物体和第一层子物体本身并不需要碰撞体。
     /// </summary>
     /// <param name="Cubes">方块父物体</param>
     public void CreatCollider(Transform Cubes)
     {
-        ColliderOldPos = new Vector3[Cubes.childCount];
-        Colliders = new Transform[Cubes.childCount];
-        for (int i = 0; i < Cubes.childCount; i++)
+        // 初始化数组大小，延迟分配
+        List<Vector3> colliderPositions = new List<Vector3>();
+        List<Transform> colliderReferences = new List<Transform>();
+
+        // 定义需要检测的 tag 列表
+        List<string> tagsToCheck = new List<string> { "Draggable", "Tag2", "Tag3" };
+
+        // 递归遍历子物体并创建碰撞体
+        void ProcessChild(Transform child, Transform parentInCollidersParent)
         {
-            Colliders[i] = GameObject.CreatePrimitive(PrimitiveType.Cube).transform;
-            ColliderOldPos[i] = Cubes.GetChild(i).transform.position;
-            Colliders[i].transform.position = ColliderOldPos[i];
-            Colliders[i].parent = CollidersParent;
-            Colliders[i].gameObject.layer = 8;
+            // 跳过第一层子物体
+            foreach (Transform grandChild in child)
+            {
+                // 创建新的父结构节点
+                Transform newParent = parentInCollidersParent.Find(child.name);
+                if (newParent == null)
+                {
+                    newParent = new GameObject(child.name).transform;
+                    newParent.parent = parentInCollidersParent;
+                }
+
+                // 创建碰撞体
+                Transform collider = GameObject.CreatePrimitive(PrimitiveType.Cube).transform;
+                collider.position = grandChild.position;
+                collider.localScale = grandChild.localScale; // 保留缩放比例
+                collider.gameObject.layer = 8;
+
+                // 检测并复制 tag
+                if (tagsToCheck.Contains(grandChild.tag))
+                {
+                    collider.tag = grandChild.tag;
+                }
+
+                collider.parent = newParent; // 将碰撞体作为新的父节点的子物体
+
+                // 添加记录
+                colliderPositions.Add(grandChild.position);
+                colliderReferences.Add(collider);
+
+                // 递归处理子物体
+                foreach (Transform greatGrandChild in grandChild)
+                {
+                    ProcessChild(greatGrandChild, newParent);
+                }
+            }
         }
+
+        // 开始处理传入的 Cubes 的所有子物体
+        foreach (Transform child in Cubes)
+        {
+            ProcessChild(child, CollidersParent);
+        }
+
+        // 将结果转为数组
+        ColliderOldPos = colliderPositions.ToArray();
+        Colliders = colliderReferences.ToArray();
     }
 
 

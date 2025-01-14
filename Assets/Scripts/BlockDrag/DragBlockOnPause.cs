@@ -9,6 +9,7 @@ public class DragBlockOnGrid : MonoBehaviour
     private Vector3 startDragPosition; // 鼠标拖动开始时的世界坐标
     private Vector3 blockStartPosition;// 方块开始拖动时的位置
     public float dragPlaneHeight = 0f; // 拖动的平面高度（Y 轴）
+    private float tolerance = -0.5f; // 设置移动容差值，小于0则使方块更易于挪动。
 
     public bool directionx;//x方向旋转
     public bool directiony;//y方向旋转
@@ -52,6 +53,8 @@ public class DragBlockOnGrid : MonoBehaviour
         }
     }
 
+    
+
     private void StartDrag()
     {
         // 发射射线检测鼠标点击的方块
@@ -60,9 +63,10 @@ public class DragBlockOnGrid : MonoBehaviour
         {
             if (hit.collider.CompareTag("Draggable"))
             {
-                draggedBlock = hit.transform;
-                blockStartPosition = draggedBlock.position;       // 记录方块的初始位置
-                startDragPosition = GetMousePositionOnPlane();   // 记录鼠标初始位置（基于平面）
+                // 拖动父物体
+                draggedBlock = hit.transform.parent;
+                blockStartPosition = draggedBlock.position; // 记录父物体初始位置
+                startDragPosition = GetMousePositionOnPlane(); // 记录鼠标初始位置（基于平面）
             }
         }
     }
@@ -78,14 +82,48 @@ public class DragBlockOnGrid : MonoBehaviour
             // 计算目标位置（整格对齐）
             float newX = Mathf.Round((blockStartPosition.x + dragOffset.x) / gridSize) * gridSize;
             float newZ = Mathf.Round((blockStartPosition.z + dragOffset.z) / gridSize) * gridSize;
+            Vector3 targetPosition = new Vector3(newX, blockStartPosition.y, newZ);
 
-            // 更新方块位置
-            draggedBlock.position = new Vector3(newX, blockStartPosition.y, newZ);
+            // 遍历父物体的每一个子物体，检测其目标位置是否可移动
+            foreach (Transform child in draggedBlock)
+            {
+                Vector3 childTargetPosition = targetPosition + (child.position - blockStartPosition);
+                if (!CanMoveToPosition(childTargetPosition))
+                {
+                    // 检测到阻碍，如果鼠标移动距离过远则退出拖动状态
+                    if (dragOffset.magnitude > gridSize * 2)
+                    {
+                        draggedBlock = null; // 退出拖动状态
+                    }
+                    return;
+                }
+            }
+
+            // 如果所有子物体的位置均可移动，允许移动
+            draggedBlock.position = targetPosition;
 
             // 重置参考点
             startDragPosition = GetMousePositionOnPlane();
             blockStartPosition = draggedBlock.position;
         }
+    }
+
+    private bool CanMoveToPosition(Vector3 targetPosition)
+    {
+        // 设置检测范围和偏移量
+        Vector3 halfExtents = new Vector3(gridSize / 2 + tolerance, gridSize / 2 + tolerance, gridSize / 2 + tolerance);
+        Collider[] colliders = Physics.OverlapBox(targetPosition, halfExtents, Quaternion.identity);
+
+        foreach (var collider in colliders)
+        {
+            // 确保碰撞到的不是当前父物体
+            if (collider.transform.parent != draggedBlock)
+            {
+                return false; // 检测到其他方块，阻止移动
+            }
+        }
+
+        return true; // 没有检测到阻碍，允许移动
     }
 
     private void EndDrag()
@@ -95,9 +133,10 @@ public class DragBlockOnGrid : MonoBehaviour
         {
             // 获取子物体
             Transform childTransform = transform.GetChild(i);
-            childTransform.gameObject.GetComponent<BlockAct>().Act();//触发每一个子物体的反应检测
+            childTransform.gameObject.GetComponent<BlockAct>().Act(); // 触发每一个子物体的反应检测
         }
     }
+
 
     private Vector3 GetMousePositionOnPlane()
     {
