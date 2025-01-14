@@ -1,4 +1,5 @@
 using UnityEngine;
+using DG.Tweening;
 
 public class DragBlockOnGrid : MonoBehaviour
 {
@@ -8,6 +9,14 @@ public class DragBlockOnGrid : MonoBehaviour
     private Vector3 startDragPosition; // 鼠标拖动开始时的世界坐标
     private Vector3 blockStartPosition;// 方块开始拖动时的位置
     public float dragPlaneHeight = 0f; // 拖动的平面高度（Y 轴）
+
+    public bool directionx;//x方向旋转
+    public bool directiony;//y方向旋转
+    public bool directionz;//z方向旋转
+    public int rotationAngle;//旋转角度
+    public float duration;//旋转时间
+    private bool isRotating = false; // 标记是否正在旋转
+    private Vector3 targetRotation = Vector3.zero;
 
     void Start()
     {
@@ -34,6 +43,11 @@ public class DragBlockOnGrid : MonoBehaviour
             if (Input.GetMouseButtonUp(0))
             {
                 EndDrag();
+            }
+
+            if (Input.GetMouseButtonDown(1))  // 右键点击
+            {
+                Rotate();
             }
         }
     }
@@ -77,6 +91,12 @@ public class DragBlockOnGrid : MonoBehaviour
     private void EndDrag()
     {
         draggedBlock = null; // 停止拖动
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            // 获取子物体
+            Transform childTransform = transform.GetChild(i);
+            childTransform.gameObject.GetComponent<BlockAct>().Act();//触发每一个子物体的反应检测
+        }
     }
 
     private Vector3 GetMousePositionOnPlane()
@@ -95,4 +115,35 @@ public class DragBlockOnGrid : MonoBehaviour
 
         return Vector3.zero; // 默认返回值（不应该出现此情况）
     }
+
+    public void Rotate()
+    {
+        if (isRotating) return;
+
+        // 设置正在旋转
+        isRotating = true;
+
+        // 根据方向选择旋转的轴
+        if (directionx)
+        {
+            targetRotation.x += rotationAngle;
+        }
+        if (directiony)
+        {
+            targetRotation.y += rotationAngle;
+        }
+        if (directionz)
+        {
+            targetRotation.z += rotationAngle;
+        }
+        // 使用 DORotate 来旋转物体
+        transform.DORotateQuaternion(Quaternion.Euler(targetRotation.x, targetRotation.y, targetRotation.z), duration)
+            .SetEase(Ease.Linear)
+            .OnComplete(() =>
+            {
+                // 旋转完成后，允许再次调用
+                isRotating = false;
+            });
+    }
+
 }
