@@ -49,6 +49,10 @@ public class DragBlockOnGrid : MonoBehaviour
             {
                 Rotate();
             }
+            if (GameManager.Instance.isThird)
+            {
+                BlockA();
+            }
         }
     }
 
@@ -88,15 +92,19 @@ public class DragBlockOnGrid : MonoBehaviour
         }
     }
 
-    private void EndDrag()
+    private void BlockA()
     {
-        draggedBlock = null; // 停止拖动
         for (int i = 0; i < transform.childCount; i++)
         {
             // 获取子物体
             Transform childTransform = transform.GetChild(i);
             childTransform.gameObject.GetComponent<BlockAct>().Act();//触发每一个子物体的反应检测
         }
+    }
+
+    private void EndDrag()
+    {
+        draggedBlock = null; // 停止拖动
     }
 
     private Vector3 GetMousePositionOnPlane()
