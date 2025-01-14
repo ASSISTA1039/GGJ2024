@@ -965,7 +965,7 @@ GameObject:
   - component: {fileID: 216465939}
   - component: {fileID: 216465938}
   m_Layer: 0
-  m_Name: block_brick_black_1(Clone)
+  m_Name: Start
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -980,14 +980,14 @@ Transform:
   m_GameObject: {fileID: 216465936}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -3}
+  m_LocalPosition: {x: 0, y: 0, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 793829483}
   - {fileID: 737557473}
   - {fileID: 1925836711}
-  m_Father: {fileID: 1189173078}
+  m_Father: {fileID: 919205754}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!205 &216465938
 LODGroup:
@@ -2128,7 +2128,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1367525716}
   - {fileID: 149584367}
   - {fileID: 1889306008}
   - {fileID: 180818424}
@@ -3161,6 +3160,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 216465937}
+  - {fileID: 1367525716}
   - {fileID: 1189173078}
   - {fileID: 1232342652}
   - {fileID: 269411735}
@@ -4238,7 +4239,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 216465937}
   - {fileID: 2085354484}
   - {fileID: 812360179}
   - {fileID: 1129484169}
@@ -4459,7 +4459,7 @@ GameObject:
   - component: {fileID: 1367525715}
   - component: {fileID: 1367525714}
   m_Layer: 0
-  m_Name: block_brick_brown_1(Clone)
+  m_Name: End
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4522,13 +4522,13 @@ Transform:
   m_GameObject: {fileID: 1367525713}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1, y: 0, z: 0}
+  m_LocalPosition: {x: 7, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1495965725}
   - {fileID: 1772006474}
-  m_Father: {fileID: 614220773}
+  m_Father: {fileID: 919205754}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1374096383
 GameObject:
@@ -5591,6 +5591,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gridSize: 1
   dragPlaneHeight: 0
+  directionx: 0
+  directiony: 0
+  directionz: 0
+  rotationAngle: 0
+  duration: 0
 --- !u!114 &1627511462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7365,7 +7370,7 @@ Transform:
   m_GameObject: {fileID: 2131986671}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.972, y: 0.87, z: -10.09}
+  m_LocalPosition: {x: 0.018, y: 0.87, z: -4.93}
   m_LocalScale: {x: 0.5, y: 0.3853897, z: 0.50000024}
   m_ConstrainProportionsScale: 0
   m_Children:
