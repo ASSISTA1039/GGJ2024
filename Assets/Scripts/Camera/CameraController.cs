@@ -7,24 +7,24 @@ public class CameraController : MonoBehaviour
     //[SerializeField] private CharacterInputSystem _inputSystem;
     [SerializeField] public Transform LookAttarGet;
     private Transform playerCamera;
-
-    [Range(0.1f, 1f), SerializeField, Header("Êó±êÁéÃô¶È")] public float RotateSpeed;
-    [Range(0.1f, 0.5f), SerializeField, Header("Ïà»úĞı×ªÆ½»¬¶È")] public float rotationSmoothTime = 0.2f;
-    [Range(0.1f, 1f), SerializeField, Header("¹öÂÖÁéÃô¶È")] private float scrollSpeed;
-    //ÉãÏñÍ·Óë½ÇÉ«µÄ¾àÀë
-    [SerializeField, Header("Ïà»ú¾àÀë")] private float _cameraDistance;
+    
+    [Range(0.1f, 1f), SerializeField, Header("é¼ æ ‡çµæ•åº¦")] public float RotateSpeed;
+    [Range(0.1f, 0.5f), SerializeField, Header("ç›¸æœºæ—‹è½¬å¹³æ»‘åº¦")] public float rotationSmoothTime = 0.2f;
+    [Range(0.1f, 1f), SerializeField, Header("æ»šè½®çµæ•åº¦")] private float scrollSpeed;
+    //æ‘„åƒå¤´ä¸è§’è‰²çš„è·ç¦»
+    [SerializeField, Header("ç›¸æœºè·ç¦»")] private float _cameraDistance;
     [SerializeField] private Vector2 _cameraDistanceMinMax = new Vector2(0.01f, 3f);
     [SerializeField] private float distancePlayerOffset;
-    [SerializeField, Header("Ïà»ú¸©Ñö½Ç")] private Vector2 ClmpCameraRang = new Vector2(-65f, 65f);
-    [SerializeField, Header("Ïà»ú»º¶¯")] private Vector3 lookAtPlayerLerpTime;
-    [SerializeField, Header("Åö×²¼ì²â")] public LayerMask collisionLayer;
+    [SerializeField, Header("ç›¸æœºä¿¯ä»°è§’")] private Vector2 ClmpCameraRang = new Vector2(-65f, 65f);
+    [SerializeField, Header("ç›¸æœºç¼“åŠ¨")] private Vector3 lookAtPlayerLerpTime;
+    [SerializeField, Header("ç¢°æ’æ£€æµ‹")] public LayerMask collisionLayer;
     [SerializeField] private float colliderMotionLerpTime;
 
     private Vector3 rotationSmoothVelocity;
     private Vector3 currentRotation;
     private Vector3 _camDirection;
 
-    //ÉãÏñÍ··¢ÉúÅö×²Ê±»º´æÓë½ÇÉ«µÄ¾àÀë
+    //æ‘„åƒå¤´å‘ç”Ÿç¢°æ’æ—¶ç¼“å­˜ä¸è§’è‰²çš„è·ç¦»
     private float _cameraDistanceScrollWheel;
     private float yaw;
     private float pitch;
@@ -47,39 +47,39 @@ public class CameraController : MonoBehaviour
         GetCameraControllerInput();
         ZoomView();
     }
-    //LateUpdateÔÚUpdateÖ®ºóÖ´ĞĞ
+    //LateUpdateåœ¨Updateä¹‹åæ‰§è¡Œ
     private void LateUpdate()
     {
         ControllerCamera();
         CheckCameraOcclusionAndCollision(playerCamera);
     }
 
-    //Òş²ØÊó±ê
+    //éšè—é¼ æ ‡
     private void UpdateCursor()
     {
-        ////Òş²ØÊó±êÖ¸Õë
+        ////éšè—é¼ æ ‡æŒ‡é’ˆ
         //Cursor.visible = false;
-        ////¹Ì¶¨Êó±êÖ¸ÕëÔÚÆÁÄ»ÖĞĞÄ
+        ////å›ºå®šé¼ æ ‡æŒ‡é’ˆåœ¨å±å¹•ä¸­å¿ƒ
         //Cursor.lockState = CursorLockMode.Locked;
 
         //CharacterInputSystem.Instance.EnablePlayerLAtk();
     }
 
-    //»ñÈ¡Êó±êÊäÈë£¨ÉÏÏÂ×óÓÒ»¬¶¯£©
+    //è·å–é¼ æ ‡è¾“å…¥ï¼ˆä¸Šä¸‹å·¦å³æ»‘åŠ¨ï¼‰
     private void GetCameraControllerInput()
     {
         yaw += CharacterInputSystem.Instance.cameraLook.x * RotateSpeed;
         pitch -= CharacterInputSystem.Instance.cameraLook.y * RotateSpeed;
-        //Mathf.Clamp(a,b,c):ÏŞ¶¨aÔÚb~cÖ®¼ä
+        //Mathf.Clamp(a,b,c):é™å®šaåœ¨b~cä¹‹é—´
         pitch = Mathf.Clamp(pitch, ClmpCameraRang.x, ClmpCameraRang.y);
     }
 
-    //ÉãÏñÍ·Ğı×ª¡¢ÒÆ¶¯
+    //æ‘„åƒå¤´æ—‹è½¬ã€ç§»åŠ¨
     private void ControllerCamera()
     {
-        //ÈÃcurrentRotationÆ½»¬µÄ¹ı¶Éµ½Vector3(pitch, yaw)
+        //è®©currentRotationå¹³æ»‘çš„è¿‡æ¸¡åˆ°Vector3(pitch, yaw)
         currentRotation = Vector3.SmoothDamp(currentRotation, new Vector3(pitch, yaw), ref rotationSmoothVelocity, rotationSmoothTime);
-        //ÊÀ½çÖáĞı×ª
+        //ä¸–ç•Œè½´æ—‹è½¬
         transform.eulerAngles = currentRotation;
 
         Vector3 fanlePos = LookAttarGet.position - transform.forward * distancePlayerOffset;
@@ -95,45 +95,45 @@ public class CameraController : MonoBehaviour
         transform.position = new Vector3(positionX.x, positionY.y, positionZ.z);
     }
 
-    //Ïà»úÅö×²¼ì²â
+    //ç›¸æœºç¢°æ’æ£€æµ‹
     private void CheckCameraOcclusionAndCollision(Transform camera)
     {
-        //TransformPoint:½«Ïà¶Ô×ø±ê×ª»¯ÎªÊÀ½ç×ø±ê
+        //TransformPoint:å°†ç›¸å¯¹åæ ‡è½¬åŒ–ä¸ºä¸–ç•Œåæ ‡
         Vector3 desiredCamPosition = transform.TransformPoint(_camDirection * (_cameraDistanceMinMax.y + 0.1f));
 
-        //Physics.Linecast(Vector3 start, Vector3 end, out hit, int Layer) start:ÉäÏßÆğµã£»end:ÉäÏßÖÕµã£»hit:·µ»ØÅö×²ÌåµÄĞÅÏ¢£»Layer:¼ì²âµÄ²ã¼¶
-        //Physics.Linecast(Vector3 start, Vector3 end, out hit, int Layer) start:ÉäÏßÆğµã£»end:ÉäÏßÖÕµã£»hit:·µ»ØÅö×²ÌåµÄĞÅÏ¢£»Layer:¼ì²âµÄ²ã¼¶
+        //Physics.Linecast(Vector3 start, Vector3 end, out hit, int Layer) start:å°„çº¿èµ·ç‚¹ï¼›end:å°„çº¿ç»ˆç‚¹ï¼›hit:è¿”å›ç¢°æ’ä½“çš„ä¿¡æ¯ï¼›Layer:æ£€æµ‹çš„å±‚çº§
+        //Physics.Linecast(Vector3 start, Vector3 end, out hit, int Layer) start:å°„çº¿èµ·ç‚¹ï¼›end:å°„çº¿ç»ˆç‚¹ï¼›hit:è¿”å›ç¢°æ’ä½“çš„ä¿¡æ¯ï¼›Layer:æ£€æµ‹çš„å±‚çº§
         if (Physics.Linecast(transform.position, desiredCamPosition, out var hit, collisionLayer))
         {
-            //µ±¼ì²âµ½ÓĞÕÚµ²£¨Åö×²Ìå£©Ê±£¬ÏŞÖÆÉãÏñÍ·Óë½ÇÉ«µÄ×î´ó¾àÀë
+            //å½“æ£€æµ‹åˆ°æœ‰é®æŒ¡ï¼ˆç¢°æ’ä½“ï¼‰æ—¶ï¼Œé™åˆ¶æ‘„åƒå¤´ä¸è§’è‰²çš„æœ€å¤§è·ç¦»
             _cameraDistance = Mathf.Clamp(hit.distance, _cameraDistanceMinMax.x, _cameraDistanceScrollWheel);
 
             start = true;
         }
         else
         {
-            //´ÓÓĞÕÚµ²±äÎªÎŞÕÚµ²Ê±£¬½«Ç°Ãæ»º´æµÄÉãÏñÍ·Óë½ÇÉ«µÄ¾àÀëÊµÀı»¯
+            //ä»æœ‰é®æŒ¡å˜ä¸ºæ— é®æŒ¡æ—¶ï¼Œå°†å‰é¢ç¼“å­˜çš„æ‘„åƒå¤´ä¸è§’è‰²çš„è·ç¦»å®ä¾‹åŒ–
             if (start)
             {
                 _cameraDistance = _cameraDistanceScrollWheel;
                 start = false;
             }
-            //»º´æÉãÏñÍ·Óë½ÇÉ«µÄ¾àÀë
+            //ç¼“å­˜æ‘„åƒå¤´ä¸è§’è‰²çš„è·ç¦»
             _cameraDistanceScrollWheel = _cameraDistance;
 
         }
-        //»æÖÆÉäÏß£¬Ò×ÓÚ¹Û²ì
+        //ç»˜åˆ¶å°„çº¿ï¼Œæ˜“äºè§‚å¯Ÿ
         Debug.DrawRay(transform.position, (desiredCamPosition - transform.position) * (_cameraDistance) / (_cameraDistanceMinMax.y + 0.1f), Color.red);
 
         camera.transform.localPosition = Vector3.Lerp(camera.transform.localPosition, _camDirection * (_cameraDistance - 0.1f), colliderMotionLerpTime * Time.deltaTime);
 
     }
 
-    //¾µÍ·Ô¶½ü
+    //é•œå¤´è¿œè¿‘
     void ZoomView()
     {
         _cameraDistance -= CharacterInputSystem.Instance.CameraDistance * scrollSpeed * 0.01f;
-        //Ô¶½ü·¶Î§
+        //è¿œè¿‘èŒƒå›´
         _cameraDistance = Mathf.Clamp(_cameraDistance, _cameraDistanceMinMax.x, _cameraDistanceMinMax.y);
         _cameraDistanceScrollWheel -= CharacterInputSystem.Instance.CameraDistance * scrollSpeed * 0.01f;
         _cameraDistanceScrollWheel = Mathf.Clamp(_cameraDistanceScrollWheel, _cameraDistanceMinMax.x, _cameraDistanceMinMax.y);
