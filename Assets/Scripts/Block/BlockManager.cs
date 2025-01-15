@@ -49,6 +49,7 @@ public class BlockManager : MonoBehaviour
                 {
                     GameObject _gameObject = Instantiate(pref, new Vector3(x + i, y + j, z + k), Quaternion.identity);
                     _gameObject.transform.SetParent(gameObject.transform.parent);
+                    _gameObject.AddComponent<BlockAct>();
                     _gameObject.transform.localScale = new Vector3(s, s, s);
                 }
             }
@@ -60,6 +61,7 @@ public class BlockManager : MonoBehaviour
         GameObject _gameObject = Instantiate(pref, new Vector3(x, y, z), Quaternion.identity);
         _gameObject.transform.SetParent(gameObject.transform.parent);
         _gameObject.transform.localScale = new Vector3(s, s, s);
+        _gameObject.AddComponent<BlockAct>();
     }
 
 }
