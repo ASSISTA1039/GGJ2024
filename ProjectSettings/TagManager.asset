@@ -5,12 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Draggable
-  - Block0
-  - Block1
-  - Block2
-  - Block3
-  - Block4
-  - Block5
+  - NormalCube
+  - Block 0
   layers:
   - Default
   - TransparentFX

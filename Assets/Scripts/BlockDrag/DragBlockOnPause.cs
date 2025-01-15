@@ -9,13 +9,14 @@ public class DragBlockOnGrid : MonoBehaviour
     private Vector3 startDragPosition; // 鼠标拖动开始时的世界坐标
     private Vector3 blockStartPosition;// 方块开始拖动时的位置
     public float dragPlaneHeight = 0f; // 拖动的平面高度（Y 轴）
-    private float tolerance = -0.5f; // 设置移动容差值，小于0则使方块更易于挪动。
+    private float tolerance = -0.2f; // 设置移动容差值，小于0则使方块更易于挪动。
+    public Vector3 dragOffset;
 
     public bool directionx;//x方向旋转
     public bool directiony;//y方向旋转
     public bool directionz;//z方向旋转
-    public int rotationAngle;//旋转角度
-    public float duration;//旋转时间
+    public int rotationAngle=90;//旋转角度
+    public float duration=1f;//旋转时间
     private bool isRotating = false; // 标记是否正在旋转
     private Vector3 targetRotation = Vector3.zero;
 
@@ -79,10 +80,11 @@ public class DragBlockOnGrid : MonoBehaviour
     private void Drag()
     {
         Vector3 currentMousePosition = GetMousePositionOnPlane(); // 当前鼠标在平面上的位置
-        Vector3 dragOffset = currentMousePosition - startDragPosition; // 计算鼠标拖动的偏移量
+        //Vector3
+        dragOffset = currentMousePosition - startDragPosition; // 计算鼠标拖动的偏移量
 
         // 判断是否达到整格的移动条件
-        if (Mathf.Abs(dragOffset.x) >= gridSize || Mathf.Abs(dragOffset.z) >= gridSize)
+        if ((Mathf.Abs(dragOffset.x) >= 0.7*gridSize || Mathf.Abs(dragOffset.z) >= 0.7*gridSize)&& Mathf.Abs(dragOffset.x)<1.4 * gridSize&& Mathf.Abs(dragOffset.z) < 1.4 * gridSize)
         {
             // 计算目标位置（整格对齐）
             float newX = Mathf.Round((blockStartPosition.x + dragOffset.x) / gridSize) * gridSize;
@@ -95,16 +97,17 @@ public class DragBlockOnGrid : MonoBehaviour
                 Vector3 childTargetPosition = targetPosition + (child.position - blockStartPosition);
                 if (!CanMoveToPosition(childTargetPosition))
                 {
-                    // 检测到阻碍，如果鼠标移动距离过远则退出拖动状态
-                    if (dragOffset.magnitude > gridSize * 2)
-                    {
-                        draggedBlock = null; // 退出拖动状态
-                    }
+                    //// 检测到阻碍，如果鼠标移动距离过远则退出拖动状态
+                    //if (dragOffset.magnitude > gridSize * 3)
+                    //{
+                    //    draggedBlock = null; // 退出拖动状态
+                    //}
                     return;
                 }
             }
 
             // 如果所有子物体的位置均可移动，允许移动
+            
             draggedBlock.position = targetPosition;
 
             // 重置参考点
@@ -124,6 +127,7 @@ public class DragBlockOnGrid : MonoBehaviour
             // 确保碰撞到的不是当前父物体
             if (collider.transform.parent != draggedBlock)
             {
+                Debug.Log(collider);
                 return false; // 检测到其他方块，阻止移动
             }
         }
