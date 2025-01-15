@@ -1,27 +1,42 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class BlockAct: MonoBehaviour
 {
     //tag为Block0是出生点方块，Block1红色方块，Block2紫色方块，Block3蓝色方块,Block4黑色，Block5终点方块
     public string thetag;
+    public bool iselc = false;
+
+    Vector3 targetposition;
+    public float raycastDistance = 1f;  // 射线检测的最大距离
+    public LayerMask collisionLayer;  // 碰撞层
+
+    private Tween moveTween;
+
     private void Start()
     {
         thetag = gameObject.tag;
     }
 
+    #region 方块反应
     public void Act()
     {
         if (tag == "Block1")
         {
             GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("Block2");
+            bool isboom = false;
             foreach (var obj in gameObjects)
             {
                 if (Vector3.Distance(transform.position,obj.transform.position) < 1.3f)
                 {
                     Boom(obj);
-                    break;
+                }
+                if (!isboom)
+                {
+                    Boom(gameObject);
+                    isboom = false;
                 }
             }
 
@@ -36,48 +51,45 @@ public class BlockAct: MonoBehaviour
         }
         if (tag == "Block2")
         {
-            GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("Block1");
+            GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("Block3");
             foreach (var obj in gameObjects)
             {
                 if (Vector3.Distance(transform.position, obj.transform.position) < 1.3f)
                 {
-                    Boom(obj);
-                    break;
+                    obj.GetComponent<BlockAct>().Electric();
                 }
             }
         }
-        if (tag == "Block3")
-        {
-            GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("Block1");
-            foreach (var obj in gameObjects)
-            {
-                if (Vector3.Distance(transform.position, obj.transform.position) < 1.3f)
-                {
-                    Boom(gameObject);
-                    break;
-                }
-            }
-        }
-
-
     }
 
-    public void Boom(GameObject _Object)
+    public void Boom(GameObject _Object)//爆炸效果
     {
-        Collider[] colliders = Physics.OverlapSphere(_Object.transform.position, 3f);
-        foreach (Collider collider in colliders)
-        {
-            if (collider.gameObject.tag != "Block4")
-            {
-                //TODO：加入黑色方块
-                Destroy(collider.gameObject);
-            }
+        //TODO：生成黑色方块
+        Destroy(_Object);
+    }
 
+    public void Evaporation(GameObject _Object)//漂浮效果
+    {
+        Vector3 targetposition = _Object.transform.position + new Vector3(0, 1, 0);
+        moveTween = _Object.transform.DOMove(targetposition, 0.5f).SetEase(Ease.InOutQuad).OnUpdate(CheckForCollision);
+    }
+
+    public void Electric()
+    {
+        iselc = true;
+    }
+
+    void CheckForCollision()
+    {
+        // 射线从物体当前位置到目标位置进行检测
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, targetposition - transform.position, out hit, raycastDistance, collisionLayer))
+        {
+            // 如果射线检测到碰撞体，停止移动
+            Debug.Log("遇到碰撞体，停止移动: " + hit.collider.gameObject.name);
+            moveTween.Kill();  // 停止 DoTween 动画
         }
     }
+    #endregion
 
-    public void Evaporation(GameObject _Object)
-    {
-        _Object.transform.position += new Vector3(0, 1,0);
-    }
 }

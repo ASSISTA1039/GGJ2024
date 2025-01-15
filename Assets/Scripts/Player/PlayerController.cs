@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -62,6 +62,7 @@ public class PlayerController : MonoBehaviour
         float v = Input.GetAxisRaw("Vertical");
         bool isJump = Input.GetButtonDown("Jump");
         
-        Player.Move(CharacterInputSystem.Instance.playerMovement, isJump);
+        Player.Move(CharacterInputSystem.Instance.playerMovement, isJump,Player.isInwater);
+        Player.InwaterMove(CharacterInputSystem.Instance.playerMovement, isJump,Player.isInwater);
     }
 }

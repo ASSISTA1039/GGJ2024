@@ -186,7 +186,11 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 256
+  waterLayer:
+    serializedVersion: 2
+    m_Bits: 16
   yOffset: 0
+  isInwater: 0
   CurBoxCollider: {fileID: 0}
 --- !u!114 &6035806102559996479
 MonoBehaviour:
