@@ -142,8 +142,8 @@ public class GameManager : MonoBehaviour
             CurCamera.position = endPos;
             CurCamera.rotation = Quaternion.Euler(endRotation);
             // 直接设置 Timescale 为 0
-            if(rotationType==RotationType.Up)
-                Time.timeScale = 0;
+            //if(rotationType==RotationType.Up)
+                //Time.timeScale = 0;
         }
         else
         {
@@ -156,8 +156,9 @@ public class GameManager : MonoBehaviour
     void OnCameraMoveComplete()
     {
         // 确保 Timescale 设置为 0
-        if (rotationType == RotationType.Up)
-            Time.timeScale = 0;
+        //if (rotationType == RotationType.Up)
+            //Time.timeScale = 0;
+            //此处为时间暂停，已删除
     }
 
 

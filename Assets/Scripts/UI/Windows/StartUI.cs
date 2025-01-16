@@ -10,7 +10,7 @@ using UnityEngine.UI;
 
 
 //开始界面，具有四个按钮
-public class LoginUI : UIBase
+public class StartUI : UIBase
 {
     #region 参数区
     private string Fight = "FightProcedure";
@@ -26,21 +26,23 @@ public class LoginUI : UIBase
         base.OnDisplay(args);
 
         #region 按钮注册区
-        UnityEngine.UI.Button startButton = Get<UnityEngine.UI.Button>("NewGameButton");
-        startButton.onClick.RemoveAllListeners();
+        //UnityEngine.UI.Button startButton = Get<UnityEngine.UI.Button>("NewGameButton");
+        //startButton.onClick.RemoveAllListeners();
+        //startButton.onClick.AddListener(OnNewGameButton);
 
-        startButton.onClick.AddListener(OnNewGameButton);
+
         Color color = Find("Shade").GetComponent<Image>().color;
         color.a = 0;
         Find("Shade").GetComponent<Image>().color = color;
 
         //鼠标移动到按钮上
-        RegisterTrigger("NewGameButton").onPointerEnter = EnterButton;
+        RegisterTrigger("NewGameButton").onClick = OnNewGameButton;
+        RegisterTrigger("NewGameButton").onPointerEnter = EnterButton;//实际上作用为startbutton
         RegisterTrigger("NewGameButton").onPointerExit = ExitButton;
 
-        RegisterTrigger("ContinueButton").onClick = OnContinueButton;
-        RegisterTrigger("ContinueButton").onPointerEnter = EnterButton;
-        RegisterTrigger("ContinueButton").onPointerExit = ExitButton;
+        //RegisterTrigger("ContinueButton").onClick = OnContinueButton; //暂且闲置
+        //RegisterTrigger("ContinueButton").onPointerEnter = EnterButton;
+        //RegisterTrigger("ContinueButton").onPointerExit = ExitButton;
 
         RegisterTrigger("OptionButton").onClick = OnOptionButton;
         RegisterTrigger("OptionButton").onPointerEnter = EnterButton;
@@ -63,7 +65,7 @@ public class LoginUI : UIBase
     }
 
     #region NewGameButton
-    private void OnNewGameButton()        //(GameObject obj, PointerEventData pData)
+    private void OnNewGameButton(GameObject obj, PointerEventData pData)        //(GameObject obj, PointerEventData pData)
     {
        
     }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -34,25 +35,28 @@ public class PlayerController : MonoBehaviour
         //    Camera.main.GetComponent<CameraController>().enabled = true;
         //}
         #endregion
+        //此处的视角转换被删除
         if (Input.GetKeyDown(KeyCode.F))
         {
+            
             //GameManager.Instance.isThird = false;
             //GameManager.Instance.ChangeTypeToUp();
-            GameManager.Instance.isThird = !GameManager.Instance.isThird;  // 如果是第三人称，则切换为第一人称，反之亦然
+            //GameManager.Instance.isThird = !GameManager.Instance.isThird;  // 如果是第三人称，则切换为第一人称，反之亦然
 
-            // 根据切换的状态，进行不同的操作
-            if (GameManager.Instance.isThird)
-            {
-                GameManager.Instance.isThird = true;
-                Camera.main.orthographic = false;
-                Camera.main.GetComponent<CameraController>().enabled = true;
-                GameManager.Instance.ChangeTypeToThird();
-            }
-            else
-            {
-                GameManager.Instance.isThird = false;
-                GameManager.Instance.ChangeTypeToUp();
-            }
+            //// 根据切换的状态，进行不同的操作
+            //if (GameManager.Instance.isThird)
+            //{
+            //    GameManager.Instance.isThird = true;
+            //    Camera.main.orthographic = false;
+            //    Camera.main.GetComponent<CameraController>().enabled = true;
+            //    GameManager.Instance.ChangeTypeToThird();
+            //}
+            //else
+            //{
+            //    GameManager.Instance.isThird = false;
+            //    GameManager.Instance.ChangeTypeToUp();
+            //}
+            
         }
        
         

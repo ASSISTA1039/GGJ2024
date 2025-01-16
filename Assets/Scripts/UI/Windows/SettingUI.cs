@@ -27,9 +27,9 @@ public class SettingUI : UIBase
             DoClose();
 
         }
-        DateTime currentTime = DateTime.Now;
-        string formattedTime = currentTime.ToString("HH:mm:ss");
-        Get<Text>("Time").text = formattedTime;
+        //DateTime currentTime = DateTime.Now;
+        //string formattedTime = currentTime.ToString("HH:mm:ss");
+        //Get<Text>("Time").text = formattedTime;
        
        
     }
