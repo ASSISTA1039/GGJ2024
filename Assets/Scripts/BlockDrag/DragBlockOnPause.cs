@@ -15,13 +15,17 @@ public class DragBlockOnGrid : MonoBehaviour
     private MoveDirection moveDirection;
 
     public bool directionx;//x方向旋转
-    public bool directiony;//y方向旋转
+    public bool directiony = true;//y方向旋转
     public bool directionz;//z方向旋转
     public int rotationAngle=90;//旋转角度
     public float duration=1f;//旋转时间
     private bool isRotating = false; // 标记是否正在旋转
     private Vector3 targetRotation = Vector3.zero;
+    private Tween moveTween;
+    Transform _tran;
+    GameObject clone;
 
+    public bool VisualMove = false;
     void Start()
     {
         mainCamera = Camera.main; // 获取主摄像机
@@ -199,6 +203,25 @@ public class DragBlockOnGrid : MonoBehaviour
 
     public void Rotate()
     {
+        // 发射射线检测鼠标点击的方块
+        Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out RaycastHit hit))
+        {
+            if (hit.collider.CompareTag("Rotate"))
+            {
+                _tran = hit.transform.parent;
+            }
+            else
+            {
+                return;
+            }
+
+        }
+        else
+        {
+            return;
+        }
+
         if (isRotating) return;
 
         // 设置正在旋转
@@ -217,14 +240,54 @@ public class DragBlockOnGrid : MonoBehaviour
         {
             targetRotation.z += rotationAngle;
         }
-        // 使用 DORotate 来旋转物体
-        transform.DORotateQuaternion(Quaternion.Euler(targetRotation.x, targetRotation.y, targetRotation.z), duration)
-            .SetEase(Ease.Linear)
-            .OnComplete(() =>
+
+        clone = Instantiate(_tran.gameObject);
+        clone.name = _tran.gameObject.name + "_Clone";
+        for (int i = 0; i < clone.transform.childCount; i++)
+        {
+            Transform childTransform = clone.transform.GetChild(i);
+            childTransform.gameObject.layer = 9;
+            for (int j = 0; j < childTransform.transform.childCount; j++)
             {
+                Transform child = childTransform.transform.GetChild(j);
+                child.gameObject.layer = 9;
+            }
+        }
+
+        // 应用目标旋转
+        moveTween = clone.transform.DORotateQuaternion(Quaternion.Euler(targetRotation.x, targetRotation.y, targetRotation.z), 0.1f).OnUpdate(Check).OnComplete(() => {
+            // 使用 DORotate 来旋转物体
+            _tran.DORotateQuaternion(Quaternion.Euler(targetRotation.x, targetRotation.y, targetRotation.z), duration)
+                .SetEase(Ease.Linear)
+                .OnComplete(() =>
+                {
                 // 旋转完成后，允许再次调用
                 isRotating = false;
-            });
+                });
+            Destroy(clone);
+        });
+    }
+
+    void Check()
+    {
+        for (int i = 0; i < clone.transform.childCount; i++)
+        {
+            // 获取子物体
+            Transform childTransform = clone.transform.GetChild(i);
+
+            Collider[] colliders = Physics.OverlapBox(childTransform.position,new Vector3(0.5f,0.5f,0.5f) , Quaternion.identity);
+
+            foreach (var collider in colliders)
+            {
+                if (collider.gameObject.transform.parent != childTransform.parent&& collider.gameObject.transform.parent != _tran)
+                {
+                    isRotating = false;
+                    moveTween.Kill();
+                    Destroy(clone);
+                }
+            }
+            
+        }
     }
 
 }
