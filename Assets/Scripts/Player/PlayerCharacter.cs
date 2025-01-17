@@ -10,6 +10,8 @@ public class PlayerCharacter : MonoBehaviour
     public float JumpSpeed=5;
     public LayerMask layerMask;
     public LayerMask waterLayer;
+    public Animator animator;
+
 
     public float yOffset;                            //主角相对于地面碰撞体的高度
     bool isGround;
@@ -70,7 +72,7 @@ public class PlayerCharacter : MonoBehaviour
 
         if (Inwater)
             return;//如果在水中，取消此移动方式
-
+        
         RotationType type = GameManager.Instance.rotationType;
 
         Vector3 cameraForward = Vector3.Scale(Camera.main.transform.forward, new Vector3(1, 0, 1)).normalized; // 去掉y分量
@@ -82,12 +84,13 @@ public class PlayerCharacter : MonoBehaviour
         desiredMove *= MoveSpeed;
         // 应用角色的移动速度
         Vector3 velocity = new Vector3(desiredMove.x, 0, desiredMove.z);
+        //Debug.Log(velocity);
         //Rig.velocity = velocity;
 
         // 控制角色朝向移动方向
         if (desiredMove.sqrMagnitude > 0.01f)
         {
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(desiredMove), Time.deltaTime * 2f);
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(desiredMove), Time.deltaTime * 4f);
         }
         //vel = new Vector3(velocity.x, velocity.y, velocity.z);
         if (velocity != new Vector3(0, 0, 0))

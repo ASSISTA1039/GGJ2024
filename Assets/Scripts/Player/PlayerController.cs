@@ -73,7 +73,22 @@ public class PlayerController : MonoBehaviour
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
         bool isJump = Input.GetButtonDown("Jump");
-        
+        Animator animator = this.gameObject.GetComponent<Animator>();
+
+        if (CharacterInputSystem.Instance.playerMovement.x == 0 && CharacterInputSystem.Instance.playerMovement.y == 0)
+        {
+            if (animator != null)
+                animator.SetBool("IsWalk", false);
+            else 
+            {
+                Debug.Log("animator=null");
+            }
+        }
+        else 
+        {
+            animator.SetBool("IsWalk", true);
+        }
+
         Player.Move(CharacterInputSystem.Instance.playerMovement, isJump,Player.isInwater);
         Player.InwaterMove(CharacterInputSystem.Instance.playerMovement, isJump,Player.isInwater);
     }
