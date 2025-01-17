@@ -20,10 +20,10 @@ public class DragBlockOnGrid : MonoBehaviour
     public int rotationAngle=90;//旋转角度
     public float duration=1f;//旋转时间
     private bool isRotating = false; // 标记是否正在旋转
-    private Vector3 targetRotation = Vector3.zero;
     private Tween moveTween;
     Transform _tran;
     GameObject clone;
+    GameObject mark;
 
     public bool VisualMove = false;
     void Start()
@@ -149,7 +149,8 @@ public class DragBlockOnGrid : MonoBehaviour
     {
         if (draggedBlock != null)
         {
-            BlockA(draggedBlock.gameObject);
+            mark = draggedBlock.gameObject;
+            BlockA(mark);
             draggedBlock = null; // 停止拖动
         }
     }
@@ -180,8 +181,12 @@ public class DragBlockOnGrid : MonoBehaviour
         {
             // 获取子物体
             Transform childTransform = game.transform.GetChild(i);
-            childTransform.gameObject.GetComponent<BlockAct>().Act();//触发每一个子物体的反应检测
+            if (childTransform.gameObject.GetComponent<BlockAct>() != null)
+            {
+                childTransform.gameObject.GetComponent<BlockAct>().Act();//触发每一个子物体的反应检测
+            }
         }
+        mark = null;
     }
 
     private Vector3 GetMousePositionOnPlane()
@@ -228,18 +233,8 @@ public class DragBlockOnGrid : MonoBehaviour
         isRotating = true;
 
         // 根据方向选择旋转的轴
-        if (directionx)
-        {
-            targetRotation.x += rotationAngle;
-        }
-        if (directiony)
-        {
-            targetRotation.y += rotationAngle;
-        }
-        if (directionz)
-        {
-            targetRotation.z += rotationAngle;
-        }
+        Vector3 targetRotation = _tran.eulerAngles;
+        targetRotation += new Vector3(0,90,0);
 
         clone = Instantiate(_tran.gameObject);
         clone.name = _tran.gameObject.name + "_Clone";
@@ -253,7 +248,6 @@ public class DragBlockOnGrid : MonoBehaviour
                 child.gameObject.layer = 9;
             }
         }
-
         // 应用目标旋转
         moveTween = clone.transform.DORotateQuaternion(Quaternion.Euler(targetRotation.x, targetRotation.y, targetRotation.z), 0.1f).OnUpdate(Check).OnComplete(() => {
             // 使用 DORotate 来旋转物体

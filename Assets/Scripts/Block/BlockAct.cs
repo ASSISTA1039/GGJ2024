@@ -9,7 +9,7 @@ public class BlockAct: MonoBehaviour
     public string thetag;
     public bool iselc = false;
 
-    Vector3 targetposition;
+    public Vector3 targetposition;
     public float raycastDistance = 1f;  // 射线检测的最大距离
     public LayerMask collisionLayer;  // 碰撞层
 
@@ -26,18 +26,13 @@ public class BlockAct: MonoBehaviour
         if (tag == "Block 1")
         {
             GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("Block 2");
-            bool isboom = false;
             foreach (var obj in gameObjects)
             {
                 if (Vector3.Distance(transform.position,obj.transform.position) < 1.3f)
                 {
                     Boom(obj);
                 }
-                if (!isboom)
-                {
-                    Boom(gameObject);
-                    isboom = false;
-                }
+
             }
 
             GameObject[] gameObjects2 = GameObject.FindGameObjectsWithTag("Block 3");
@@ -51,8 +46,18 @@ public class BlockAct: MonoBehaviour
         }
         if (tag == "Block 2")
         {
-            GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("Block 3");
+            GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("Block 1");
+            bool isboom = false;
             foreach (var obj in gameObjects)
+            {
+                if (Vector3.Distance(transform.position,obj.transform.position) < 1.3f)
+                {
+                    Boom(obj);
+                }
+            }
+
+            GameObject[] gameObjects2 = GameObject.FindGameObjectsWithTag("Block 3");
+            foreach (var obj in gameObjects2)
             {
                 if (Vector3.Distance(transform.position, obj.transform.position) < 1.3f)
                 {
