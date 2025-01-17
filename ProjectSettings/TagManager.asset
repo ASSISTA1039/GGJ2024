@@ -7,7 +7,10 @@ TagManager:
   - Draggable
   - NormalCube
   - Block 0
-  - Rotate
+  - Block 1
+  - Block 2
+  - Block 3
+  - Block 4
   layers:
   - Default
   - TransparentFX

@@ -23,9 +23,9 @@ public class BlockAct: MonoBehaviour
     #region 方块反应
     public void Act()
     {
-        if (tag == "Block1")
+        if (tag == "Block 1")
         {
-            GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("Block2");
+            GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("Block 2");
             bool isboom = false;
             foreach (var obj in gameObjects)
             {
@@ -40,7 +40,7 @@ public class BlockAct: MonoBehaviour
                 }
             }
 
-            GameObject[] gameObjects2 = GameObject.FindGameObjectsWithTag("Block3");
+            GameObject[] gameObjects2 = GameObject.FindGameObjectsWithTag("Block 3");
             foreach (var obj in gameObjects2)
             {
                 if (Vector3.Distance(transform.position, obj.transform.position) < 1.3f)
@@ -49,9 +49,9 @@ public class BlockAct: MonoBehaviour
                 }
             }
         }
-        if (tag == "Block2")
+        if (tag == "Block 2")
         {
-            GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("Block3");
+            GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("Block 3");
             foreach (var obj in gameObjects)
             {
                 if (Vector3.Distance(transform.position, obj.transform.position) < 1.3f)
