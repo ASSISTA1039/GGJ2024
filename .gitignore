@@ -6,3 +6,6 @@
 /obj
 /GGJ2024.sln
 /*.csproj
+/Assets/DynamicFog
+/Assets/DynamicFogURP
+/Assets/Prefab
