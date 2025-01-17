@@ -15,9 +15,9 @@ public class LevelMgr : MonoBehaviour
 
     GameObject MapPart1;
     GameObject MapPart2;
-    public Transform CollidersParent;             //·½¿éÅö×²Ìå¸¸ÎïÌå
-    Vector3[] ColliderOldPos;                        //ËùÓĞÅö×²ÌåµÄ³õÊ¼Î»ÖÃ
-    Transform[] Colliders;                            //ËùÓĞÅö×²Ìå
+    public Transform CollidersParent;             //æ–¹å—ç¢°æ’ä½“çˆ¶ç‰©ä½“
+    Vector3[] ColliderOldPos;                        //æ‰€æœ‰ç¢°æ’ä½“çš„åˆå§‹ä½ç½®
+    Transform[] Colliders;                            //æ‰€æœ‰ç¢°æ’ä½“
 
     public void Start()
     {
@@ -25,15 +25,14 @@ public class LevelMgr : MonoBehaviour
     }
 
     /// <summary>
-    /// ¹Ø¿¨¶ÁÈ¡Æ÷
+    /// å…³å¡è¯»å–å™¨
     /// </summary>
     /// <param name="level"></param>
     /// <returns></returns>
     public Transform LoadMap(int _level)
     {
-        MapPart1 = Resources.Load<GameObject>("Prefab/Map/level" + _level.ToString()+ "/FuncBlocks");
-        MapPart2 = Resources.Load<GameObject>("Prefab/Map/level" + _level.ToString()+ "/NoFuncBlocks");
-        Debug.Log("Prefab/Map/level" + _level.ToString()+ "/NoFuncBlocks.prefab");
+        MapPart1 = Resources.Load<GameObject>("Prefabs/Map/level" + _level.ToString()+ "/FuncBlocks");
+        MapPart2 = Resources.Load<GameObject>("Prefabs/Map/level" + _level.ToString()+ "/NoFuncBlocks");
         if (MapPart1 == null || MapPart2 == null)
         {
             Debug.LogError("Failed to load one or more prefabs.");
@@ -42,32 +41,33 @@ public class LevelMgr : MonoBehaviour
         GameObject instantiatedChild = Instantiate(MapPart1.gameObject);
         GameObject instantiatedChild2 = Instantiate(MapPart2.gameObject);
         //CreatCollider(MapPart1.transform);
-        //CreatCollider(MapPart2.transform);
+        //CreatCollider(MapPart2.transform);//å®Œæˆç¢°æ’ä½“çš„ä»»åŠ¡äº¤ç»™é¢„åˆ¶ä½“
 
         return CalculateAveragePosition();
             //Merge(instantiatedChild, instantiatedChild2);
     }
 
     /// <summary>
-    /// ±éÀú³¡¾°ÖĞËùÓĞ´øÓĞÌØ¶¨±êÇ©µÄÎïÌå²¢¼ÆËãËüÃÇµÄÆ½¾ù×ø±ê£¬·µ»Ø¸ÃÎ»ÖÃµÄTransform
+    /// éå†åœºæ™¯ä¸­æ‰€æœ‰å¸¦æœ‰ç‰¹å®šæ ‡ç­¾çš„ç‰©ä½“å¹¶è®¡ç®—å®ƒä»¬çš„å¹³å‡åæ ‡ï¼Œè¿”å›è¯¥ä½ç½®çš„Transform
+    /// TODOï¼šæ­¤å¤„å¯ä»¥æ ¹æ®éœ€è¦è°ƒæ•´ç›¸æœºçš„å®é™…éœ€æ±‚ä½ç½®
     /// </summary>
-    /// <returns>ËùÓĞ·½¿éµÄÆ½¾ùÎ»ÖÃµÄTransform</returns>
+    /// <returns>æ‰€æœ‰æ–¹å—çš„å¹³å‡ä½ç½®çš„Transform</returns>
     public Transform CalculateAveragePosition()
     {
-        // ¶¨ÒåĞèÒª±éÀúµÄ¶à¸ö±êÇ©
-        List<string> tagsToCheck = new List<string> { "NormalCube", "Draggable", "Tag3" };
+        // å®šä¹‰éœ€è¦éå†çš„å¤šä¸ªæ ‡ç­¾
+        List<string> tagsToCheck = new List<string> { "NormalCube", "Draggable", "Tag3" };//TODO:æ­¤å¤„æ ‡ç­¾éœ€è¦ä¿®æ”¹
 
-        // »ñÈ¡ËùÓĞ³¡¾°ÖĞµÄÎïÌå
+        // è·å–æ‰€æœ‰åœºæ™¯ä¸­çš„ç‰©ä½“
         GameObject[] allObjects = GameObject.FindObjectsOfType<GameObject>();
 
-        // ³õÊ¼»¯×ø±ê×ÜºÍ
+        // åˆå§‹åŒ–åæ ‡æ€»å’Œ
         Vector3 totalPosition = Vector3.zero;
         int objectCount = 0;
 
-        // ±éÀúËùÓĞÎïÌå²¢¼ì²éÆäTag
+        // éå†æ‰€æœ‰ç‰©ä½“å¹¶æ£€æŸ¥å…¶Tag
         foreach (GameObject obj in allObjects)
         {
-            // ¼ì²éÎïÌåÊÇ·ñ¾ßÓĞ Collider ×é¼ş²¢ÇÒÆä±êÇ©ÔÚ tagsToCheck ÖĞ
+            // æ£€æŸ¥ç‰©ä½“æ˜¯å¦å…·æœ‰ Collider ç»„ä»¶å¹¶ä¸”å…¶æ ‡ç­¾åœ¨ tagsToCheck ä¸­
             if (obj.GetComponent<Collider>() != null && tagsToCheck.Contains(obj.tag))
             {
                 totalPosition += obj.transform.position;
@@ -75,25 +75,25 @@ public class LevelMgr : MonoBehaviour
             }
         }
 
-        // ¼ÆËãÆ½¾ùÖµ
+        // è®¡ç®—å¹³å‡å€¼
         if (objectCount > 0)
         {
-            // ´´½¨Ò»¸öĞÂµÄ¿ÕÎïÌå²¢ÉèÖÃÆäÎ»ÖÃÎª¼ÆËã³öÀ´µÄÆ½¾ùÎ»ÖÃ
+            // åˆ›å»ºä¸€ä¸ªæ–°çš„ç©ºç‰©ä½“å¹¶è®¾ç½®å…¶ä½ç½®ä¸ºè®¡ç®—å‡ºæ¥çš„å¹³å‡ä½ç½®
             GameObject averageObject = new GameObject("AveragePosition");
             averageObject.transform.position = totalPosition / objectCount;
 
-            // ·µ»Ø¸ÃÎïÌåµÄTransform
+            // è¿”å›è¯¥ç‰©ä½“çš„Transform
             return averageObject.transform;
         }
         else
         {
-            return null; // Èç¹ûÃ»ÓĞ·ûºÏÌõ¼şµÄÎïÌå£¬·µ»Ønull
+            return null; // å¦‚æœæ²¡æœ‰ç¬¦åˆæ¡ä»¶çš„ç‰©ä½“ï¼Œè¿”å›null
         }
     }
 
     #region useless logic
     /// <summary>
-    /// ¶Ô·½·¨ÖĞ×ÓÎïÌåµÄºÏ²¢
+    /// å¯¹æ–¹æ³•ä¸­å­ç‰©ä½“çš„åˆå¹¶
     /// </summary>
     /// <param name="source1"></param>
     /// <param name="source2"></param>
@@ -105,26 +105,26 @@ public class LevelMgr : MonoBehaviour
             targetParent = new GameObject("LevelParent");
         }
        
-        // ºÏ²¢µÚÒ»¸öÔ´¶ÔÏóµÄ×ÓÎïÌå
+        // åˆå¹¶ç¬¬ä¸€ä¸ªæºå¯¹è±¡çš„å­ç‰©ä½“
         MergeChildObjects(source1, targetParent);
-        // ºÏ²¢µÚ¶ş¸öÔ´¶ÔÏóµÄ×ÓÎïÌå
+        // åˆå¹¶ç¬¬äºŒä¸ªæºå¯¹è±¡çš„å­ç‰©ä½“
         MergeChildObjects(source2, targetParent);
 
         return targetParent.transform;
     }
 
-    // ºÏ²¢Ò»¸öÔ´¶ÔÏóµÄ×ÓÎïÌå
+    // åˆå¹¶ä¸€ä¸ªæºå¯¹è±¡çš„å­ç‰©ä½“
     private void MergeChildObjects(GameObject source, GameObject targetParent)
     {
         if (source == null) return;
 
-        // ±éÀúËùÓĞ×ÓÎïÌå
+        // éå†æ‰€æœ‰å­ç‰©ä½“
         foreach (Transform child in source.transform)
         {
-            // ½«×ÓÎïÌåµÄ¸¸¶ÔÏóÉèÖÃÎªÄ¿±ê¸¸¶ÔÏó
+            // å°†å­ç‰©ä½“çš„çˆ¶å¯¹è±¡è®¾ç½®ä¸ºç›®æ ‡çˆ¶å¯¹è±¡
             child.SetParent(targetParent.transform);
 
-            // Èç¹ûĞèÒª£¬¿ÉÒÔÖØÖÃ×ÓÎïÌåµÄ±¾µØÎ»ÖÃ¡¢Ğı×ªºÍËõ·Å
+            // å¦‚æœéœ€è¦ï¼Œå¯ä»¥é‡ç½®å­ç‰©ä½“çš„æœ¬åœ°ä½ç½®ã€æ—‹è½¬å’Œç¼©æ”¾
             child.localPosition = Vector3.zero;
             child.localRotation = Quaternion.identity;
             child.localScale = Vector3.one;
@@ -132,27 +132,27 @@ public class LevelMgr : MonoBehaviour
     }
 
     /// <summary>
-    /// ±éÀú·½¿éµÄËùÓĞ×ÓÎïÌå¼°Æä×ÓÎïÌå£¬ÔÚ±£Áô¸¸ÎïÌå½á¹¹µÄ»ù´¡ÉÏ£¬½«ÆäÅö×²ÌåÒÆ¶¯µ½ CollidersParent ÏÂ¡£
-    /// Èç¹ûÔ­ÎïÌå°üº¬Ä³Ğ© tag£¬ÔòÅö×²ÌåÒ²»á°üº¬¶ÔÓ¦µÄ tag¡£
-    /// ¸¸ÎïÌåºÍµÚÒ»²ã×ÓÎïÌå±¾Éí²¢²»ĞèÒªÅö×²Ìå¡£
+    /// éå†æ–¹å—çš„æ‰€æœ‰å­ç‰©ä½“åŠå…¶å­ç‰©ä½“ï¼Œåœ¨ä¿ç•™çˆ¶ç‰©ä½“ç»“æ„çš„åŸºç¡€ä¸Šï¼Œå°†å…¶ç¢°æ’ä½“ç§»åŠ¨åˆ° CollidersParent ä¸‹ã€‚
+    /// å¦‚æœåŸç‰©ä½“åŒ…å«æŸäº› tagï¼Œåˆ™ç¢°æ’ä½“ä¹Ÿä¼šåŒ…å«å¯¹åº”çš„ tagã€‚
+    /// çˆ¶ç‰©ä½“å’Œç¬¬ä¸€å±‚å­ç‰©ä½“æœ¬èº«å¹¶ä¸éœ€è¦ç¢°æ’ä½“ã€‚
     /// </summary>
-    /// <param name="Cubes">·½¿é¸¸ÎïÌå</param>
+    /// <param name="Cubes">æ–¹å—çˆ¶ç‰©ä½“</param>
     public void CreatCollider(Transform Cubes)
     {
-        // ³õÊ¼»¯Êı×é´óĞ¡£¬ÑÓ³Ù·ÖÅä
+        // åˆå§‹åŒ–æ•°ç»„å¤§å°ï¼Œå»¶è¿Ÿåˆ†é…
         List<Vector3> colliderPositions = new List<Vector3>();
         List<Transform> colliderReferences = new List<Transform>();
 
-        // ¶¨ÒåĞèÒª¼ì²âµÄ tag ÁĞ±í
+        // å®šä¹‰éœ€è¦æ£€æµ‹çš„ tag åˆ—è¡¨
         List<string> tagsToCheck = new List<string> { "Draggable", "Tag2", "Tag3" };
 
-        // µİ¹é±éÀú×ÓÎïÌå²¢´´½¨Åö×²Ìå
+        // é€’å½’éå†å­ç‰©ä½“å¹¶åˆ›å»ºç¢°æ’ä½“
         void ProcessChild(Transform child, Transform parentInCollidersParent)
         {
-            // Ìø¹ıµÚÒ»²ã×ÓÎïÌå
+            // è·³è¿‡ç¬¬ä¸€å±‚å­ç‰©ä½“
             foreach (Transform grandChild in child)
             {
-                // ´´½¨ĞÂµÄ¸¸½á¹¹½Úµã
+                // åˆ›å»ºæ–°çš„çˆ¶ç»“æ„èŠ‚ç‚¹
                 Transform newParent = parentInCollidersParent.Find(child.name);
                 if (newParent == null)
                 {
@@ -160,25 +160,25 @@ public class LevelMgr : MonoBehaviour
                     newParent.parent = parentInCollidersParent;
                 }
 
-                // ´´½¨Åö×²Ìå
+                // åˆ›å»ºç¢°æ’ä½“
                 Transform collider = GameObject.CreatePrimitive(PrimitiveType.Cube).transform;
                 collider.position = grandChild.position;
-                collider.localScale = grandChild.localScale; // ±£ÁôËõ·Å±ÈÀı
+                collider.localScale = grandChild.localScale; // ä¿ç•™ç¼©æ”¾æ¯”ä¾‹
                 collider.gameObject.layer = 8;
 
-                // ¼ì²â²¢¸´ÖÆ tag
+                // æ£€æµ‹å¹¶å¤åˆ¶ tag
                 if (tagsToCheck.Contains(grandChild.tag))
                 {
                     collider.tag = grandChild.tag;
                 }
 
-                collider.parent = newParent; // ½«Åö×²Ìå×÷ÎªĞÂµÄ¸¸½ÚµãµÄ×ÓÎïÌå
+                collider.parent = newParent; // å°†ç¢°æ’ä½“ä½œä¸ºæ–°çš„çˆ¶èŠ‚ç‚¹çš„å­ç‰©ä½“
 
-                // Ìí¼Ó¼ÇÂ¼
+                // æ·»åŠ è®°å½•
                 colliderPositions.Add(grandChild.position);
                 colliderReferences.Add(collider);
 
-                // µİ¹é´¦Àí×ÓÎïÌå
+                // é€’å½’å¤„ç†å­ç‰©ä½“
                 foreach (Transform greatGrandChild in grandChild)
                 {
                     ProcessChild(greatGrandChild, newParent);
@@ -186,13 +186,13 @@ public class LevelMgr : MonoBehaviour
             }
         }
 
-        // ¿ªÊ¼´¦Àí´«ÈëµÄ Cubes µÄËùÓĞ×ÓÎïÌå
+        // å¼€å§‹å¤„ç†ä¼ å…¥çš„ Cubes çš„æ‰€æœ‰å­ç‰©ä½“
         foreach (Transform child in Cubes)
         {
             ProcessChild(child, CollidersParent);
         }
 
-        // ½«½á¹û×ªÎªÊı×é
+        // å°†ç»“æœè½¬ä¸ºæ•°ç»„
         ColliderOldPos = colliderPositions.ToArray();
         Colliders = colliderReferences.ToArray();
     }

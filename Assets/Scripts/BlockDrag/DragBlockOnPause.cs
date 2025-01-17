@@ -1,5 +1,6 @@
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.EventSystems;
 
 public class DragBlockOnGrid : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class DragBlockOnGrid : MonoBehaviour
     public float dragPlaneHeight = 0f; // 拖动的平面高度（Y 轴）
     private float tolerance = -0.2f; // 设置移动容差值，小于0则使方块更易于挪动。
     public Vector3 dragOffset;
+    private MoveDirection moveDirection;
 
     public bool directionx;//x方向旋转
     public bool directiony = true;//y方向旋转
@@ -22,7 +24,6 @@ public class DragBlockOnGrid : MonoBehaviour
     private Tween moveTween;
     Transform _tran;
     GameObject clone;
-    GameObject mark;
 
     public bool VisualMove = false;
     void Start()
@@ -52,15 +53,19 @@ public class DragBlockOnGrid : MonoBehaviour
                 EndDrag();
             }
 
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(1))  // 右键点击
             {
                 Rotate();
             }
           
         }
+        if (GameManager.Instance.rotationType == RotationType.Third)
+        {
+            BlockA();
+        }
     }
 
-    
+
 
     private void StartDrag()
     {
@@ -68,7 +73,12 @@ public class DragBlockOnGrid : MonoBehaviour
         Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out RaycastHit hit))
         {
-            if (hit.collider.CompareTag("Draggable"))
+            // 获取物体标签并根据标签设置拖动规则
+            string hitTag = hit.collider.tag;
+            moveDirection = GetMoveDirectionForTag(hitTag);
+
+            // 只有当物体标签为有效标签时才进行拖动
+            if (moveDirection != MoveDirection.None)
             {
                 // 拖动父物体
                 draggedBlock = hit.transform.parent;
@@ -81,15 +91,25 @@ public class DragBlockOnGrid : MonoBehaviour
     private void Drag()
     {
         Vector3 currentMousePosition = GetMousePositionOnPlane(); // 当前鼠标在平面上的位置
-        //Vector3
         dragOffset = currentMousePosition - startDragPosition; // 计算鼠标拖动的偏移量
 
         // 判断是否达到整格的移动条件
-        if ((Mathf.Abs(dragOffset.x) >= 0.7*gridSize || Mathf.Abs(dragOffset.z) >= 0.7*gridSize)&& Mathf.Abs(dragOffset.x)<1.4 * gridSize&& Mathf.Abs(dragOffset.z) < 1.4 * gridSize)
+        if ((Mathf.Abs(dragOffset.x) >= 0.7f * gridSize || Mathf.Abs(dragOffset.z) >= 0.7f * gridSize) && Mathf.Abs(dragOffset.x) < 1.4f * gridSize && Mathf.Abs(dragOffset.z) < 1.4f * gridSize)
         {
+            // 根据拖动方向限制偏移量
+            Vector3 constrainedDragOffset = dragOffset;
+            if (moveDirection == MoveDirection.X)
+            {
+                constrainedDragOffset = new Vector3(dragOffset.x, 0, 0); // 只允许沿X轴拖动
+            }
+            else if (moveDirection == MoveDirection.Z)
+            {
+                constrainedDragOffset = new Vector3(0, 0, dragOffset.z); // 只允许沿Z轴拖动
+            }
+
             // 计算目标位置（整格对齐）
-            float newX = Mathf.Round((blockStartPosition.x + dragOffset.x) / gridSize) * gridSize;
-            float newZ = Mathf.Round((blockStartPosition.z + dragOffset.z) / gridSize) * gridSize;
+            float newX = Mathf.Round((blockStartPosition.x + constrainedDragOffset.x) / gridSize) * gridSize;
+            float newZ = Mathf.Round((blockStartPosition.z + constrainedDragOffset.z) / gridSize) * gridSize;
             Vector3 targetPosition = new Vector3(newX, blockStartPosition.y, newZ);
 
             // 遍历父物体的每一个子物体，检测其目标位置是否可移动
@@ -98,17 +118,11 @@ public class DragBlockOnGrid : MonoBehaviour
                 Vector3 childTargetPosition = targetPosition + (child.position - blockStartPosition);
                 if (!CanMoveToPosition(childTargetPosition))
                 {
-                    //// 检测到阻碍，如果鼠标移动距离过远则退出拖动状态
-                    //if (dragOffset.magnitude > gridSize * 3)
-                    //{
-                    //    draggedBlock = null; // 退出拖动状态
-                    //}
-                    return;
+                    return; // 如果不能移动，退出拖动
                 }
             }
 
             // 如果所有子物体的位置均可移动，允许移动
-            
             draggedBlock.position = targetPosition;
 
             // 重置参考点
@@ -128,7 +142,6 @@ public class DragBlockOnGrid : MonoBehaviour
             // 确保碰撞到的不是当前父物体
             if (collider.transform.parent != draggedBlock)
             {
-                Debug.Log(collider);
                 return false; // 检测到其他方块，阻止移动
             }
         }
@@ -138,24 +151,36 @@ public class DragBlockOnGrid : MonoBehaviour
 
     private void EndDrag()
     {
-        if (draggedBlock !=null)
-        {
-            mark = draggedBlock.gameObject;
-            BlockA(mark);
-            draggedBlock = null; // 停止拖动
-        }
-
+        draggedBlock = null; // 停止拖动
     }
-    private void BlockA(GameObject @object)
+
+    // 根据标签返回相应的拖动方向
+    private MoveDirection GetMoveDirectionForTag(string tag)
     {
-        for (int i = 0; i < @object.transform.childCount; i++)
+        switch (tag)//TODO:在此处修改tag对应的拖动能力
+        {
+            case "Block 1": return MoveDirection.X;    // 只能沿X轴拖动
+            case "Block 2": return MoveDirection.Z;    // 只能沿Z轴拖动
+            case "Block 3": return MoveDirection.XZ;   // 可以沿X和Z轴拖动
+            default: return MoveDirection.None;        // 无效标签，返回None
+        }
+    }
+
+    // 定义拖动方向
+    private enum MoveDirection
+    {
+        None, // 无效标签，不能拖动
+        X,    // 只能沿X轴移动
+        Z,    // 只能沿Z轴移动
+        XZ    // 可以沿XZ轴移动
+    }
+    private void BlockA()
+    {
+        for (int i = 0; i < transform.childCount; i++)
         {
             // 获取子物体
-            Transform childTransform = @object.transform.GetChild(i);
-            if (childTransform.gameObject.GetComponent<BlockAct>() != null)
-            {
-                childTransform.gameObject.GetComponent<BlockAct>().Act();//触发每一个子物体的反应检测
-            }
+            Transform childTransform = transform.GetChild(i);
+            childTransform.gameObject.GetComponent<BlockAct>().Act();//触发每一个子物体的反应检测
         }
     }
 
@@ -237,10 +262,7 @@ public class DragBlockOnGrid : MonoBehaviour
                 .OnComplete(() =>
                 {
                 // 旋转完成后，允许再次调用
-                    isRotating = false;
-                    BlockA(_tran.gameObject);
-                    _tran = null;
-
+                isRotating = false;
                 });
             Destroy(clone);
         });

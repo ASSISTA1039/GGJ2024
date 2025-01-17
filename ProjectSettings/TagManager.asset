@@ -7,6 +7,9 @@ TagManager:
   - Draggable
   - NormalCube
   - Block 0
+  - Block 1
+  - Block 2
+  - Block 3
   - Rotate
   layers:
   - Default

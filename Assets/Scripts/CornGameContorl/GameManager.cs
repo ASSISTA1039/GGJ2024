@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using static Cinemachine.DocumentationSortingAttribute;
+using QxFramework.Core;
 
 //摄像机旋转方向
 public enum RotationType
@@ -46,6 +47,7 @@ public class GameManager : MonoBehaviour
 
         }
     }
+
     public void Awake()
     {
         Instance = this;
@@ -53,13 +55,24 @@ public class GameManager : MonoBehaviour
     public void Start()
     {
         CurCamera = Camera.main.transform;
-        Cube = LevelMgr.Instance.LoadMap(0).transform;//生成 方块地图 prefab
-        Center =new Vector3(Cube.position.x, Cube.position.y, Cube.position.z);//确定相机位置
+        Center = new Vector3(0, 0, 0);
+        _rotationType = RotationType.Up;
+        CameraMove(_rotationType, false);
+        GameMgr.Get<IDataManager>().ChangePlayerLevel(0);//第0关
+    }
+
+    //Init 方法，用于关卡的加载和一些基本信息的同步
+    //放在这里是因为camrea的逻辑也在这里。
+    public void Init()
+    {
+        Cube = LevelMgr.Instance.LoadMap(QXData.Instance.Get<PlayerData>().PLevel).transform;//生成 方块地图 prefab
+        Center = new Vector3(Cube.position.x, Cube.position.y, Cube.position.z);//确定相机位置
         _rotationType = RotationType.Up;//更改视角
         CreatePlayer();//创建玩家
-        CameraMove(_rotationType, false);
+        CameraMove(_rotationType, true);
         //ColliderMove(_rotationType);
     }
+
     public void Update()
     {
         Time1 = Time.timeScale;
@@ -86,7 +99,7 @@ public class GameManager : MonoBehaviour
         }
         Player.FollowCollider();
     }
-
+    #region 相机逻辑
     /// <summary>
     /// 摄像机移动
     /// </summary>
@@ -179,8 +192,9 @@ public class GameManager : MonoBehaviour
     //    return (MaxPos + MinPos) / 2;
     //}
 
+    #endregion
 
-
+    #region 弃置的视角转换逻辑
     //修改RotationType枚举
     public void ChangeRotationType(bool isRight)
     {
@@ -232,6 +246,7 @@ public class GameManager : MonoBehaviour
         rotationType = RotationType.Third;
         Time.timeScale = 1;
     }
+    #endregion
 
     public void CreatePlayer()
     {
@@ -239,9 +254,9 @@ public class GameManager : MonoBehaviour
         if (block != null)
         {
             Vector3 spawnPosition = block.transform.position + Vector3.up;
-            Player = Instantiate(Resources.Load<GameObject>("Prefab/Player/Player")).GetComponent<PlayerCharacter>();
+            Player = Instantiate(Resources.Load<GameObject>("Prefabs/Player/Player")).GetComponent<PlayerCharacter>();
             Player.transform.position = spawnPosition;
-            Camera.main.GetComponent<CameraController>().LookAttarGet = Player.transform;
+            Camera.main.GetComponent<CameraController>().LookAttarGet = Player.transform;//相机位置追踪
         }
         else
         {
@@ -249,7 +264,32 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    
+
+    private string[] objectsToDestroy= { "Player(Clone)", "FuncBlock(Clone)", "NoFuncBlock(Clone)" };//TODO：此处应写需要再切换时候删除的元素
+    // 切换回关卡选择UI的功能
+    public void SwitchToLevelSelectUI()
+    {
+
+        // 删除指定的物体
+        foreach (string objName in objectsToDestroy)
+        {
+            GameObject obj = GameObject.Find(objName);
+            if (obj != null)
+            {
+                Destroy(obj); // 销毁物体
+                Debug.Log(objName + " destroyed.");
+            }
+            else
+            {
+                Debug.LogWarning(objName + " not found.");
+            }
+        }
+
+        // 返回关卡选择UI界面（假设你有一个UI管理器来处理UI的切换）
+        //UIManager.Instance.Open("LevelSelectUI", null, "LevelSelectUI", null);
+
+        // 如果需要清理其他资源或状态（例如重置游戏状态），可以在这里添加
+    }
 
 
 }

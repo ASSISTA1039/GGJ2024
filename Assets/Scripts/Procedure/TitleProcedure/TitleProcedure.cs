@@ -20,6 +20,8 @@ public class TitleProcedure : ProcedureBase {
     protected override void OnEnter(object args)
     {
         base.OnEnter(args);
+        //UIManager.Instance.StartBlackoutAndReveal(2,null,"StartUI",null);
+        UIManager.Instance.Open("StartUI");
         //副流程，Startmodule
         //AddSubmodule(new StartModule());
         //ProcedureManager.Instance.ChangeTo("FightProcedure");

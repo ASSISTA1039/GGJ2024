@@ -67,7 +67,8 @@ public class StartUI : UIBase
     #region NewGameButton
     private void OnNewGameButton(GameObject obj, PointerEventData pData)        //(GameObject obj, PointerEventData pData)
     {
-       
+        GameManager.Instance.Init();
+        UIManager.Instance.Close("StartUI");
     }
     #endregion
 

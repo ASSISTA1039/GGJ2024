@@ -41,6 +41,24 @@ public class DataManager : LogicModuleBase,IDataManager
         //继承的Init
         base.Init();
 
+        if (!RegisterData(out _playerData))
+        {
+            if (PlayerData == null)
+            {
+                Debug.LogError("DataManager:PlayerData is NULL");
+            }
+            PlayerData.PID = 1;
+            PlayerData.PMoney = 0;
+            PlayerData.PHealth = 1;
+            PlayerData.PMaxHealth = 1;
+            PlayerData.PLevel = 0;
+
+
+            Debug.Log("DataManager:未找到Player存档，已启动初始化部分。");
+
+
+        }
+
     }
 
     /// <summary>
@@ -68,18 +86,24 @@ public class DataManager : LogicModuleBase,IDataManager
     #region 数据修改方法
     
 
-    public void ChangeMaxHp(int maxHp)
+    public void ChangeMaxHp(int _maxHp)
     { 
-        PlayerData.PHealth = maxHp;
+        PlayerData.PHealth = _maxHp;
         if (PlayerData.PHealth > PlayerData.PMaxHealth)
         {
             PlayerData.PHealth = PlayerData.PMaxHealth;
         }
     }
-   
-    public void ChangeHp(int hp)
+
+    public void ChangePlayerLevel(int _level)
     {
-        PlayerData.PHealth = hp;
+        PlayerData.PLevel = _level;
+        Debug.Log("Player enter level"+_level);
+    }
+
+    public void ChangeHp(int _hp)
+    {
+        PlayerData.PHealth = _hp;
     }
 
     #endregion
@@ -132,8 +156,10 @@ interface IDataManager
 
     void ChangeMaxHp(int hp);
     void ChangeHp(int hp);
+    void ChangePlayerLevel(int _level);
 
     #endregion
+
 
     bool isLoad();
     void SaveData();
