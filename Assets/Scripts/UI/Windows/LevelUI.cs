@@ -20,11 +20,13 @@ public class LevelUI : UIBase
     private void OnLevel0Select(GameObject obj, PointerEventData pData)
     {
         GameManager.Instance.GameStart(0);
+        UIManager.Instance.Open("GameUI");
         OnClose();
     }
     private void OnLevel1Select(GameObject obj, PointerEventData pData)
     {
         GameManager.Instance.GameStart(1);
+        UIManager.Instance.Open("GameUI");
         OnClose();
     }
 

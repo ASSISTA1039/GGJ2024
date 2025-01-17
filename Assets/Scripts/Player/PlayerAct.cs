@@ -47,7 +47,7 @@ public class PlayerAct : MonoBehaviour
         {
             if (CurBoxCollider.gameObject.GetComponent<BlockAct>() != null)
             {
-                if (CurBoxCollider.gameObject.GetComponent<BlockAct>().iselc)
+                if (CurBoxCollider.gameObject.GetComponent<BlockAct>().isELC)
                 {
                     health -= 1;
                 }

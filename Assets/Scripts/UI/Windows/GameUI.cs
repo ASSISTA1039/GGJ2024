@@ -8,20 +8,45 @@ using UnityEngine.UI;
 
 public class GameUI : UIBase
 {
+    Transform stopButton;
+    Transform continueButton;
     public override void OnDisplay(object args)
     {
-        //RegisterTrigger("Mode1").onClick = OnMusicUp;
+        RegisterTrigger("SettingButton").onClick = OnSettingButton;
+        RegisterTrigger("StopButton").onClick = OnStopButton;
+        RegisterTrigger("ContinueButton").onClick = OnContinueButton;
         //RegisterTrigger("Quit").onClick = Quit;
-       
+        stopButton = transform.Find("StopButton");
+        continueButton = transform.Find("ContinueButton");
+
     }
-    private void Quit(GameObject obj, PointerEventData pData)
+    private void OnSettingButton(GameObject obj, PointerEventData pData)
     {
-        UIManager.Instance.CloseAll();
-        UIManager.Instance.Open("LoginUI",1,"LoginUI");
+        //UIManager.Instance.CloseAll();
+        UIManager.Instance.Open("SettingUI",4,"SettingUI");
+    }
+    private void OnStopButton(GameObject obj, PointerEventData pData)
+    {
+        Time.timeScale = 0; 
+    }
+    private void OnContinueButton(GameObject obj, PointerEventData pData)
+    {
+        Time.timeScale = 1;
     }
 
     private void Update()
     {
+        if (Time.timeScale == 0)
+        {
+            stopButton.GetComponent<Button>().enabled = false;
+            continueButton.GetComponent<Button>().enabled = true;
+        }
+        else 
+        {
+            stopButton.GetComponent<Button>().enabled = true;
+            continueButton.GetComponent <Button>().enabled = false;
+        }
+        
         //if (Input.GetKeyDown(KeyCode.Escape))
         //{
         //    DoClose();
