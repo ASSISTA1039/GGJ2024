@@ -191,7 +191,11 @@ namespace QxFramework.Core
             yield return StartCoroutine(RevealText(textToReveal, textMesh));
             if (ui != null)
             {
-                Open(ui, 2, ui, args); 
+                Open(ui, 2, ui, args);
+            }
+            else
+            {
+                Debug.Log("UI=NULL");
             }
             // 渐变淡出黑色面板
             yield return StartCoroutine(FadeOutShade(fadeDuration));
@@ -295,8 +299,19 @@ namespace QxFramework.Core
         public UIBase Open(string uiName, Transform parent, string name = "", object args = null)
         {
             //实例化UI
+            if (ResourceManager.Instance == null)
+            {
+                Debug.LogError("ResourceManager instance is null.");
+                return null;
+            }
+
 
             GameObject ui = ResourceManager.Instance.Instantiate(FoldPath + uiName, parent);
+            if (ui == null)
+            {
+                Debug.LogError("UI object is null.");
+                return null;
+            }
             ui.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
 
             if (name != "")

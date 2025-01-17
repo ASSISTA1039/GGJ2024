@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using static Cinemachine.DocumentationSortingAttribute;
+using QxFramework.Core;
 
 //摄像机旋转方向
 public enum RotationType
@@ -53,13 +54,21 @@ public class GameManager : MonoBehaviour
     public void Start()
     {
         CurCamera = Camera.main.transform;
-        Cube = LevelMgr.Instance.LoadMap(0).transform;//生成 方块地图 prefab
-        Center =new Vector3(Cube.position.x, Cube.position.y, Cube.position.z);//确定相机位置
+        Center = new Vector3(0, 0, 0);
+        _rotationType = RotationType.Up;
+        CameraMove(_rotationType, false);
+        GameMgr.Get<IDataManager>().ChangePlayerLevel(0);//第0关
+    }
+    public void Init()
+    {
+        Cube = LevelMgr.Instance.LoadMap(QXData.Instance.Get<PlayerData>().PLevel).transform;//生成 方块地图 prefab
+        Center = new Vector3(Cube.position.x, Cube.position.y, Cube.position.z);//确定相机位置
         _rotationType = RotationType.Up;//更改视角
         CreatePlayer();//创建玩家
-        CameraMove(_rotationType, false);
+        CameraMove(_rotationType, true);
         //ColliderMove(_rotationType);
     }
+
     public void Update()
     {
         Time1 = Time.timeScale;
@@ -239,9 +248,9 @@ public class GameManager : MonoBehaviour
         if (block != null)
         {
             Vector3 spawnPosition = block.transform.position + Vector3.up;
-            Player = Instantiate(Resources.Load<GameObject>("Prefab/Player/Player")).GetComponent<PlayerCharacter>();
+            Player = Instantiate(Resources.Load<GameObject>("Prefabs/Player/Player")).GetComponent<PlayerCharacter>();
             Player.transform.position = spawnPosition;
-            Camera.main.GetComponent<CameraController>().LookAttarGet = Player.transform;
+            Camera.main.GetComponent<CameraController>().LookAttarGet = Player.transform;//相机位置追踪
         }
         else
         {

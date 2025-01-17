@@ -10,6 +10,7 @@ public class PlayerData : GameDataBase
     public int PMaxHealth ;
     public int PHandCard ;
     public int PMoney;
+    public int PLevel;
     
     public PlayerRoundData PlayerRoundData;
 }

@@ -1021,7 +1021,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5c0aefe35eecea428becb1c6e6602d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LookAttarGet: {fileID: 0}
+  LookAttarGet: {fileID: 2079575213}
   RotateSpeed: 0.2
   rotationSmoothTime: 0.1
   scrollSpeed: 1
