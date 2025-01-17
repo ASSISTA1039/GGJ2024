@@ -5,7 +5,7 @@ using DG.Tweening;
 
 public class PlayerAct : MonoBehaviour
 {
-    public int health = 1;
+    public int health;
     Transform CurBoxCollider = null;
 
     public Vector3 targetposition;
@@ -13,6 +13,10 @@ public class PlayerAct : MonoBehaviour
     public LayerMask collisionLayer;  // 碰撞层
     private Tween moveTween;
 
+    private void Start()
+    {
+        health = 1;
+    }
     private void Update()
     {
         CurBoxCollider = GetComponent<PlayerCharacter>().CurBoxCollider;

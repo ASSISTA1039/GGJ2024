@@ -22,6 +22,7 @@ public class DragBlockOnGrid : MonoBehaviour
     private Tween moveTween;
     Transform _tran;
     GameObject clone;
+    GameObject mark;
 
     public bool VisualMove = false;
     void Start()
@@ -51,15 +52,11 @@ public class DragBlockOnGrid : MonoBehaviour
                 EndDrag();
             }
 
-            if (Input.GetMouseButtonDown(1))  // 右键点击
+            if (Input.GetMouseButtonDown(0))
             {
                 Rotate();
             }
           
-        }
-        if (GameManager.Instance.rotationType == RotationType.Third)
-        {
-            BlockA();
         }
     }
 
@@ -141,16 +138,24 @@ public class DragBlockOnGrid : MonoBehaviour
 
     private void EndDrag()
     {
-        draggedBlock = null; // 停止拖动
+        if (draggedBlock !=null)
+        {
+            mark = draggedBlock.gameObject;
+            BlockA(mark);
+            draggedBlock = null; // 停止拖动
+        }
 
     }
-    private void BlockA()
+    private void BlockA(GameObject @object)
     {
-        for (int i = 0; i < transform.childCount; i++)
+        for (int i = 0; i < @object.transform.childCount; i++)
         {
             // 获取子物体
-            Transform childTransform = transform.GetChild(i);
-            childTransform.gameObject.GetComponent<BlockAct>().Act();//触发每一个子物体的反应检测
+            Transform childTransform = @object.transform.GetChild(i);
+            if (childTransform.gameObject.GetComponent<BlockAct>() != null)
+            {
+                childTransform.gameObject.GetComponent<BlockAct>().Act();//触发每一个子物体的反应检测
+            }
         }
     }
 
@@ -232,7 +237,10 @@ public class DragBlockOnGrid : MonoBehaviour
                 .OnComplete(() =>
                 {
                 // 旋转完成后，允许再次调用
-                isRotating = false;
+                    isRotating = false;
+                    BlockA(_tran.gameObject);
+                    _tran = null;
+
                 });
             Destroy(clone);
         });
