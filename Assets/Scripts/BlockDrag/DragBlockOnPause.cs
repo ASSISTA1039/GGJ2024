@@ -53,15 +53,11 @@ public class DragBlockOnGrid : MonoBehaviour
                 EndDrag();
             }
 
-            if (Input.GetMouseButtonDown(1))  // 右键点击
+            if (Input.GetMouseButtonDown(0))
             {
                 Rotate();
             }
           
-        }
-        if (GameManager.Instance.rotationType == RotationType.Third)
-        {
-            BlockA();
         }
     }
 
@@ -151,7 +147,11 @@ public class DragBlockOnGrid : MonoBehaviour
 
     private void EndDrag()
     {
-        draggedBlock = null; // 停止拖动
+        if (draggedBlock != null)
+        {
+            BlockA(draggedBlock.gameObject);
+            draggedBlock = null; // 停止拖动
+        }
     }
 
     // 根据标签返回相应的拖动方向
@@ -159,8 +159,8 @@ public class DragBlockOnGrid : MonoBehaviour
     {
         switch (tag)//TODO:在此处修改tag对应的拖动能力
         {
-            case "Block 1": return MoveDirection.X;    // 只能沿X轴拖动
-            case "Block 2": return MoveDirection.Z;    // 只能沿Z轴拖动
+            //case "Block 1": return MoveDirection.X;    // 只能沿X轴拖动
+            case "Block 2": return MoveDirection.XZ;    // 只能沿Z轴拖动
             case "Block 3": return MoveDirection.XZ;   // 可以沿X和Z轴拖动
             default: return MoveDirection.None;        // 无效标签，返回None
         }
@@ -174,12 +174,12 @@ public class DragBlockOnGrid : MonoBehaviour
         Z,    // 只能沿Z轴移动
         XZ    // 可以沿XZ轴移动
     }
-    private void BlockA()
+    private void BlockA(GameObject game)
     {
-        for (int i = 0; i < transform.childCount; i++)
+        for (int i = 0; i < game.transform.childCount; i++)
         {
             // 获取子物体
-            Transform childTransform = transform.GetChild(i);
+            Transform childTransform = game.transform.GetChild(i);
             childTransform.gameObject.GetComponent<BlockAct>().Act();//触发每一个子物体的反应检测
         }
     }
@@ -207,7 +207,7 @@ public class DragBlockOnGrid : MonoBehaviour
         Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out RaycastHit hit))
         {
-            if (hit.collider.CompareTag("Rotate"))
+            if (hit.collider.CompareTag("Block 1"))
             {
                 _tran = hit.transform.parent;
             }
@@ -263,6 +263,7 @@ public class DragBlockOnGrid : MonoBehaviour
                 {
                 // 旋转完成后，允许再次调用
                 isRotating = false;
+                BlockA(_tran.gameObject);
                 });
             Destroy(clone);
         });

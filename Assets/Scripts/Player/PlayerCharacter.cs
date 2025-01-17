@@ -62,7 +62,6 @@ public class PlayerCharacter : MonoBehaviour
     /// <param name="isJump">是否跳跃</param>
     public void Move(Vector2 input, bool isJump,bool Inwater)
     {
-        Debug.Log(input);
         //转换input坐标
         float radians = Mathf.Deg2Rad * 135;
         float xRotated = input.x * Mathf.Cos(radians) + input.y * Mathf.Sin(radians);
@@ -212,6 +211,4 @@ public class PlayerCharacter : MonoBehaviour
             CurBoxCollider.position.y + yOffset, CurBoxCollider.position.z);
         }
     }
-//012,-112,-212,-211,-210
-//
 }
