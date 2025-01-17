@@ -41,7 +41,7 @@ public class LevelMgr : MonoBehaviour
         GameObject instantiatedChild = Instantiate(MapPart1.gameObject);
         GameObject instantiatedChild2 = Instantiate(MapPart2.gameObject);
         //CreatCollider(MapPart1.transform);
-        //CreatCollider(MapPart2.transform);
+        //CreatCollider(MapPart2.transform);//完成碰撞体的任务交给预制体
 
         return CalculateAveragePosition();
             //Merge(instantiatedChild, instantiatedChild2);
@@ -49,6 +49,7 @@ public class LevelMgr : MonoBehaviour
 
     /// <summary>
     /// 遍历场景中所有带有特定标签的物体并计算它们的平均坐标，返回该位置的Transform
+    /// TODO：此处可以根据需要调整相机的实际需求位置
     /// </summary>
     /// <returns>所有方块的平均位置的Transform</returns>
     public Transform CalculateAveragePosition()

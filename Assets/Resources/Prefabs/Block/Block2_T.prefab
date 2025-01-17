@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8378739048101207282}
   m_Layer: 0
   m_Name: block_brick_black_1(Clone)
-  m_TagString: Untagged
+  m_TagString: Block 1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -263,7 +263,7 @@ GameObject:
   - component: {fileID: 3077255650249718110}
   m_Layer: 0
   m_Name: block_brick_black_1(Clone)
-  m_TagString: Untagged
+  m_TagString: Block 1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -347,7 +347,7 @@ GameObject:
   - component: {fileID: 8821465257658353422}
   m_Layer: 0
   m_Name: block_brick_black_1(Clone)
-  m_TagString: Untagged
+  m_TagString: Block 1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1298,7 +1298,7 @@ GameObject:
   - component: {fileID: 376481626808187159}
   m_Layer: 0
   m_Name: block_brick_black_1(Clone)
-  m_TagString: Untagged
+  m_TagString: Block 1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1548,7 +1548,7 @@ GameObject:
   - component: {fileID: 2746519386545943709}
   m_Layer: 0
   m_Name: block_brick_black_1(Clone)
-  m_TagString: Untagged
+  m_TagString: Block 1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1964,7 +1964,7 @@ GameObject:
   - component: {fileID: 2557616910359309042}
   m_Layer: 0
   m_Name: block_brick_black_1(Clone)
-  m_TagString: Untagged
+  m_TagString: Block 1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

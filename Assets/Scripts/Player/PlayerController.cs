@@ -7,11 +7,15 @@ public class PlayerController : MonoBehaviour
 {
     // Start is called before the first frame update
     private PlayerCharacter Player;
-
+    private Camera MiniMapCamera;
+    [SerializeField, Header("相机高度")] public float CameraHigh=20f;
 
     public void Awake()
     {
         Player= gameObject.GetComponent<PlayerCharacter>();
+        MiniMapCamera = GameObject.Find("MiniMapCamera").GetComponent<Camera>();
+        if(MiniMapCamera!=null)
+            MiniMapCamera.transform.rotation = Quaternion.Euler(90, 0, 0);
     }
 
     // Update is called once per frame
@@ -35,8 +39,12 @@ public class PlayerController : MonoBehaviour
         //    Camera.main.GetComponent<CameraController>().enabled = true;
         //}
         #endregion
-        //此处的视角转换被删除
-        if (Input.GetKeyDown(KeyCode.F))
+        if (MiniMapCamera != null)
+        {
+            MiniMapCamera.transform.position = new Vector3(this.gameObject.transform.position.x, CameraHigh, this.gameObject.transform.position.z);
+        }
+            //此处的视角转换被删除
+            if (Input.GetKeyDown(KeyCode.F))
         {
             
             //GameManager.Instance.isThird = false;
