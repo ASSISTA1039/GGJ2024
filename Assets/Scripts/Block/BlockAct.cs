@@ -5,9 +5,9 @@ using DG.Tweening;
 
 public class BlockAct: MonoBehaviour
 {
-    //tag为Block0是出生点方块，Block1红色方块，Block2紫色方块，Block3蓝色方块,Block4黑色，Block5终点方块
-    public string thetag;
-    public bool iselc = false;
+    //tag为Block0是出生点方块，Block1红色方块，Block2紫色方块，Block3蓝色方块,Block4黑色，Block5终点方块,Block6 普通方块
+    [HideInInspector] public string thetag;
+    public bool isELC = false;
 
     public Vector3 targetposition;
     public float raycastDistance = 1f;  // 射线检测的最大距离
@@ -81,7 +81,7 @@ public class BlockAct: MonoBehaviour
 
     public void Electric()
     {
-        iselc = true;
+        isELC = true;
     }
 
     void CheckForCollision()

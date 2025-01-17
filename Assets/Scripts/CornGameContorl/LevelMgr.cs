@@ -19,6 +19,9 @@ public class LevelMgr : MonoBehaviour
     Vector3[] ColliderOldPos;                        //所有碰撞体的初始位置
     Transform[] Colliders;                            //所有碰撞体
 
+    Vector3 MinPos;                                  //所有方块最小的位置
+    Vector3 MaxPos;                                  //所有方块最大的位置
+
     public void Start()
     {
         
@@ -29,14 +32,14 @@ public class LevelMgr : MonoBehaviour
     /// </summary>
     /// <param name="level"></param>
     /// <returns></returns>
-    public Transform LoadMap(int _level)
+    public Vector3 LoadMap(int _level)
     {
         MapPart1 = Resources.Load<GameObject>("Prefabs/Map/level" + _level.ToString()+ "/FuncBlocks");
         MapPart2 = Resources.Load<GameObject>("Prefabs/Map/level" + _level.ToString()+ "/NoFuncBlocks");
         if (MapPart1 == null || MapPart2 == null)
         {
             Debug.LogError("Failed to load one or more prefabs.");
-            return null;
+            return Vector3.zero;
         }
         GameObject instantiatedChild = Instantiate(MapPart1.gameObject);
         GameObject instantiatedChild2 = Instantiate(MapPart2.gameObject);
@@ -52,16 +55,17 @@ public class LevelMgr : MonoBehaviour
     /// TODO：此处可以根据需要调整相机的实际需求位置
     /// </summary>
     /// <returns>所有方块的平均位置的Transform</returns>
-    public Transform CalculateAveragePosition()
+public Vector3 CalculateAveragePosition()
     {
         // 定义需要遍历的多个标签
-        List<string> tagsToCheck = new List<string> { "NormalCube", "Draggable", "Tag3" };//TODO:此处标签需要修改
+        List<string> tagsToCheck = new List<string> { "Block0", "Block1", "Block2", "Block3", "Block4", "Block5" }; // 需要修改标签
 
         // 获取所有场景中的物体
         GameObject[] allObjects = GameObject.FindObjectsOfType<GameObject>();
 
-        // 初始化坐标总和
-        Vector3 totalPosition = Vector3.zero;
+        // 初始化最小和最大位置值
+        Vector3 MinPos = Vector3.positiveInfinity;
+        Vector3 MaxPos = Vector3.negativeInfinity;
         int objectCount = 0;
 
         // 遍历所有物体并检查其Tag
@@ -70,24 +74,29 @@ public class LevelMgr : MonoBehaviour
             // 检查物体是否具有 Collider 组件并且其标签在 tagsToCheck 中
             if (obj.GetComponent<Collider>() != null && tagsToCheck.Contains(obj.tag))
             {
-                totalPosition += obj.transform.position;
+                // 更新最小和最大位置
+                Vector3 pos = obj.transform.position;
+                MaxPos.x = Mathf.Max(MaxPos.x, pos.x);
+                MaxPos.y = Mathf.Max(MaxPos.y, pos.y);
+                MaxPos.z = Mathf.Max(MaxPos.z, pos.z);
+
+                MinPos.x = Mathf.Min(MinPos.x, pos.x);
+                MinPos.y = Mathf.Min(MinPos.y, pos.y);
+                MinPos.z = Mathf.Min(MinPos.z, pos.z);
+
                 objectCount++;
             }
         }
 
-        // 计算平均值
+        // 计算平均位置
         if (objectCount > 0)
         {
-            // 创建一个新的空物体并设置其位置为计算出来的平均位置
-            GameObject averageObject = new GameObject("AveragePosition");
-            averageObject.transform.position = totalPosition / objectCount;
-
-            // 返回该物体的Transform
-            return averageObject.transform;
+            // 计算并返回中心点（即平均位置）
+            return (MaxPos + MinPos) / 2;
         }
         else
         {
-            return null; // 如果没有符合条件的物体，返回null
+            return Vector3.zero; // 如果没有符合条件的物体，返回零向量
         }
     }
 
