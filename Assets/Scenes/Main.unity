@@ -1033,7 +1033,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1793155603}
   - component: {fileID: 1793155602}
-  - component: {fileID: 1793155601}
+  - component: {fileID: 1793155604}
   m_Layer: 0
   m_Name: AudioControl
   m_TagString: Untagged
@@ -1041,19 +1041,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1793155601
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1793155600}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50b258b18d41eb94bb6eaae06ccea418, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  soundVolume: 0
 --- !u!82 &1793155602
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1165,6 +1152,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1793155604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1793155600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c68f93a53a53c144d82cd574cc963649, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2079575210
 GameObject:
   m_ObjectHideFlags: 0
@@ -1177,6 +1176,7 @@ GameObject:
   - component: {fileID: 2079575212}
   - component: {fileID: 2079575214}
   - component: {fileID: 2079575215}
+  - component: {fileID: 2079575216}
   m_Layer: 0
   m_Name: GameMgr
   m_TagString: Untagged
@@ -1253,6 +1253,27 @@ MonoBehaviour:
   rotationAngle: 90
   duration: 0.5
   VisualMove: 0
+--- !u!114 &2079575216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2079575210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe2acc78e23c62d4da6d6c786ad8ad97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 1685936906211394, guid: 080598df375892b40999ed3d070765c7, type: 3}
+  remind: {fileID: 100006, guid: 8dbc6a47cc6ff6d41afdcb73e6c70e2c, type: 3}
+  x: -3
+  y: 0
+  z: 0
+  scale: 1
+  xrow: 1
+  yrow: 1
+  zrow: 1
 --- !u!1001 &4403438801708600986
 PrefabInstance:
   m_ObjectHideFlags: 0
