@@ -55,8 +55,11 @@ public class PlayerAct : MonoBehaviour
             }
             if (CurBoxCollider.gameObject.tag == "Block 4")
             {
-                Debug.Log("1");
                 CurBoxCollider.gameObject.GetComponent<BlockAct>().isdes = true;
+            }
+            if (CurBoxCollider.gameObject.tag == "Block 5")
+            {
+                UIManager.Instance.Open("PassUI");
             }
             RaycastHit hit;
 

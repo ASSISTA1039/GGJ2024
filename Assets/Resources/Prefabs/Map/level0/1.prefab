@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1864781065458893179}
   m_Layer: 8
   m_Name: White(Clone)
-  m_TagString: Block 0
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -124,6 +124,8 @@ MonoBehaviour:
   collisionLayer:
     serializedVersion: 2
     m_Bits: 256
+  isdes: 0
+  isdesbool: 0
 --- !u!1 &1657609974583359802
 GameObject:
   m_ObjectHideFlags: 0
@@ -535,6 +537,8 @@ MonoBehaviour:
   collisionLayer:
     serializedVersion: 2
     m_Bits: 0
+  isdes: 0
+  isdesbool: 0
 --- !u!1 &2805609964169344852
 GameObject:
   m_ObjectHideFlags: 0
@@ -659,6 +663,8 @@ MonoBehaviour:
   collisionLayer:
     serializedVersion: 2
     m_Bits: 256
+  isdes: 0
+  isdesbool: 0
 --- !u!1 &3988259463897302270
 GameObject:
   m_ObjectHideFlags: 0
@@ -818,6 +824,8 @@ MonoBehaviour:
   collisionLayer:
     serializedVersion: 2
     m_Bits: 256
+  isdes: 0
+  isdesbool: 0
 --- !u!1 &5553681398982674726
 GameObject:
   m_ObjectHideFlags: 0
@@ -1042,6 +1050,8 @@ MonoBehaviour:
   collisionLayer:
     serializedVersion: 2
     m_Bits: 256
+  isdes: 0
+  isdesbool: 0
 --- !u!1 &6596989206644931955
 GameObject:
   m_ObjectHideFlags: 0
@@ -1453,6 +1463,8 @@ MonoBehaviour:
   collisionLayer:
     serializedVersion: 2
     m_Bits: 0
+  isdes: 0
+  isdesbool: 0
 --- !u!1 &6719099871619929657
 GameObject:
   m_ObjectHideFlags: 0
@@ -1502,7 +1514,7 @@ GameObject:
   - component: {fileID: 3209904726270720485}
   m_Layer: 8
   m_Name: Black(Clone)
-  m_TagString: Untagged
+  m_TagString: Block 4
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1590,6 +1602,8 @@ MonoBehaviour:
   collisionLayer:
     serializedVersion: 2
     m_Bits: 0
+  isdes: 0
+  isdesbool: 0
 --- !u!65 &3209904726270720485
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1626,7 +1640,7 @@ GameObject:
   - component: {fileID: 1896523578655339087}
   m_Layer: 8
   m_Name: Black(Clone)
-  m_TagString: Untagged
+  m_TagString: Block 4
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1714,6 +1728,8 @@ MonoBehaviour:
   collisionLayer:
     serializedVersion: 2
     m_Bits: 0
+  isdes: 0
+  isdesbool: 0
 --- !u!65 &1896523578655339087
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1859,6 +1875,8 @@ MonoBehaviour:
   collisionLayer:
     serializedVersion: 2
     m_Bits: 256
+  isdes: 0
+  isdesbool: 0
 --- !u!1 &9064726894142667043
 GameObject:
   m_ObjectHideFlags: 0
@@ -2270,3 +2288,5 @@ MonoBehaviour:
   collisionLayer:
     serializedVersion: 2
     m_Bits: 0
+  isdes: 0
+  isdesbool: 0

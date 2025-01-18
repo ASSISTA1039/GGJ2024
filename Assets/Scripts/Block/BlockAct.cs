@@ -34,7 +34,7 @@ public class BlockAct: MonoBehaviour
 
     IEnumerator WaitForSecondsExample()
     {
-        yield return new WaitForSeconds(2f);  // 等待 2 秒
+        yield return new WaitForSeconds(5f);  // 等待 2 秒
         Destroy(gameObject);
     }
     #region 方块反应
