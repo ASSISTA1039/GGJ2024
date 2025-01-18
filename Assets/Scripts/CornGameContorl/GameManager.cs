@@ -263,7 +263,7 @@ public class GameManager : MonoBehaviour
     }
 
 
-    private string[] objectsToDestroy= { "Player(Clone)", "FuncBlock(Clone)", "NoFuncBlock(Clone)" };//TODO：此处应写需要再切换时候删除的元素
+    private string[] objectsToDestroy= { "Player(Clone)", "FuncBlocks(Clone)", "NoFuncBlocks(Clone)" };//TODO：此处应写需要再切换时候删除的元素
     
     // 切换回关卡选择UI的功能
     public void SwitchToLevelSelectUI(bool isAdd=false)
@@ -289,7 +289,7 @@ public class GameManager : MonoBehaviour
         }
         // 返回关卡选择UI界面
         //TODO:此处应该修正为关卡胜利UI
-        UIManager.Instance.Open("LevelUI", null, "LevelUI", null);
+        UIManager.Instance.Open("LevelUI",3, "LevelUI", null);
     }
 
 

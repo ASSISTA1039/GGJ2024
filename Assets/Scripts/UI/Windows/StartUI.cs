@@ -80,7 +80,7 @@ public class StartUI : UIBase
     #region OptionButton
     private void OnOptionButton(GameObject obj, PointerEventData pData)
     {
-        UIManager.Instance.Open("SettingUI", 4, "SettingUI", null);
+        UIManager.Instance.Open("CreatorPage", 4, "CreatorPage", null);
     }
     #endregion
 
