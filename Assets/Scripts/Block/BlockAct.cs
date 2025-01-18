@@ -101,7 +101,9 @@ public class BlockAct: MonoBehaviour
     {
         GameObject Black = Instantiate(ResourceManager.Instance.Load<GameObject>("Prefabs/Block/Block/Black"),_Object.transform.parent.parent);
         Black.transform.position = _Object.transform.position;
-
+        GameObject boom = Instantiate(Resources.Load<GameObject>("Prefabs/SpecialEffect/boom"));
+        boom.transform.position = _Object.transform.position;
+        Destroy(boom, 2f);
         Destroy(_Object);
     }
 
