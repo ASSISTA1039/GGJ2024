@@ -63,7 +63,7 @@ namespace QxFramework.Core
             }
             else
             {
-                Debug.LogError("\nUIBase.RegisterTrigger:\nDidn't found UI");
+                Debug.LogError("\nUIBase.RegisterTrigger:\nDidn't found UI"+name);
                 return null;
             }
         }

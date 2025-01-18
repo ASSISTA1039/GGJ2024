@@ -14,12 +14,15 @@ public class CreatorPage : UIBase
     public Vector3 enlargeScale = new Vector3(1.5f,1.5f,1.5f);
     public float transitionDuration = 0.5f;
 
-    public override void OnDisplay(object args)
+    private void Start()
     {
-
-        exitImage = transform.Find("backlayer/ExitImage").GetComponent<Image>();
+        exitImage = transform.Find("ExitButton/ExitImage").GetComponent<Image>(); 
         exitImage.rectTransform.localScale = defaultScale;
         exitImage.gameObject.SetActive(true);
+
+    }
+    public override void OnDisplay(object args)
+    {
         RegisterTrigger("ExitButton").onPointerEnter = EnterExitButton;
         RegisterTrigger("ExitButton").onPointerExit = ExitExitButton;
         RegisterTrigger("ExitButton").onClick = OnExitButton;
@@ -28,17 +31,16 @@ public class CreatorPage : UIBase
     private void OnExitButton(GameObject @object, PointerEventData data)
     {
         UIManager.Instance.Open("StartPage", 0, "startPage");
+        OnClose();
     }
 
     private void ExitExitButton(GameObject @object, PointerEventData data)
     {
-        Debug.Log(1);
         StartCoroutine(ScaleImage(exitImage.rectTransform, enlargeScale, defaultScale, transitionDuration));
     }
 
     private void EnterExitButton(GameObject @object, PointerEventData data)
     {
-        Debug.Log(2);
         StartCoroutine(ScaleImage(exitImage.rectTransform, defaultScale, enlargeScale, transitionDuration));
     }
 
@@ -53,9 +55,5 @@ public class CreatorPage : UIBase
             yield return null;
         }
         imageRectTransform.localScale = toScale;
-    }
-    void Update()
-    {
-        
     }
 }
