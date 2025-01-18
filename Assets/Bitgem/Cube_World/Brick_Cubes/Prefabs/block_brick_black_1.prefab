@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4282970368889890}
   - component: {fileID: 33769814086786164}
   - component: {fileID: 23514555906020754}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: block_brick_black_1_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 4193205608190332}
   - component: {fileID: 95954877108733054}
   - component: {fileID: -7965515176337295170}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: block_brick_black_1
   m_TagString: NormalCube
   m_Icon: {fileID: 0}
