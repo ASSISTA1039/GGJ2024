@@ -1611,6 +1611,7 @@ GameObject:
   - component: {fileID: 2079575215}
   - component: {fileID: 2079575216}
   - component: {fileID: 2079575217}
+  - component: {fileID: 2079575218}
   m_Layer: 0
   m_Name: GameMgr
   m_TagString: Untagged
@@ -1702,6 +1703,8 @@ MonoBehaviour:
   popo: 1
   S1: {fileID: 0}
   S2: {fileID: 0}
+  S1select: {fileID: 0}
+  S2select: {fileID: 0}
 --- !u!114 &2079575217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1723,6 +1726,23 @@ MonoBehaviour:
   xrow: 1
   yrow: 1
   zrow: 1
+--- !u!114 &2079575218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2079575210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d490227ac3d2bd042aa07ff1c5919528, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightningPrefab: {fileID: 4822105135976665697, guid: 2457b5ccef26b0c46b38b5aa7dbf24c5, type: 3}
+  minTime: 1
+  maxTime: 3
+  lightningDuration: 0.2
+  lightningRadius: 5
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
