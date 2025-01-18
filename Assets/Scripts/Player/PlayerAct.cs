@@ -11,6 +11,7 @@ public class PlayerAct : MonoBehaviour
     public Vector3 targetposition;
     public float raycastDistance = 1f;  // 射线检测的最大距离
     public LayerMask collisionLayer;  // 碰撞层
+    public LayerMask waterLayer;
     private Tween moveTween;
 
     private void Start()
@@ -21,6 +22,7 @@ public class PlayerAct : MonoBehaviour
     {
         CurBoxCollider = GetComponent<PlayerCharacter>().CurBoxCollider;
         EHurt();
+        Death();
     }
     public void BlockDrop(GameObject pref ,float height , int time)//下落的方块
     {
@@ -45,13 +47,19 @@ public class PlayerAct : MonoBehaviour
         }
         else
         {
-            if (CurBoxCollider.gameObject.GetComponent<BlockAct>() != null)
+            if (CurBoxCollider.gameObject.tag == "Block 1")
             {
-                if (CurBoxCollider.gameObject.GetComponent<BlockAct>().isELC)
+                health -= 1;
+            }
+            RaycastHit hit;
+
+            if (Physics.Raycast(transform.position - 0.5f * Vector3.up, Vector3.down, out hit, Mathf.Infinity, waterLayer))
+            {
+                // 如果射线与水体碰撞，说明人物在水中
+                if (hit.collider.CompareTag("Water") && hit.collider.GetComponent<BlockAct>().isELC)
                 {
                     health -= 1;
                 }
-
             }
         }
     }

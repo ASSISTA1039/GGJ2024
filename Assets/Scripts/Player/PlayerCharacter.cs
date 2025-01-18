@@ -45,7 +45,7 @@ public class PlayerCharacter : MonoBehaviour
         if (Physics.Raycast(transform.position - 0.5f * Vector3.up, Vector3.down, out hit, Mathf.Infinity, waterLayer))
         {
             // 如果射线与水体碰撞，说明人物在水中
-            if (hit.collider.CompareTag("Water"))
+            if (hit.collider.CompareTag("Block 3"))
             {
                 isInwater = true;
             }
@@ -95,16 +95,9 @@ public class PlayerCharacter : MonoBehaviour
         //vel = new Vector3(velocity.x, velocity.y, velocity.z);
         if (velocity != new Vector3(0, 0, 0))
         {
-            if (!Physics.Raycast(transform.position + 2f*velocity * Time.deltaTime, Vector3.down, out hit, 0.6f, layerMask))//没有路的情况
+            if (!Physics.Raycast(transform.position + 2f*velocity * Time.deltaTime, Vector3.down, out hit, 0.6f, layerMask)&& !Physics.Raycast(transform.position + 2f * velocity * Time.deltaTime, Vector3.down, out hit, 0.6f, waterLayer))//没有路的情况
             {
                 velocity = new Vector3(0, 0, 0);
-                for(int i = 1;i <= 3; i++)
-                {
-                    List<Vector3> list = new List<Vector3>();
-                    Vector3 target = new Vector3(Mathf.Sign(rotatedVector.x), i, Mathf.Sign(rotatedVector.y));
-
-                }
-
             }
         }
 

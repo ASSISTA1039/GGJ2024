@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using QxFramework.Core;
 
 public class BlockAct: MonoBehaviour
 {
     //tag为Block0是出生点方块，Block1红色方块，Block2紫色方块，Block3蓝色方块,Block4黑色，Block5终点方块,Block6 普通方块
-    [HideInInspector] public string thetag;
     public bool isELC = false;
 
     public Vector3 targetposition;
@@ -17,12 +17,12 @@ public class BlockAct: MonoBehaviour
 
     private void Start()
     {
-        thetag = gameObject.tag;
+        Act();
     }
-
     #region 方块反应
     public void Act()
     {
+        string tag = gameObject.tag;
         if (tag == "Block 1")
         {
             GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("Block 2");
@@ -31,6 +31,7 @@ public class BlockAct: MonoBehaviour
                 if (Vector3.Distance(transform.position,obj.transform.position) < 1.3f)
                 {
                     Boom(obj);
+                    Boom(gameObject);
                 }
 
             }
@@ -52,6 +53,7 @@ public class BlockAct: MonoBehaviour
                 if (Vector3.Distance(transform.position,obj.transform.position) < 1.3f)
                 {
                     Boom(obj);
+                    Boom(gameObject);
                 }
             }
 
@@ -64,11 +66,24 @@ public class BlockAct: MonoBehaviour
                 }
             }
         }
+        if (tag == "Block 3")
+        {
+            GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("Block 2");
+            foreach (var obj in gameObjects)
+            {
+                if (Vector3.Distance(transform.position, obj.transform.position) < 1.3f)
+                {
+                    Electric();
+                }
+            }
+        }
     }
 
     public void Boom(GameObject _Object)//爆炸效果
     {
-        //TODO：生成黑色方块
+        GameObject Black = Instantiate(ResourceManager.Instance.Load<GameObject>("Prefabs/Block/Block/Black"),_Object.transform.parent.parent);
+        Black.transform.position = _Object.transform.position;
+
         Destroy(_Object);
     }
 

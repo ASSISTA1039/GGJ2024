@@ -78,7 +78,7 @@ GameObject:
   - component: {fileID: 3036780579903432949}
   - component: {fileID: 7260313246415787853}
   - component: {fileID: 5078727524022005436}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Orange(Clone)
   m_TagString: Block 0
   m_Icon: {fileID: 0}
@@ -164,7 +164,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ec9f51a0c38beb47a9b542728608690, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thetag: 
   isELC: 0
   targetposition: {x: 0, y: 0, z: 0}
   raycastDistance: 1
@@ -204,7 +203,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ec9f51a0c38beb47a9b542728608690, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thetag: 
   isELC: 0
   targetposition: {x: 0, y: 0, z: 0}
   raycastDistance: 1

@@ -98,7 +98,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3c846fdf9b0e54548b0ee1ebd89574fc, type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3c846fdf9b0e54548b0ee1ebd89574fc, type: 3}
       propertyPath: m_TagString
@@ -192,7 +192,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ec9f51a0c38beb47a9b542728608690, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thetag: 
   isELC: 0
   targetposition: {x: 0, y: 0, z: 0}
   raycastDistance: 1

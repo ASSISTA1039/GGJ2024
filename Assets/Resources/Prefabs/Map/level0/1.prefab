@@ -13,8 +13,7 @@ GameObject:
   - component: {fileID: 9170490542294190521}
   - component: {fileID: 6496041964423546951}
   - component: {fileID: 1864781065458893179}
-  - component: {fileID: 5789525200724463874}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: White(Clone)
   m_TagString: Block 6
   m_Icon: {fileID: 0}
@@ -119,32 +118,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ec9f51a0c38beb47a9b542728608690, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thetag: 
   isELC: 0
   targetposition: {x: 0, y: 0, z: 0}
   raycastDistance: 1
   collisionLayer:
     serializedVersion: 2
     m_Bits: 256
---- !u!114 &5789525200724463874
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 854041170451626633}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ec9f51a0c38beb47a9b542728608690, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  thetag: 
-  isELC: 0
-  targetposition: {x: 0, y: 0, z: 0}
-  raycastDistance: 1
-  collisionLayer:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &1657609974583359802
 GameObject:
   m_ObjectHideFlags: 0
@@ -159,8 +138,7 @@ GameObject:
   - component: {fileID: 338207327783886170}
   - component: {fileID: 2047026027767207187}
   - component: {fileID: 1719386127341238270}
-  - component: {fileID: 7540667036494591805}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Water(Clone)
   m_TagString: Block 3
   m_Icon: {fileID: 0}
@@ -551,26 +529,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ec9f51a0c38beb47a9b542728608690, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thetag: 
-  isELC: 0
-  targetposition: {x: 0, y: 0, z: 0}
-  raycastDistance: 1
-  collisionLayer:
-    serializedVersion: 2
-    m_Bits: 0
---- !u!114 &7540667036494591805
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1657609974583359802}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ec9f51a0c38beb47a9b542728608690, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  thetag: 
   isELC: 0
   targetposition: {x: 0, y: 0, z: 0}
   raycastDistance: 1
@@ -590,8 +548,7 @@ GameObject:
   - component: {fileID: 4379512212167196420}
   - component: {fileID: 1519316803664339413}
   - component: {fileID: 5389129917182476953}
-  - component: {fileID: 7110641016382810269}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: purple(Clone)
   m_TagString: Block 2
   m_Icon: {fileID: 0}
@@ -696,32 +653,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ec9f51a0c38beb47a9b542728608690, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thetag: 
   isELC: 0
   targetposition: {x: 0, y: 0, z: 0}
   raycastDistance: 1
   collisionLayer:
     serializedVersion: 2
     m_Bits: 256
---- !u!114 &7110641016382810269
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2805609964169344852}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ec9f51a0c38beb47a9b542728608690, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  thetag: 
-  isELC: 0
-  targetposition: {x: 0, y: 0, z: 0}
-  raycastDistance: 1
-  collisionLayer:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &3988259463897302270
 GameObject:
   m_ObjectHideFlags: 0
@@ -732,7 +669,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4560745969847844498}
   m_Layer: 0
-  m_Name: block-text
+  m_Name: 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -770,8 +707,7 @@ GameObject:
   - component: {fileID: 8259478132215831555}
   - component: {fileID: 2619573463624804066}
   - component: {fileID: 3209050514496828198}
-  - component: {fileID: 4482578280245781088}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: purple(Clone)
   m_TagString: Block 2
   m_Icon: {fileID: 0}
@@ -876,32 +812,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ec9f51a0c38beb47a9b542728608690, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thetag: 
   isELC: 0
   targetposition: {x: 0, y: 0, z: 0}
   raycastDistance: 1
   collisionLayer:
     serializedVersion: 2
     m_Bits: 256
---- !u!114 &4482578280245781088
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4091994210539725255}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ec9f51a0c38beb47a9b542728608690, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  thetag: 
-  isELC: 0
-  targetposition: {x: 0, y: 0, z: 0}
-  raycastDistance: 1
-  collisionLayer:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &5553681398982674726
 GameObject:
   m_ObjectHideFlags: 0
@@ -983,8 +899,7 @@ GameObject:
   - component: {fileID: 248314031499785879}
   - component: {fileID: 4840107722656597251}
   - component: {fileID: 8750723130346418021}
-  - component: {fileID: 9151769739520009897}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: purple(Clone)
   m_TagString: Block 2
   m_Icon: {fileID: 0}
@@ -1089,32 +1004,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ec9f51a0c38beb47a9b542728608690, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thetag: 
   isELC: 0
   targetposition: {x: 0, y: 0, z: 0}
   raycastDistance: 1
   collisionLayer:
     serializedVersion: 2
     m_Bits: 256
---- !u!114 &9151769739520009897
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6019524461583946100}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ec9f51a0c38beb47a9b542728608690, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  thetag: 
-  isELC: 0
-  targetposition: {x: 0, y: 0, z: 0}
-  raycastDistance: 1
-  collisionLayer:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &6596989206644931955
 GameObject:
   m_ObjectHideFlags: 0
@@ -1129,8 +1024,7 @@ GameObject:
   - component: {fileID: 7805656385049924898}
   - component: {fileID: 5658436416412401256}
   - component: {fileID: 2186825306089995499}
-  - component: {fileID: 7765765123487203154}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Water(Clone)
   m_TagString: Block 3
   m_Icon: {fileID: 0}
@@ -1521,26 +1415,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ec9f51a0c38beb47a9b542728608690, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thetag: 
-  isELC: 0
-  targetposition: {x: 0, y: 0, z: 0}
-  raycastDistance: 1
-  collisionLayer:
-    serializedVersion: 2
-    m_Bits: 0
---- !u!114 &7765765123487203154
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6596989206644931955}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ec9f51a0c38beb47a9b542728608690, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  thetag: 
   isELC: 0
   targetposition: {x: 0, y: 0, z: 0}
   raycastDistance: 1
@@ -1593,7 +1467,8 @@ GameObject:
   - component: {fileID: 5760544765614176936}
   - component: {fileID: 4699372113840788124}
   - component: {fileID: 5471378142136021185}
-  m_Layer: 0
+  - component: {fileID: 3209904726270720485}
+  m_Layer: 8
   m_Name: Black(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1677,13 +1552,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ec9f51a0c38beb47a9b542728608690, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thetag: 
   isELC: 0
   targetposition: {x: 0, y: 0, z: 0}
   raycastDistance: 1
   collisionLayer:
     serializedVersion: 2
     m_Bits: 0
+--- !u!65 &3209904726270720485
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6725104232265590162}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.020011492, y: 0.020000167, z: 0.020000001}
+  m_Center: {x: -0.000005745329, y: 0.00000008288771, z: 0}
 --- !u!1 &8495798218339319175
 GameObject:
   m_ObjectHideFlags: 0
@@ -1696,7 +1591,8 @@ GameObject:
   - component: {fileID: 333598891282761146}
   - component: {fileID: 6264328230983434841}
   - component: {fileID: 1866633178626504751}
-  m_Layer: 0
+  - component: {fileID: 1896523578655339087}
+  m_Layer: 8
   m_Name: Black(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1780,13 +1676,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ec9f51a0c38beb47a9b542728608690, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thetag: 
   isELC: 0
   targetposition: {x: 0, y: 0, z: 0}
   raycastDistance: 1
   collisionLayer:
     serializedVersion: 2
     m_Bits: 0
+--- !u!65 &1896523578655339087
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8495798218339319175}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.020011492, y: 0.020000167, z: 0.020000001}
+  m_Center: {x: -0.000005745329, y: 0.00000008288771, z: 0}
 --- !u!1 &8741438994895478968
 GameObject:
   m_ObjectHideFlags: 0
@@ -1800,8 +1716,7 @@ GameObject:
   - component: {fileID: 2346162352256542597}
   - component: {fileID: 8826291021935896827}
   - component: {fileID: 8039751039428535745}
-  - component: {fileID: 4872056197444947828}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: purple(Clone)
   m_TagString: Block 2
   m_Icon: {fileID: 0}
@@ -1906,32 +1821,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ec9f51a0c38beb47a9b542728608690, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thetag: 
   isELC: 0
   targetposition: {x: 0, y: 0, z: 0}
   raycastDistance: 1
   collisionLayer:
     serializedVersion: 2
     m_Bits: 256
---- !u!114 &4872056197444947828
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8741438994895478968}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ec9f51a0c38beb47a9b542728608690, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  thetag: 
-  isELC: 0
-  targetposition: {x: 0, y: 0, z: 0}
-  raycastDistance: 1
-  collisionLayer:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &9064726894142667043
 GameObject:
   m_ObjectHideFlags: 0
@@ -1946,8 +1841,7 @@ GameObject:
   - component: {fileID: 4172753336599341916}
   - component: {fileID: 4983323402821722037}
   - component: {fileID: 1714045216984339493}
-  - component: {fileID: 1797257849090357537}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Water(Clone)
   m_TagString: Block 3
   m_Icon: {fileID: 0}
@@ -2338,26 +2232,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ec9f51a0c38beb47a9b542728608690, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thetag: 
-  isELC: 0
-  targetposition: {x: 0, y: 0, z: 0}
-  raycastDistance: 1
-  collisionLayer:
-    serializedVersion: 2
-    m_Bits: 0
---- !u!114 &1797257849090357537
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9064726894142667043}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ec9f51a0c38beb47a9b542728608690, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  thetag: 
   isELC: 0
   targetposition: {x: 0, y: 0, z: 0}
   raycastDistance: 1
