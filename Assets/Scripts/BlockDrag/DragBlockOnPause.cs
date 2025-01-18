@@ -1,6 +1,7 @@
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.EventSystems;
+using Unity.VisualScripting;
 
 public class DragBlockOnGrid : MonoBehaviour
 {
@@ -20,6 +21,8 @@ public class DragBlockOnGrid : MonoBehaviour
     public int rotationAngle=90;//旋转角度
     public float duration=1f;//旋转时间
     private bool isRotating = false; // 标记是否正在旋转
+    bool isPlayerStand = true;
+
     private Tween moveTween;
     Transform _tran;
     GameObject clone;
@@ -72,12 +75,15 @@ public class DragBlockOnGrid : MonoBehaviour
             // 获取物体标签并根据标签设置拖动规则
             string hitTag = hit.collider.tag;
             moveDirection = GetMoveDirectionForTag(hitTag);
+            //GameObject Player = GameObject.FindWithTag("Player");
+            draggedBlock = hit.transform.parent;
+           
 
             // 只有当物体标签为有效标签时才进行拖动
-            if (moveDirection != MoveDirection.None)
+            if (moveDirection != MoveDirection.None&& !isPlayerStand)
             {
                 // 拖动父物体
-                draggedBlock = hit.transform.parent;
+                //draggedBlock = hit.transform.parent;
                 blockStartPosition = draggedBlock.position; // 记录父物体初始位置
                 startDragPosition = GetMousePositionOnPlane(); // 记录鼠标初始位置（基于平面）
             }
@@ -86,11 +92,26 @@ public class DragBlockOnGrid : MonoBehaviour
 
     private void Drag()
     {
+        GameObject Player = GameObject.FindWithTag("Player");
+     
+        if (Player != null)
+        {
+            Transform playerPosition = Player.GetComponent<PlayerCharacter>().CurBoxCollider;
+            Debug.Log("P=" + playerPosition.parent.gameObject + "D=" + draggedBlock.gameObject);
+            if (playerPosition.parent.gameObject != draggedBlock.gameObject)
+            {
+                isPlayerStand = false;
+            }
+            else
+            {
+                isPlayerStand = true;
+            }
+        }
         Vector3 currentMousePosition = GetMousePositionOnPlane(); // 当前鼠标在平面上的位置
         dragOffset = currentMousePosition - startDragPosition; // 计算鼠标拖动的偏移量
 
         // 判断是否达到整格的移动条件
-        if ((Mathf.Abs(dragOffset.x) >= 0.7f * gridSize || Mathf.Abs(dragOffset.z) >= 0.7f * gridSize) && Mathf.Abs(dragOffset.x) < 1.4f * gridSize && Mathf.Abs(dragOffset.z) < 1.4f * gridSize)
+        if ((Mathf.Abs(dragOffset.x) >= 0.7f * gridSize || Mathf.Abs(dragOffset.z) >= 0.7f * gridSize) && Mathf.Abs(dragOffset.x) < 1.4f * gridSize && Mathf.Abs(dragOffset.z) < 1.4f * gridSize&&!isPlayerStand)
         {
             // 根据拖动方向限制偏移量
             Vector3 constrainedDragOffset = dragOffset;
