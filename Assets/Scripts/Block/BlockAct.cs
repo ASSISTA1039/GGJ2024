@@ -47,7 +47,6 @@ public class BlockAct: MonoBehaviour
         if (tag == "Block 2")
         {
             GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("Block 1");
-            bool isboom = false;
             foreach (var obj in gameObjects)
             {
                 if (Vector3.Distance(transform.position,obj.transform.position) < 1.3f)
