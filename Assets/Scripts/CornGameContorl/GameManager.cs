@@ -20,9 +20,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     // Start is called before the first frame update
     Vector3 Center;                                  //所有方块的中心点
-    Vector3 MinPos;                                  //所有方块最小的位置
-    Vector3 MaxPos;                                  //所有方块最大的位置
-    Transform[] Colliders;                           //所有碰撞体
+   
     Vector3[] ColliderOldPos;                        //所有碰撞体的初始位置
     private Transform Cube;                          //所有方块的父物体  
     public Transform CollidersParent;                //所有碰撞体的父物体
@@ -63,10 +61,10 @@ public class GameManager : MonoBehaviour
 
     //Init 方法，用于关卡的加载和一些基本信息的同步
     //放在这里是因为camrea的逻辑也在这里。
-    public void Init()
+    public void GameStart(int level)
     {
-        Cube = LevelMgr.Instance.LoadMap(QXData.Instance.Get<PlayerData>().PLevel).transform;//生成 方块地图 prefab
-        Center = new Vector3(Cube.position.x, Cube.position.y, Cube.position.z);//确定相机位置
+        Center= LevelMgr.Instance.LoadMap(level);//生成 方块地图 prefab
+        //Center = new Vector3(Cube.position.x, Cube.position.y, Cube.position.z);//确定相机位置
         _rotationType = RotationType.Up;//更改视角
         CreatePlayer();//创建玩家
         CameraMove(_rotationType, true);
@@ -80,25 +78,25 @@ public class GameManager : MonoBehaviour
 
     //碰撞体移动
 
-    void ColliderMove(RotationType type)
-    {
-        for (int i = 0; i < Colliders.Length; i++)
-        {
-            if (type == RotationType.Front || type == RotationType.Back)
-            {
-                Colliders[i].position = new Vector3(ColliderOldPos[i].x, ColliderOldPos[i].y, 0);
-            }
-            else if (type == RotationType.Right || type == RotationType.Left)
-            {
-                Colliders[i].position = new Vector3(0, ColliderOldPos[i].y, ColliderOldPos[i].z);
-            }
-            else
-            {
-                //Colliders[i].position = UpPos.GetChild(i).position;
-            }
-        }
-        Player.FollowCollider();
-    }
+    //void ColliderMove(RotationType type)
+    //{
+    //    for (int i = 0; i < Colliders.Length; i++)
+    //    {
+    //        if (type == RotationType.Front || type == RotationType.Back)
+    //        {
+    //            Colliders[i].position = new Vector3(ColliderOldPos[i].x, ColliderOldPos[i].y, 0);
+    //        }
+    //        else if (type == RotationType.Right || type == RotationType.Left)
+    //        {
+    //            Colliders[i].position = new Vector3(0, ColliderOldPos[i].y, ColliderOldPos[i].z);
+    //        }
+    //        else
+    //        {
+    //            //Colliders[i].position = UpPos.GetChild(i).position;
+    //        }
+    //    }
+    //    Player.FollowCollider();
+    //}
     #region 相机逻辑
     /// <summary>
     /// 摄像机移动
@@ -123,26 +121,26 @@ public class GameManager : MonoBehaviour
 
         switch (type)
         {
-            case RotationType.Front:
-                Camera.main.orthographic = true;
-                endRotation = Vector3.zero;
-                endPos = new Vector3(Center.x, Center.y, MinPos.z - 4);
-                break;
-            case RotationType.Right:
-                Camera.main.orthographic = true;
-                endRotation = new Vector3(0, -90, 0);
-                endPos = new Vector3(MaxPos.x + 4, Center.y, Center.z);
-                break;
-            case RotationType.Back:
-                Camera.main.orthographic = true;
-                endRotation = new Vector3(0, 180, 0);
-                endPos = new Vector3(Center.x, Center.y, MaxPos.z + 4);
-                break;
-            case RotationType.Left:
-                Camera.main.orthographic = true;
-                endRotation = new Vector3(0, 90, 0);
-                endPos = new Vector3(MinPos.x - 4, Center.y, Center.z);
-                break;
+            //case RotationType.Front:
+            //    Camera.main.orthographic = true;
+            //    endRotation = Vector3.zero;
+            //    endPos = new Vector3(Center.x, Center.y, MinPos.z - 4);
+            //    break;
+            //case RotationType.Right:
+            //    Camera.main.orthographic = true;
+            //    endRotation = new Vector3(0, -90, 0);
+            //    endPos = new Vector3(MaxPos.x + 4, Center.y, Center.z);
+            //    break;
+            //case RotationType.Back:
+            //    Camera.main.orthographic = true;
+            //    endRotation = new Vector3(0, 180, 0);
+            //    endPos = new Vector3(Center.x, Center.y, MaxPos.z + 4);
+            //    break;
+            //case RotationType.Left:
+            //    Camera.main.orthographic = true;
+            //    endRotation = new Vector3(0, 90, 0);
+            //    endPos = new Vector3(MinPos.x - 4, Center.y, Center.z);
+            //    break;
             case RotationType.Up:
                 Camera.main.orthographic = true;
                 endRotation = new Vector3(35, 135, 0);
@@ -266,8 +264,9 @@ public class GameManager : MonoBehaviour
 
 
     private string[] objectsToDestroy= { "Player(Clone)", "FuncBlock(Clone)", "NoFuncBlock(Clone)" };//TODO：此处应写需要再切换时候删除的元素
+    
     // 切换回关卡选择UI的功能
-    public void SwitchToLevelSelectUI()
+    public void SwitchToLevelSelectUI(bool isAdd=false)
     {
 
         // 删除指定的物体
@@ -284,11 +283,13 @@ public class GameManager : MonoBehaviour
                 Debug.LogWarning(objName + " not found.");
             }
         }
-
-        // 返回关卡选择UI界面（假设你有一个UI管理器来处理UI的切换）
-        //UIManager.Instance.Open("LevelSelectUI", null, "LevelSelectUI", null);
-
-        // 如果需要清理其他资源或状态（例如重置游戏状态），可以在这里添加
+        if (isAdd)
+        {
+            GameMgr.Get<IDataManager>().ChangePlayerLevel(QXData.Instance.Get<PlayerData>().PLevel+1);
+        }
+        // 返回关卡选择UI界面
+        //TODO:此处应该修正为关卡胜利UI
+        UIManager.Instance.Open("LevelUI", null, "LevelUI", null);
     }
 
 

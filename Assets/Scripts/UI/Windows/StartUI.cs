@@ -13,10 +13,6 @@ using UnityEngine.UI;
 public class StartUI : UIBase
 {
     #region 参数区
-    private string Fight = "FightProcedure";
-    private int ButtonPressTime { get; set; }
-
-    MonsterData monsterData = new MonsterData();
     #endregion
     public override void OnDisplay(object args)
     {
@@ -67,7 +63,8 @@ public class StartUI : UIBase
     #region NewGameButton
     private void OnNewGameButton(GameObject obj, PointerEventData pData)        //(GameObject obj, PointerEventData pData)
     {
-        GameManager.Instance.Init();
+        //GameManager.Instance.Init();
+        UIManager.Instance.StartBlackoutAndReveal(1f, null, "LevelUI", null);
         UIManager.Instance.Close("StartUI");
     }
     #endregion

@@ -7,7 +7,7 @@ public class ButtonController : MonoBehaviour
 {
     public Button[] buttons;  // 存储所有按钮
 
-    void Start()
+    void OnEnable()
     {
         // 初始化所有按钮的状态
         UpdateButtonStates();
@@ -25,12 +25,6 @@ public class ButtonController : MonoBehaviour
             // 根据data值决定按钮是否可点击
             button.interactable = (QXData.Instance.Get<PlayerData>().PLevel == levelIndex);
         }
-    }
-
-    // 假设数据发生变化时调用这个方法
-    public void OnDataChanged(int newData)
-    {
-        UpdateButtonStates();
     }
 }
 
