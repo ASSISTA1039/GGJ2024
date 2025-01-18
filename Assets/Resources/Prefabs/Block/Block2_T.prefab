@@ -10,7 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1839077847404933571}
   - component: {fileID: 2348081146994213996}
-  m_Layer: 0
+  - component: {fileID: 9200694358382758748}
+  - component: {fileID: 3059274425716964252}
+  m_Layer: 8
   m_Name: block_brick_black_1(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,6 +56,45 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!65 &9200694358382758748
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1785970266156726004}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3059274425716964252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1785970266156726004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ec9f51a0c38beb47a9b542728608690, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thetag: 
+  iselc: 0
+  raycastDistance: 1
+  collisionLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &3053335297536680381
 GameObject:
   m_ObjectHideFlags: 0
@@ -65,7 +106,7 @@ GameObject:
   - component: {fileID: 6117396670610707478}
   - component: {fileID: 1901170493332427397}
   - component: {fileID: 6218635402321617160}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: block_brick_black_1_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -82,8 +123,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 50, y: 50, z: 50}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 5011896748434841412}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -94,7 +135,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3053335297536680381}
-  m_Mesh: {fileID: 4300000, guid: 4e202a43983787e4ebe01e96d828f0cf, type: 3}
+  m_Mesh: {fileID: -116314094657434988, guid: ebc51b4e0db53e844a86e98386ee6ec2, type: 3}
 --- !u!23 &6218635402321617160
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -115,7 +156,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0bb6c016790392c42a521dd3c77e34c4, type: 2}
+  - {fileID: 2100000, guid: 14e50886886b5a745bb9586f627c01be, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -146,7 +187,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5297652575424893659}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Block2_T
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -183,7 +224,7 @@ GameObject:
   - component: {fileID: 4007311054957498391}
   - component: {fileID: 6251836813811541421}
   - component: {fileID: 3575541633375744615}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: block_brick_black_1_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -200,8 +241,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 50, y: 50, z: 50}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 5234626019566502424}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -212,7 +253,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6500510902061251989}
-  m_Mesh: {fileID: 4300000, guid: 4e202a43983787e4ebe01e96d828f0cf, type: 3}
+  m_Mesh: {fileID: -116314094657434988, guid: ebc51b4e0db53e844a86e98386ee6ec2, type: 3}
 --- !u!23 &3575541633375744615
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -233,7 +274,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0bb6c016790392c42a521dd3c77e34c4, type: 2}
+  - {fileID: 2100000, guid: 14e50886886b5a745bb9586f627c01be, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -266,7 +307,7 @@ GameObject:
   - component: {fileID: 4295441041415969964}
   - component: {fileID: 6683442485642422289}
   - component: {fileID: 1835958366573925143}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: block_brick_black_1_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -283,8 +324,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 50, y: 50, z: 50}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 4617099712120460177}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -295,7 +336,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6592871083686069523}
-  m_Mesh: {fileID: 4300000, guid: 4e202a43983787e4ebe01e96d828f0cf, type: 3}
+  m_Mesh: {fileID: -116314094657434988, guid: ebc51b4e0db53e844a86e98386ee6ec2, type: 3}
 --- !u!23 &1835958366573925143
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -316,7 +357,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0bb6c016790392c42a521dd3c77e34c4, type: 2}
+  - {fileID: 2100000, guid: 14e50886886b5a745bb9586f627c01be, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -348,7 +389,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5011896748434841412}
   - component: {fileID: 764443822296084937}
-  m_Layer: 0
+  - component: {fileID: 6707942584559179487}
+  - component: {fileID: 1814668835993230327}
+  m_Layer: 8
   m_Name: block_brick_black_1(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -392,6 +435,45 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!65 &6707942584559179487
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7171566544670414196}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1814668835993230327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7171566544670414196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ec9f51a0c38beb47a9b542728608690, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thetag: 
+  iselc: 0
+  raycastDistance: 1
+  collisionLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &7554195366556554819
 GameObject:
   m_ObjectHideFlags: 0
@@ -402,7 +484,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4617099712120460177}
   - component: {fileID: 1029308615632792191}
-  m_Layer: 0
+  - component: {fileID: 6924551765217077910}
+  - component: {fileID: 5293501646794549193}
+  m_Layer: 8
   m_Name: block_brick_black_1(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -446,6 +530,45 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!65 &6924551765217077910
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7554195366556554819}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5293501646794549193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7554195366556554819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ec9f51a0c38beb47a9b542728608690, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thetag: 
+  iselc: 0
+  raycastDistance: 1
+  collisionLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &8741796495446241402
 GameObject:
   m_ObjectHideFlags: 0
@@ -457,7 +580,7 @@ GameObject:
   - component: {fileID: 2466846432350411260}
   - component: {fileID: 5963832194357375946}
   - component: {fileID: 688372831090810821}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: block_brick_black_1_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -474,8 +597,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 50, y: 50, z: 50}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1839077847404933571}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -486,7 +609,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8741796495446241402}
-  m_Mesh: {fileID: 4300000, guid: 4e202a43983787e4ebe01e96d828f0cf, type: 3}
+  m_Mesh: {fileID: -116314094657434988, guid: ebc51b4e0db53e844a86e98386ee6ec2, type: 3}
 --- !u!23 &688372831090810821
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -507,7 +630,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0bb6c016790392c42a521dd3c77e34c4, type: 2}
+  - {fileID: 2100000, guid: 14e50886886b5a745bb9586f627c01be, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -539,7 +662,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5234626019566502424}
   - component: {fileID: 780431507679345625}
-  m_Layer: 0
+  - component: {fileID: 453989758818475129}
+  - component: {fileID: 1447483959305433336}
+  m_Layer: 8
   m_Name: block_brick_black_1(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -583,3 +708,42 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!65 &453989758818475129
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8760606141485813678}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1447483959305433336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8760606141485813678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ec9f51a0c38beb47a9b542728608690, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thetag: 
+  iselc: 0
+  raycastDistance: 1
+  collisionLayer:
+    serializedVersion: 2
+    m_Bits: 0

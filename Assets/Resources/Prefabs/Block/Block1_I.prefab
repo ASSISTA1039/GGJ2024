@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6078094744527754867}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Block1_I
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,7 +45,12 @@ GameObject:
   m_Component:
   - component: {fileID: 2236517550228548973}
   - component: {fileID: 7320267050636932078}
-  m_Layer: 0
+  - component: {fileID: 888158783784736875}
+  - component: {fileID: 1188479483029733082}
+  - component: {fileID: 6417312738119788797}
+  - component: {fileID: 2915629023761146936}
+  - component: {fileID: 7873552409969219750}
+  m_Layer: 8
   m_Name: block_brick_black_1(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,6 +94,106 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!65 &888158783784736875
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2535730570837718818}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1188479483029733082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2535730570837718818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ec9f51a0c38beb47a9b542728608690, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thetag: 
+  iselc: 0
+  raycastDistance: 1
+  collisionLayer:
+    serializedVersion: 2
+    m_Bits: 0
+--- !u!114 &6417312738119788797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2535730570837718818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d490227ac3d2bd042aa07ff1c5919528, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightningPrefab: {fileID: 0}
+  minTime: 1
+  maxTime: 5
+  lightningDuration: 2
+  lightningRadius: 0.2
+--- !u!114 &2915629023761146936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2535730570837718818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d490227ac3d2bd042aa07ff1c5919528, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightningPrefab: {fileID: 0}
+  minTime: 1
+  maxTime: 5
+  lightningDuration: 2
+  lightningRadius: 0.2
+--- !u!54 &7873552409969219750
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2535730570837718818}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &3914630533172920608
 GameObject:
   m_ObjectHideFlags: 0
@@ -100,7 +205,7 @@ GameObject:
   - component: {fileID: 1564949778138223697}
   - component: {fileID: 812092265518269269}
   - component: {fileID: 5233100498572641203}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: block_brick_black_1_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,7 +234,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3914630533172920608}
-  m_Mesh: {fileID: 4300000, guid: 4e202a43983787e4ebe01e96d828f0cf, type: 3}
+  m_Mesh: {fileID: 4300004, guid: f134c1e54d47b4b419c0c8937970f05c, type: 3}
 --- !u!23 &5233100498572641203
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -150,7 +255,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0bb6c016790392c42a521dd3c77e34c4, type: 2}
+  - {fileID: 2100000, guid: 2e228be19d54a6a4cb79d796b611e4c6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -183,7 +288,7 @@ GameObject:
   - component: {fileID: 7115570187699175270}
   - component: {fileID: 7115162280102348281}
   - component: {fileID: 9135789368219601078}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: block_brick_black_1_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -212,7 +317,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3963790202452112718}
-  m_Mesh: {fileID: 4300000, guid: 4e202a43983787e4ebe01e96d828f0cf, type: 3}
+  m_Mesh: {fileID: 4300004, guid: f134c1e54d47b4b419c0c8937970f05c, type: 3}
 --- !u!23 &9135789368219601078
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -233,7 +338,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0bb6c016790392c42a521dd3c77e34c4, type: 2}
+  - {fileID: 2100000, guid: 2e228be19d54a6a4cb79d796b611e4c6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -266,7 +371,7 @@ GameObject:
   - component: {fileID: 292402181525891012}
   - component: {fileID: 9163217799880362911}
   - component: {fileID: 4290364453263800143}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: block_brick_black_1_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -295,7 +400,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4146957472526491013}
-  m_Mesh: {fileID: 4300000, guid: 4e202a43983787e4ebe01e96d828f0cf, type: 3}
+  m_Mesh: {fileID: 4300004, guid: f134c1e54d47b4b419c0c8937970f05c, type: 3}
 --- !u!23 &4290364453263800143
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -316,7 +421,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0bb6c016790392c42a521dd3c77e34c4, type: 2}
+  - {fileID: 2100000, guid: 2e228be19d54a6a4cb79d796b611e4c6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -348,7 +453,12 @@ GameObject:
   m_Component:
   - component: {fileID: 7093378518322901341}
   - component: {fileID: 3694341844118567199}
-  m_Layer: 0
+  - component: {fileID: 1317502637413311629}
+  - component: {fileID: 632405476892090000}
+  - component: {fileID: 5630836707073731504}
+  - component: {fileID: 7554754483726886693}
+  - component: {fileID: 9194503299547059681}
+  m_Layer: 8
   m_Name: block_brick_black_1(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -392,6 +502,106 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!65 &1317502637413311629
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5061477134143794615}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &632405476892090000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5061477134143794615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ec9f51a0c38beb47a9b542728608690, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thetag: 
+  iselc: 0
+  raycastDistance: 1
+  collisionLayer:
+    serializedVersion: 2
+    m_Bits: 0
+--- !u!114 &5630836707073731504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5061477134143794615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d490227ac3d2bd042aa07ff1c5919528, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightningPrefab: {fileID: 0}
+  minTime: 1
+  maxTime: 5
+  lightningDuration: 2
+  lightningRadius: 0.2
+--- !u!114 &7554754483726886693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5061477134143794615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d490227ac3d2bd042aa07ff1c5919528, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightningPrefab: {fileID: 0}
+  minTime: 1
+  maxTime: 5
+  lightningDuration: 2
+  lightningRadius: 0.2
+--- !u!54 &9194503299547059681
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5061477134143794615}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &5267138564653900059
 GameObject:
   m_ObjectHideFlags: 0
@@ -403,7 +613,7 @@ GameObject:
   - component: {fileID: 3326251385943043572}
   - component: {fileID: 2939011768290817946}
   - component: {fileID: 5810884095872289057}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: block_brick_black_1_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -432,7 +642,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5267138564653900059}
-  m_Mesh: {fileID: 4300000, guid: 4e202a43983787e4ebe01e96d828f0cf, type: 3}
+  m_Mesh: {fileID: 4300004, guid: f134c1e54d47b4b419c0c8937970f05c, type: 3}
 --- !u!23 &5810884095872289057
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -453,7 +663,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0bb6c016790392c42a521dd3c77e34c4, type: 2}
+  - {fileID: 2100000, guid: 2e228be19d54a6a4cb79d796b611e4c6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -485,7 +695,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4102731593633727106}
   - component: {fileID: 1389700682850726578}
-  m_Layer: 0
+  - component: {fileID: 7752965807625854433}
+  - component: {fileID: 665028440701335294}
+  - component: {fileID: 1774853316912544270}
+  - component: {fileID: 2185334750642509718}
+  - component: {fileID: 231357891834435108}
+  m_Layer: 8
   m_Name: block_brick_black_1(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -529,6 +744,106 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!65 &7752965807625854433
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5638014821275650346}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &665028440701335294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5638014821275650346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ec9f51a0c38beb47a9b542728608690, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thetag: 
+  iselc: 0
+  raycastDistance: 1
+  collisionLayer:
+    serializedVersion: 2
+    m_Bits: 0
+--- !u!114 &1774853316912544270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5638014821275650346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d490227ac3d2bd042aa07ff1c5919528, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightningPrefab: {fileID: 0}
+  minTime: 1
+  maxTime: 5
+  lightningDuration: 2
+  lightningRadius: 0.2
+--- !u!114 &2185334750642509718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5638014821275650346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d490227ac3d2bd042aa07ff1c5919528, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightningPrefab: {fileID: 0}
+  minTime: 1
+  maxTime: 5
+  lightningDuration: 2
+  lightningRadius: 0.2
+--- !u!54 &231357891834435108
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5638014821275650346}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &8157149748026991423
 GameObject:
   m_ObjectHideFlags: 0
@@ -539,7 +854,12 @@ GameObject:
   m_Component:
   - component: {fileID: 2142049071317931075}
   - component: {fileID: 5916207666100850657}
-  m_Layer: 0
+  - component: {fileID: 5634409494519614311}
+  - component: {fileID: 7761415552637805276}
+  - component: {fileID: 6802180648467984063}
+  - component: {fileID: 1006303299272186728}
+  - component: {fileID: 1044791289525093058}
+  m_Layer: 8
   m_Name: block_brick_black_1(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -583,3 +903,103 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!65 &5634409494519614311
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8157149748026991423}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7761415552637805276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8157149748026991423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ec9f51a0c38beb47a9b542728608690, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thetag: 
+  iselc: 0
+  raycastDistance: 1
+  collisionLayer:
+    serializedVersion: 2
+    m_Bits: 0
+--- !u!114 &6802180648467984063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8157149748026991423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d490227ac3d2bd042aa07ff1c5919528, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightningPrefab: {fileID: 0}
+  minTime: 1
+  maxTime: 5
+  lightningDuration: 2
+  lightningRadius: 0.2
+--- !u!114 &1006303299272186728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8157149748026991423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d490227ac3d2bd042aa07ff1c5919528, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightningPrefab: {fileID: 0}
+  minTime: 1
+  maxTime: 5
+  lightningDuration: 2
+  lightningRadius: 0.2
+--- !u!54 &1044791289525093058
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8157149748026991423}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

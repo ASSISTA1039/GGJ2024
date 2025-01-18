@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     public void Awake()
     {
         Player= gameObject.GetComponent<PlayerCharacter>();
-        MiniMapCamera = GameObject.Find("MiniMapCamera").GetComponent<Camera>();
+        MiniMapCamera = GameObject.Find("MiniMapCamera").GetComponent<Camera>(); 
         if(MiniMapCamera!=null)
             MiniMapCamera.transform.rotation = Quaternion.Euler(90, 0, 0);
     }
