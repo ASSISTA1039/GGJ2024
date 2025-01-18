@@ -83,8 +83,17 @@ public class PlayerAct : MonoBehaviour
     {
         if (health <= 0)
         {
+            //Animator animator=this.gameObject.GetComponent<Animator>;
+            Animator animator = this.gameObject.GetComponent<Animator>();
+                if (animator != null)
+                    animator.SetFloat ("HP", 0f);
+               
+            else
+            {
+                animator.SetBool("IsWalk", true);
+            }
             Debug.Log("玩家死亡");
-            UIManager.Instance.Open("DeathUI");
+            UIManager.Instance.Open("DeathUI",4, "DeathUI");
             //TODO：玩家死亡的相关流程
         }
 

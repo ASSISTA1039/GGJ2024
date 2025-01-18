@@ -21,7 +21,7 @@ public class TitleProcedure : ProcedureBase {
     {
         base.OnEnter(args);
         //UIManager.Instance.StartBlackoutAndReveal(2,null,"StartUI",null);
-        UIManager.Instance.Open("StartUI");
+        UIManager.Instance.Open("StartPage",2, "StartPage");
         //副流程，Startmodule
         //AddSubmodule(new StartModule());
         //ProcedureManager.Instance.ChangeTo("FightProcedure");

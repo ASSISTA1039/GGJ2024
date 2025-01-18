@@ -24,7 +24,7 @@ public class ButtonController : MonoBehaviour
 
             // 根据data值决定按钮是否可点击
             button.interactable = (QXData.Instance.Get<PlayerData>().PLevel >= levelIndex);
-            button.gameObject.SetActive(QXData.Instance.Get<PlayerData>().PLevel >= levelIndex);
+            //button.gameObject.SetActive(QXData.Instance.Get<PlayerData>().PLevel >= levelIndex);
         }
     }
 }
