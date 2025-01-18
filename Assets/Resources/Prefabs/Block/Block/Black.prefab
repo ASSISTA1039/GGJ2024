@@ -69,6 +69,10 @@ PrefabInstance:
       value: Black
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 8f86ea31bf2e93d40bd1bcd09c494d83, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8f86ea31bf2e93d40bd1bcd09c494d83, type: 3}
       propertyPath: m_TagString
       value: Block 4
       objectReference: {fileID: 0}
@@ -122,7 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thetag: 
-  iselc: 0
+  isELC: 0
   targetposition: {x: 0, y: 0, z: 0}
   raycastDistance: 1
   collisionLayer:

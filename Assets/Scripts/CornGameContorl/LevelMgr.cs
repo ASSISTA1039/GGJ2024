@@ -34,8 +34,8 @@ public class LevelMgr : MonoBehaviour
     /// <returns></returns>
     public Vector3 LoadMap(int _level)
     {
-        MapPart1 = Resources.Load<GameObject>("Prefabs/Map/level" + _level.ToString()+ "/FuncBlocks");
-        MapPart2 = Resources.Load<GameObject>("Prefabs/Map/level" + _level.ToString()+ "/NoFuncBlocks");
+        MapPart1 = Resources.Load<GameObject>("Prefabs/Map/level" + _level.ToString()+ "/0");
+        MapPart2 = Resources.Load<GameObject>("Prefabs/Map/level" + _level.ToString()+ "/1");
         if (MapPart1 == null || MapPart2 == null)
         {
             Debug.LogError("Failed to load one or more prefabs.");
@@ -58,7 +58,7 @@ public class LevelMgr : MonoBehaviour
 public Vector3 CalculateAveragePosition()
     {
         // 定义需要遍历的多个标签
-        List<string> tagsToCheck = new List<string> { "Block0", "Block1", "Block2", "Block3", "Block4", "Block5" }; // 需要修改标签
+        List<string> tagsToCheck = new List<string> { "Block0", "Block1", "Block2", "Block3", "Block4", "Block5","Draggable" }; // 需要修改标签
 
         // 获取所有场景中的物体
         GameObject[] allObjects = GameObject.FindObjectsOfType<GameObject>();

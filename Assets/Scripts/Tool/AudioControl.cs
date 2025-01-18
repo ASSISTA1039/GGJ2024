@@ -47,7 +47,7 @@ public class AudioControl : MonoBehaviour
     /// <param name="audioname"></param>
     public void PlaySound(string audioname, float volume=1)
     {
-        volume = soundVolume;
+        //volume = soundVolume;
         if (AudioDictionary.ContainsKey(audioname))
         {
             if (AudioDictionary[audioname] <= MaxAudioCount)

@@ -1530,7 +1530,7 @@ MonoBehaviour:
   drawTripods: 0
   boneSize: 1
   tripodSize: 1
-  boneColor: {r: 0, g: 0, b: 1, a: 0.5}
+  boneColor: {r: 0, g: 0, b: 1, a: 0.77254903}
   m_Transforms:
   - {fileID: 3544560276715333891}
   - {fileID: 2081803587219664767}
@@ -1690,7 +1690,7 @@ MonoBehaviour:
   raycastDistance: 1
   collisionLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
 --- !u!54 &7538518447183770275
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1725,7 +1725,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5265998873082475508}
-  m_Material: {fileID: 13400000, guid: d4cf7eb0eba099b43b0adba2361c51aa, type: 2}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
