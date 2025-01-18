@@ -43,13 +43,15 @@ public class BlockW : MonoBehaviour
         }
         else if(S1 != null && S2 != null)
         {
-            //012,-112,-212,-211,-210
             List<Vector3> list = new List<Vector3>();
             list.Add(new Vector3(1,0,1));
             list.Add(new Vector3(0,0,1));
             list.Add(new Vector3(-1,0,1));
             list.Add(new Vector3(-1,0,0));
             list.Add(new Vector3(-1,0,-1));
+            list.Add(new Vector3(1,0,0));
+            list.Add(new Vector3(1,0,0));
+            list.Add(new Vector3(0,0,-1));
 
             if (S2.transform.position.y - S1.transform.position.y > 0)
             {

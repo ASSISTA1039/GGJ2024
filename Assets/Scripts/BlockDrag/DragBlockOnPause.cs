@@ -73,8 +73,28 @@ public class DragBlockOnGrid : MonoBehaviour
         if (Physics.Raycast(ray, out RaycastHit hit))
         {
             // 获取物体标签并根据标签设置拖动规则
-            string hitTag = hit.collider.tag;
-            moveDirection = GetMoveDirectionForTag(hitTag);
+
+            //string hitTag = hit.collider.tag;
+            if (hit.transform.parent.GetComponent<BlockMove>().x|| hit.transform.parent.GetComponent<BlockMove>().z)
+            {
+                if (hit.transform.parent.GetComponent<BlockMove>().x && hit.transform.parent.GetComponent<BlockMove>().z)
+                {
+                    moveDirection = MoveDirection.XZ;
+                }
+                else if (!hit.transform.parent.GetComponent<BlockMove>().x)
+                {
+                    moveDirection = MoveDirection.Z;
+                }
+                else
+                {
+                    moveDirection = MoveDirection.X;
+                }
+            }
+            else
+            {
+                moveDirection = MoveDirection.None;
+            }
+            moveDirection = MoveDirection.XZ;//GetMoveDirectionForTag(hitTag);
             //GameObject Player = GameObject.FindWithTag("Player");
             draggedBlock = hit.transform.parent;
            
@@ -233,7 +253,7 @@ public class DragBlockOnGrid : MonoBehaviour
         Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out RaycastHit hit))
         {
-            if (hit.collider.CompareTag("Block 1"))
+            if (hit.transform.parent.GetComponent<BlockMove>().rotatex|| hit.transform.parent.GetComponent<BlockMove>().rotatey|| hit.transform.parent.GetComponent<BlockMove>().rotatez)
             {
                 _tran = hit.transform.parent;
             }
@@ -254,9 +274,19 @@ public class DragBlockOnGrid : MonoBehaviour
         isRotating = true;
 
         // 根据方向选择旋转的轴
-        Vector3 targetRotation = _tran.eulerAngles;
-        targetRotation += new Vector3(0,90,0);
-
+        Vector3 targetRotation = _tran.eulerAngles; 
+        if (_tran.GetComponent<BlockMove>().rotatex)
+        {
+            targetRotation += new Vector3(90, 0, 0);
+        }
+        if (_tran.GetComponent<BlockMove>().rotatey)
+        {
+            targetRotation += new Vector3(0, 90, 0);
+        }
+        if (_tran.GetComponent<BlockMove>().rotatez)
+        {
+            targetRotation += new Vector3(0, 90, 90);
+        }
         clone = Instantiate(_tran.gameObject);
         clone.name = _tran.gameObject.name + "_Clone";
         for (int i = 0; i < clone.transform.childCount; i++)
