@@ -251,7 +251,9 @@ public class GameManager : MonoBehaviour
         GameObject block = GameObject.FindGameObjectWithTag("Block 0");
         if (block != null)
         {
+            
             Vector3 spawnPosition = block.transform.position + Vector3.up;
+            Debug.Log(spawnPosition);
             Player = Instantiate(Resources.Load<GameObject>("Prefabs/Player/Player")).GetComponent<PlayerCharacter>();
             Player.transform.position = spawnPosition;
             Camera.main.GetComponent<CameraController>().LookAttarGet = Player.transform;//相机位置追踪

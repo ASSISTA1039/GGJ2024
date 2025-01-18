@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4998161388229690614}
   m_Layer: 8
   m_Name: block_brick_brown_1_LOD0
-  m_TagString: Block 0
+  m_TagString: Block 5
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -181,7 +181,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 4436234358465429370}
+  - {fileID: 2260265276848235253}
   - {fileID: 1302375507408739684}
   - {fileID: 4625051444806578575}
   - {fileID: 7110113513974830508}
@@ -481,12 +481,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5581846846766760334}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -5}
   m_LocalScale: {x: 50, y: 50, z: 50}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 2260265276848235253}
+  m_Father: {fileID: 4436234358465429370}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1729864018332299799
 MeshFilter:
@@ -571,8 +571,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 9147030755718646187}
-  m_Father: {fileID: 4436234358465429370}
+  - {fileID: 4436234358465429370}
+  m_Father: {fileID: 3291552659679401009}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &2007502182978873715
 Animator:
@@ -640,13 +640,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6179473165219190206}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2260265276848235253}
-  m_Father: {fileID: 3291552659679401009}
+  - {fileID: 9147030755718646187}
+  m_Father: {fileID: 2260265276848235253}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7161294278214402299
 GameObject:
