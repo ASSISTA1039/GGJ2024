@@ -1691,6 +1691,9 @@ MonoBehaviour:
   collisionLayer:
     serializedVersion: 2
     m_Bits: 256
+  waterLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!54 &7538518447183770275
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1740,7 +1743,7 @@ CapsuleCollider:
   m_Radius: 0.6326122
   m_Height: 3.9633436
   m_Direction: 1
-  m_Center: {x: -0.029803157, y: 1.8641973, z: 0}
+  m_Center: {x: 0, y: 1.8641973, z: 0}
 --- !u!1 &5290536094476411270
 GameObject:
   m_ObjectHideFlags: 0

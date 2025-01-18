@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using QxFramework.Core;
 
 public class PlayerAct : MonoBehaviour
 {
@@ -51,24 +52,38 @@ public class PlayerAct : MonoBehaviour
             {
                 health -= 1;
             }
+            if (CurBoxCollider.gameObject.tag == "Block 4")
+            {
+                Debug.Log("1");
+                CurBoxCollider.gameObject.GetComponent<BlockAct>().isdes = true;
+            }
             RaycastHit hit;
 
-            if (Physics.Raycast(transform.position - 0.5f * Vector3.up, Vector3.down, out hit, Mathf.Infinity, waterLayer))
+            if (Physics.Raycast(transform.position, Vector3.down, out hit, Mathf.Infinity))
             {
                 // 如果射线与水体碰撞，说明人物在水中
-                if (hit.collider.CompareTag("Water") && hit.collider.GetComponent<BlockAct>().isELC)
+                if (hit.collider.GetComponent<BlockAct>().isELC)
                 {
                     health -= 1;
                 }
             }
         }
+
+        if (transform.position.y <= -10f)
+        {
+            health -= 1;
+        }
+
     }
+
+
 
     public void Death()
     {
         if (health <= 0)
         {
             Debug.Log("玩家死亡");
+            UIManager.Instance.Open("DeathUI");
             //TODO：玩家死亡的相关流程
         }
 

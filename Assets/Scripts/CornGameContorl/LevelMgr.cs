@@ -34,8 +34,10 @@ public class LevelMgr : MonoBehaviour
     /// <returns></returns>
     public Vector3 LoadMap(int _level)
     {
-        MapPart1 = Resources.Load<GameObject>("Prefabs/Map/level" + _level.ToString()+ "/FuncBlocks");
-        MapPart2 = Resources.Load<GameObject>("Prefabs/Map/level" + _level.ToString()+ "/NoFuncBlocks");
+        MapPart1 = Resources.Load<GameObject>("Prefabs/Map/level" + _level.ToString() + "/1");
+        MapPart2 = Resources.Load<GameObject>("Prefabs/Map/level" + _level.ToString()+ "/0");
+        //MapPart1 = Resources.Load<GameObject>("Prefabs/Map/level" + _level.ToString()+ "/FuncBlocks");
+        //MapPart2 = Resources.Load<GameObject>("Prefabs/Map/level" + _level.ToString()+ "/NoFuncBlocks");
         if (MapPart1 == null || MapPart2 == null)
         {
             Debug.LogError("Failed to load one or more prefabs.");

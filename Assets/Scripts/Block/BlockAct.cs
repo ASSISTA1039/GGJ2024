@@ -14,10 +14,28 @@ public class BlockAct: MonoBehaviour
     public LayerMask collisionLayer;  // 碰撞层
 
     private Tween moveTween;
+    public bool isdes;
+    public bool isdesbool;
 
     private void Start()
     {
         Act();
+        isdes = false;
+        isdesbool = false;
+    }
+    private void Update()
+    {
+        if (isdes && !isdesbool)
+        {
+            isdesbool = true;
+            StartCoroutine(WaitForSecondsExample());
+        }
+    }
+
+    IEnumerator WaitForSecondsExample()
+    {
+        yield return new WaitForSeconds(2f);  // 等待 2 秒
+        Destroy(gameObject);
     }
     #region 方块反应
     public void Act()
@@ -95,6 +113,15 @@ public class BlockAct: MonoBehaviour
 
     public void Electric()
     {
+        for (int i = 0; i < transform.parent.childCount; i++)
+        {
+            // 获取子物体
+            Transform childTransform = transform.parent.GetChild(i);
+            if (childTransform.gameObject.GetComponent<BlockAct>() != null)
+            {
+                childTransform.gameObject.GetComponent<BlockAct>().isELC = true;//触发每一个子物体的带电
+            }
+        }
         isELC = true;
     }
 
