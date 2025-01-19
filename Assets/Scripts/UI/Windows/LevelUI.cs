@@ -32,7 +32,7 @@ public class LevelUI : UIBase
     {
         //GameManager.Instance.GameStart(0);
         //UIManager.Instance.Open("GameUI");
-        //OnClose();
+        //OnClose();1,xiu
     }
     private void OnLevel0Exit(GameObject obj, PointerEventData pData)
     {
@@ -48,7 +48,7 @@ public class LevelUI : UIBase
             GameManager.Instance.GameStart(1);
             UIManager.Instance.Open("GameUI");
             AudioManager.Instance.StopBGM();
-            AudioManager.Instance.PlayBGM("chapter 2 salvation");
+            AudioManager.Instance.PlayBGM("chapter 2 broken");
             OnClose();
         }
     }
@@ -60,7 +60,7 @@ public class LevelUI : UIBase
             GameManager.Instance.GameStart(2);
             UIManager.Instance.Open("GameUI");
             AudioManager.Instance.StopBGM();
-            AudioManager.Instance.PlayBGM("chapter 3 broken"); 
+            AudioManager.Instance.PlayBGM("chapter 3 salvation"); 
             OnClose();
         }
     }

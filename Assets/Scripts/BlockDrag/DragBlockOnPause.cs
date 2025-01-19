@@ -23,7 +23,7 @@ public class DragBlockOnGrid : MonoBehaviour
     public int rotationAngle = 90;//旋转角度
     public float duration = 1f;//旋转时间
     private bool isRotating = false; // 标记是否正在旋转
-    bool isPlayerStand = true;
+    bool isPlayerStand = false;
 
     private Tween moveTween;
     Transform _tran;
@@ -114,21 +114,21 @@ public class DragBlockOnGrid : MonoBehaviour
 
     private void Drag()
     {
-        GameObject Player = GameObject.FindWithTag("Player");
-
-        if (Player != null)
-        {
-            Transform playerPosition = Player.GetComponent<PlayerCharacter>().CurBoxCollider;
-            Debug.Log("P=" + playerPosition.parent.gameObject + "D=" + draggedBlock.gameObject);
-            if (playerPosition.parent.gameObject != draggedBlock.gameObject)
-            {
-                isPlayerStand = false;
-            }
-            else
-            {
-                isPlayerStand = true;
-            }
-        }
+        //GameObject Player = GameObject.FindWithTag("Player");
+        Time.timeScale = 0;
+        //if (Player != null)
+        //{
+        //    Transform playerPosition = Player.GetComponent<PlayerCharacter>().CurBoxCollider;
+        //    Debug.Log("P=" + playerPosition.parent.gameObject + "D=" + draggedBlock.gameObject);
+        //    if (playerPosition.parent.gameObject != draggedBlock.gameObject)
+        //    {
+        //        isPlayerStand = false;
+        //    }
+        //    else
+        //    {
+        //        isPlayerStand = true;
+        //    }
+        //}
         Vector3 currentMousePosition = GetMousePositionOnPlane(); // 当前鼠标在平面上的位置
         dragOffset = currentMousePosition - startDragPosition; // 计算鼠标拖动的偏移量
 
@@ -192,6 +192,7 @@ public class DragBlockOnGrid : MonoBehaviour
     {
         if (draggedBlock != null)
         {
+            Time.timeScale = 1;
             mark = draggedBlock.gameObject;
             BlockA(mark);
             draggedBlock = null; // 停止拖动
