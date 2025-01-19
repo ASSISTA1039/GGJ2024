@@ -47,6 +47,8 @@ public class LevelUI : UIBase
         {
             GameManager.Instance.GameStart(1);
             UIManager.Instance.Open("GameUI");
+            AudioManager.Instance.StopBGM();
+            AudioManager.Instance.PlayBGM("chapter 2 salvation");
             OnClose();
         }
     }
@@ -57,12 +59,15 @@ public class LevelUI : UIBase
         {
             GameManager.Instance.GameStart(2);
             UIManager.Instance.Open("GameUI");
+            AudioManager.Instance.StopBGM();
+            AudioManager.Instance.PlayBGM("chapter 3 broken"); 
             OnClose();
         }
     }
 
     private void OnSettingButton(GameObject obj, PointerEventData pData)
     {
+        
         UIManager.Instance.Open("SettingUI");
     }
 

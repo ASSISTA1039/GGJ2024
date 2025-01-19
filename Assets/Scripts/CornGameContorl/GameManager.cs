@@ -67,6 +67,19 @@ public class GameManager : MonoBehaviour
         //Center = new Vector3(Cube.position.x, Cube.position.y, Cube.position.z);//确定相机位置
         _rotationType = RotationType.Up;//更改视角
         CreatePlayer();//创建玩家
+        
+        if (QXData.Instance.Get<PlayerData>().PLevel == 0)
+        {
+            Center = new Vector3(-8.5f, 9.6f, 11.2f);
+        }
+        if (QXData.Instance.Get<PlayerData>().PLevel == 1)
+        {
+            Center = new Vector3(-10.5f, 25.9f, 15.2f);
+        }
+        if (QXData.Instance.Get<PlayerData>().PLevel == 2)
+        {
+            Center = new Vector3(-19.3f, 33.4f, 22.3f);
+        }
         CameraMove(_rotationType, true);
         //ColliderMove(_rotationType);
     }
@@ -148,7 +161,7 @@ public class GameManager : MonoBehaviour
             case RotationType.Up:
                 Camera.main.orthographic = true;
                 endRotation = new Vector3(35, 135, 0);
-                endPos = Center - Quaternion.Euler(endRotation) * Vector3.forward * 10;
+                endPos = Center;
                 break;
         }
 
@@ -170,10 +183,11 @@ public class GameManager : MonoBehaviour
     // 相机移动完成后的回调
     void OnCameraMoveComplete()
     {
+        
         // 确保 Timescale 设置为 0
         //if (rotationType == RotationType.Up)
-            //Time.timeScale = 0;
-            //此处为时间暂停，已删除
+        //Time.timeScale = 0;
+        //此处为时间暂停，已删除
     }
 
 

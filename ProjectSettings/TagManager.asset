@@ -13,6 +13,7 @@ TagManager:
   - Block 4
   - Block 5
   - Block 6
+  - KEY
   layers:
   - Default
   - TransparentFX

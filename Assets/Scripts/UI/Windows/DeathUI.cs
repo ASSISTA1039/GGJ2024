@@ -13,6 +13,7 @@ public class DeathUI : UIBase
     {
         //RegisterTrigger("Mode1").onClick = OnMusicUp;
         RegisterTrigger("DeathButton").onClick = OnDeath;
+        AudioManager.Instance.StopBGM();
 
     }
     private void OnDeath(GameObject obj, PointerEventData pData)
