@@ -73,7 +73,7 @@ public class DragBlockOnGrid : MonoBehaviour
         if (Physics.Raycast(ray, out RaycastHit hit))
         {
             // 获取物体标签并根据标签设置拖动规则
-            if (hit.transform.parent.GetComponent<BlockMove>() != null)
+            if (hit.transform.parent.GetComponent<BlockMove>() == null)
                 return;
 
             //string hitTag = hit.collider.tag;
@@ -251,7 +251,7 @@ public class DragBlockOnGrid : MonoBehaviour
         Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out RaycastHit hit))
         {
-            if (hit.transform.parent.GetComponent<BlockMove>() != null)
+            if (hit.transform.parent.GetComponent<BlockMove>() == null)
                 return;
 
             if (hit.transform.parent.GetComponent<BlockMove>().rotatex|| hit.transform.parent.GetComponent<BlockMove>().rotatey|| hit.transform.parent.GetComponent<BlockMove>().rotatez)
