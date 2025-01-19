@@ -2,6 +2,8 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.EventSystems;
 using Unity.VisualScripting;
+using System.Collections.Generic;
+using System.Collections;
 
 public class DragBlockOnGrid : MonoBehaviour
 {
@@ -18,8 +20,8 @@ public class DragBlockOnGrid : MonoBehaviour
     public bool directionx;//x方向旋转
     public bool directiony = true;//y方向旋转
     public bool directionz;//z方向旋转
-    public int rotationAngle=90;//旋转角度
-    public float duration=1f;//旋转时间
+    public int rotationAngle = 90;//旋转角度
+    public float duration = 1f;//旋转时间
     private bool isRotating = false; // 标记是否正在旋转
     bool isPlayerStand = true;
 
@@ -36,7 +38,7 @@ public class DragBlockOnGrid : MonoBehaviour
 
     void Update()
     {
-        if (GameManager.Instance.rotationType==RotationType.Up)
+        if (GameManager.Instance.rotationType == RotationType.Up)
         {
             // 鼠标点击开始检测
             if (Input.GetMouseButtonDown(0))
@@ -60,7 +62,7 @@ public class DragBlockOnGrid : MonoBehaviour
             {
                 Rotate();
             }
-          
+
         }
     }
 
@@ -73,32 +75,34 @@ public class DragBlockOnGrid : MonoBehaviour
         if (Physics.Raycast(ray, out RaycastHit hit))
         {
             // 获取物体标签并根据标签设置拖动规则
-            if (hit.transform.parent.GetComponent<BlockMove>() == null)
-                return;
 
             //string hitTag = hit.collider.tag;
-            if (hit.transform.parent.GetComponent<BlockMove>().x && hit.transform.parent.GetComponent<BlockMove>().z)
+            if (hit.transform.parent.GetComponent<BlockMove>().x || hit.transform.parent.GetComponent<BlockMove>().z)
             {
-                moveDirection = MoveDirection.XZ;
-            }
-            else if (!hit.transform.parent.GetComponent<BlockMove>().x && hit.transform.parent.GetComponent<BlockMove>().z)
-            {
-                moveDirection = MoveDirection.Z;
-            }
-            else if(hit.transform.parent.GetComponent<BlockMove>().x && !hit.transform.parent.GetComponent<BlockMove>().z)
-            {
-                moveDirection = MoveDirection.X;
+                if (hit.transform.parent.GetComponent<BlockMove>().x && hit.transform.parent.GetComponent<BlockMove>().z)
+                {
+                    moveDirection = MoveDirection.XZ;
+                }
+                else if (!hit.transform.parent.GetComponent<BlockMove>().x)
+                {
+                    moveDirection = MoveDirection.Z;
+                }
+                else
+                {
+                    moveDirection = MoveDirection.X;
+                }
             }
             else
             {
                 moveDirection = MoveDirection.None;
             }
+            //moveDirection = MoveDirection.XZ;//GetMoveDirectionForTag(hitTag);
             //GameObject Player = GameObject.FindWithTag("Player");
             draggedBlock = hit.transform.parent;
-           
+
 
             // 只有当物体标签为有效标签时才进行拖动
-            if (moveDirection != MoveDirection.None&& !isPlayerStand)
+            if (moveDirection != MoveDirection.None && !isPlayerStand)
             {
                 // 拖动父物体
                 //draggedBlock = hit.transform.parent;
@@ -111,7 +115,7 @@ public class DragBlockOnGrid : MonoBehaviour
     private void Drag()
     {
         GameObject Player = GameObject.FindWithTag("Player");
-     
+
         if (Player != null)
         {
             Transform playerPosition = Player.GetComponent<PlayerCharacter>().CurBoxCollider;
@@ -129,7 +133,7 @@ public class DragBlockOnGrid : MonoBehaviour
         dragOffset = currentMousePosition - startDragPosition; // 计算鼠标拖动的偏移量
 
         // 判断是否达到整格的移动条件
-        if ((Mathf.Abs(dragOffset.x) >= 0.7f * gridSize || Mathf.Abs(dragOffset.z) >= 0.7f * gridSize) && Mathf.Abs(dragOffset.x) < 1.4f * gridSize && Mathf.Abs(dragOffset.z) < 1.4f * gridSize&&!isPlayerStand)
+        if ((Mathf.Abs(dragOffset.x) >= 0.7f * gridSize || Mathf.Abs(dragOffset.z) >= 0.7f * gridSize) && Mathf.Abs(dragOffset.x) < 1.4f * gridSize && Mathf.Abs(dragOffset.z) < 1.4f * gridSize && !isPlayerStand)
         {
             // 根据拖动方向限制偏移量
             Vector3 constrainedDragOffset = dragOffset;
@@ -249,25 +253,12 @@ public class DragBlockOnGrid : MonoBehaviour
     {
         // 发射射线检测鼠标点击的方块
         Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out RaycastHit hit))
-        {
-            if (hit.transform.parent.GetComponent<BlockMove>() == null)
-                return;
+        if (!Physics.Raycast(ray, out RaycastHit hit)) return;
 
-            if (hit.transform.parent.GetComponent<BlockMove>().rotatex|| hit.transform.parent.GetComponent<BlockMove>().rotatey|| hit.transform.parent.GetComponent<BlockMove>().rotatez)
-            {
-                _tran = hit.transform.parent;
-            }
-            else
-            {
-                return;
-            }
-
-        }
-        else
-        {
-            return;
-        }
+        // 获取旋转对象
+        BlockMove blockMove = hit.transform.parent.GetComponent<BlockMove>();
+        if (blockMove == null || (!blockMove.rotatex && !blockMove.rotatey && !blockMove.rotatez)) return;
+        _tran = hit.transform.parent;
 
         if (isRotating) return;
 
@@ -275,48 +266,104 @@ public class DragBlockOnGrid : MonoBehaviour
         isRotating = true;
 
         // 根据方向选择旋转的轴
-        Vector3 targetRotation = _tran.eulerAngles; 
+        Vector3 rotationAxis = Vector3.zero;
+        if (blockMove.rotatex) rotationAxis = Vector3.right;
+        if (blockMove.rotatey) rotationAxis = Vector3.up;
+        if (blockMove.rotatez) rotationAxis = new Vector3(0, 1, 1);
 
-        if (_tran.GetComponent<BlockMove>().rotatex)
+        if (!CanRotate(rotationAxis))
         {
-            targetRotation += new Vector3(rotationAngle, 0, 0);
-        }
-        if (_tran.GetComponent<BlockMove>().rotatey)
-        {
-            targetRotation += new Vector3(0, rotationAngle, 0);
-        }
-        if (_tran.GetComponent<BlockMove>().rotatez)
-        {
-            targetRotation += new Vector3(0, 0, rotationAngle);
-        }
-        clone = Instantiate(_tran.gameObject);
-        clone.name = _tran.gameObject.name + "_Clone";
-        for (int i = 0; i < clone.transform.childCount; i++)
-        {
-            Transform childTransform = clone.transform.GetChild(i);
-            childTransform.gameObject.layer = 9;
-            childTransform.GetComponent<BoxCollider>().size *= 0.9f;
-            for (int j = 0; j < childTransform.transform.childCount; j++)
+            // 尝试反方向旋转
+            if (!CanRotate(-rotationAxis))
             {
-                Transform child = childTransform.transform.GetChild(j);
-                child.gameObject.layer = 9;
+                isRotating = false; // 无法旋转
+                return;
             }
+            rotationAxis = -rotationAxis;
         }
-        // 应用目标旋转
-        //.OnUpdate(Check)
-        moveTween = clone.transform.DORotateQuaternion(Quaternion.Euler(targetRotation.x, targetRotation.y, targetRotation.z), 0.1f).OnComplete(() => {
-            // 使用 DORotate 来旋转物体
-            _tran.DORotateQuaternion(Quaternion.Euler(targetRotation.x, targetRotation.y, targetRotation.z), duration)
-                .SetEase(Ease.Linear)
-                .OnComplete(() =>
-                {
-                // 旋转完成后，允许再次调用
-                isRotating = false;
-                BlockA(_tran.gameObject);
-                });
-            Destroy(clone);
-        });
+
+        Transform pivotChild = _tran.GetChild(0);
+        Vector3 pivotPosition = pivotChild.position;
+
+        StartCoroutine(RotateAroundPivot(pivotPosition, rotationAxis, 90));
+
+        //clone = Instantiate(_tran.gameObject);
+        //clone.name = _tran.gameObject.name + "_Clone";
+        //for (int i = 0; i < clone.transform.childCount; i++)
+        //{
+        //    Transform childTransform = clone.transform.GetChild(i);
+        //    childTransform.gameObject.layer = 9;
+        //    for (int j = 0; j < childTransform.transform.childCount; j++)
+        //    {
+        //        Transform child = childTransform.transform.GetChild(j);
+        //        child.gameObject.layer = 9;
+        //    }
+        //}
+
+        //moveTween = clone.transform.DORotateQuaternion(Quaternion.Euler(0, 90, 0), 0.1f).OnUpdate(Check).OnComplete(() => {
+        //    _tran.DORotateQuaternion(Quaternion.Euler(0, 90, 0), duration)
+        //        .SetEase(Ease.Linear)
+        //        .OnComplete(() =>
+        //        {
+        //            isRotating = false;
+        //            BlockA(_tran.gameObject);
+        //        });
+        //    Destroy(clone);
+        //});
     }
+
+    private IEnumerator RotateAroundPivot(Vector3 pivot, Vector3 axis, int angle)
+    {
+        List<Vector3> initialPositions = new List<Vector3>();
+        List<Quaternion> initialRotations = new List<Quaternion>();
+
+        for (int i = 0; i < _tran.childCount; i++)
+        {
+            initialPositions.Add(_tran.GetChild(i).position);
+            initialRotations.Add(_tran.GetChild(i).localRotation);
+        }
+
+        float time = 0f;
+        while (time < 1f)
+        {
+            float progress = time / 1f;
+
+            // 将每个子节点绕枢轴旋转
+            for (int i = 0; i < _tran.childCount; i++)
+            {
+                Transform child = _tran.GetChild(i);
+                Vector3 newPosition = GetPositionAfterRotation(initialPositions[i], pivot, axis, angle, progress, out Quaternion newRotation);
+                child.position = newPosition;
+                child.localRotation = newRotation;
+            }
+
+            time += Time.deltaTime;
+            yield return null;
+        }
+
+        for (int i = 0; i < _tran.childCount; i++)
+        {
+            Transform child = _tran.GetChild(i);
+            child.position = GetPositionAfterRotation(initialPositions[i], pivot, axis, angle, 1, out Quaternion newRotation);
+            child.localRotation = newRotation;
+        }
+        isRotating = false;
+        BlockA(_tran.gameObject);
+    }
+
+    private Vector3 GetPositionAfterRotation(Vector3 position, Vector3 pivot, Vector3 axis, int angle, float slerpT, out Quaternion rotation)
+    {
+        rotation = Quaternion.AngleAxis(angle, axis);
+
+        if (slerpT < 1)
+        {
+            rotation = Quaternion.Slerp(Quaternion.identity, rotation, slerpT);
+        }
+
+        // 绕枢轴旋转
+        return pivot + rotation * (position - pivot);
+    }
+
 
     void Check()
     {
@@ -325,20 +372,36 @@ public class DragBlockOnGrid : MonoBehaviour
             // 获取子物体
             Transform childTransform = clone.transform.GetChild(i);
 
-            Collider[] colliders = Physics.OverlapBox(childTransform.position,new Vector3(0.5f,0.5f,0.5f) , Quaternion.identity);
+            Collider[] colliders = Physics.OverlapBox(childTransform.position, new Vector3(0.4f, 0.4f, 0.4f), Quaternion.identity);
 
             foreach (var collider in colliders)
             {
-                if (collider.gameObject.transform.parent != childTransform.parent&& collider.gameObject.transform.parent != _tran)
+                if (collider.gameObject.transform.parent != childTransform.parent && collider.gameObject.transform.parent != _tran)
                 {
                     isRotating = false;
                     moveTween.Kill();
                     Destroy(clone);
-                    rotationAngle = -rotationAngle;
                 }
             }
-            
+
         }
     }
+    /// <summary>
+    /// 检测当前方块能否旋转
+    /// </summary>
+    private bool CanRotate(Vector3 axis)
+    {
+        Quaternion testRotation = Quaternion.AngleAxis(90, axis) * _tran.rotation;
+        foreach (Transform child in _tran)
+        {
+            Vector3 newPosition = testRotation * (child.position - _tran.position) + _tran.position;
+            Collider[] colliders = Physics.OverlapBox(newPosition, new Vector3(0.4f, 0.4f, 0.4f));
 
+            foreach (Collider collider in colliders)
+            {
+                if (collider.transform.parent != _tran) return false; // 目标位置被占用
+            }
+        }
+        return true;
+    }
 }
