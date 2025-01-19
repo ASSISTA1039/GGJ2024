@@ -20,7 +20,9 @@ public class TitleProcedure : ProcedureBase {
     protected override void OnEnter(object args)
     {
         base.OnEnter(args);
+        AudioManager.Instance.Init();
         //UIManager.Instance.StartBlackoutAndReveal(2,null,"StartUI",null);
+        AudioManager.Instance.PlayBGM("chapter 1 childhood");
         UIManager.Instance.Open("StartPage",2, "StartPage");
         //副流程，Startmodule
         //AddSubmodule(new StartModule());

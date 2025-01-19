@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     private PlayerCharacter Player;
     private Camera MiniMapCamera;
     [SerializeField, Header("相机高度")] public float CameraHigh=20f;
+    Animator animator;
 
     public void Awake()
     {
@@ -16,6 +17,10 @@ public class PlayerController : MonoBehaviour
         MiniMapCamera = GameObject.Find("MiniMapCamera").GetComponent<Camera>();
         if(MiniMapCamera!=null)
             MiniMapCamera.transform.rotation = Quaternion.Euler(90, 0, 0);
+        animator = this.gameObject.GetComponent<Animator>(); 
+        if(animator!=null)
+            animator.SetBool("IsWalk", false);
+
     }
 
     // Update is called once per frame
@@ -66,16 +71,16 @@ public class PlayerController : MonoBehaviour
             //}
             
         }
-       
-        
+
+        animator = this.gameObject.GetComponent<Animator>();
         if (!Player.gameObject.activeInHierarchy)
             return;
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
         bool isJump = Input.GetButtonDown("Jump");
-        Animator animator = this.gameObject.GetComponent<Animator>();
+        
 
-        if (CharacterInputSystem.Instance.playerMovement.x == 0 && CharacterInputSystem.Instance.playerMovement.y == 0)
+        if (h==0&&v == 0)
         {
             if (animator != null)
                 animator.SetBool("IsWalk", false);

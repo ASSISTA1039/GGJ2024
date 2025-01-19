@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using QxFramework.Core;
+using QxFramework;
 using System;
 using UnityEngine.UI;
 using TMPro;

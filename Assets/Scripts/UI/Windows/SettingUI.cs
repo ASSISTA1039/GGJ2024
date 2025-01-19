@@ -17,7 +17,7 @@ public class SettingUI : UIBase
     private void Quit(GameObject obj, PointerEventData pData)
     {
         UIManager.Instance.CloseAll();
-        UIManager.Instance.Open("LoginUI",1,"LoginUI");
+        UIManager.Instance.Open("LevelUI",2,"LevelUI");
     }
 
     private void Update()

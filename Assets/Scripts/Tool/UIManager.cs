@@ -309,7 +309,7 @@ namespace QxFramework.Core
             GameObject ui = ResourceManager.Instance.Instantiate(FoldPath + uiName, parent);
             if (ui == null)
             {
-                Debug.LogError("UI object is null.");
+                Debug.LogError("UI object is null. "+uiName );
                 return null;
             }
             ui.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;

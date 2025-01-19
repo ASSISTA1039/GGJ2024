@@ -59,7 +59,8 @@ public class PlayerAct : MonoBehaviour
             }
             if (CurBoxCollider.gameObject.tag == "Block 5")
             {
-                UIManager.Instance.Open("PassUI");
+                this.gameObject.SetActive(false);
+                UIManager.Instance.Open("PassUI", 3, "PassUI");
             }
             RaycastHit hit;
 
@@ -99,11 +100,6 @@ public class PlayerAct : MonoBehaviour
             Debug.Log("玩家死亡");
             UIManager.Instance.Open("DeathUI", 4, "DeathUI");
             //TODO：玩家死亡的相关流程
-        }
-        else
-        {
-            if (animator != null)
-                animator.SetBool("IsWalk", true);
         }
            
         
