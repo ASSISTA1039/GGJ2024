@@ -14,6 +14,7 @@ public class PlayerAct : MonoBehaviour
     public LayerMask collisionLayer;  // 碰撞层
     public LayerMask waterLayer;
     private Tween moveTween;
+    private bool deadbool;
 
 
     private void Start()
@@ -98,6 +99,10 @@ public class PlayerAct : MonoBehaviour
                 animator.SetFloat("HP", 0f);
             }
             Debug.Log("玩家死亡");
+            if (!deadbool)
+            {
+                AudioManager.Instance.PlayEffect("Death");
+            }
             UIManager.Instance.Open("DeathUI", 4, "DeathUI");
             //TODO：玩家死亡的相关流程
         }

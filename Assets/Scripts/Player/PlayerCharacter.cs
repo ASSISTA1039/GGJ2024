@@ -15,7 +15,8 @@ public class PlayerCharacter : MonoBehaviour
 
     public float yOffset;                            //主角相对于地面碰撞体的高度
     bool isGround;
-    public bool isInwater;
+    public bool isInwater = false;
+    public bool isInwaterbool = false;
 
     public Transform CurBoxCollider;                 //主角当前脚底下的碰撞体
     void Start()
@@ -25,6 +26,17 @@ public class PlayerCharacter : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (isInwater && !isInwaterbool)
+        {
+            AudioManager.Instance.PlayEffect("IntoWater");
+        }
+        if (!isInwater && isInwaterbool)
+        {
+            AudioManager.Instance.PlayEffect("OutoWater");
+            isInwaterbool = false;
+        }
+
+
         RaycastHit hit;
 
         isGround = Physics.Raycast(transform.position + new Vector3(0, 0, 0), Vector3.down, out hit, 0.6f, layerMask);
