@@ -19,6 +19,7 @@ public class BlockAct: MonoBehaviour
     private Tween moveTween;
     public bool isdes = false;
     public bool isdesbool = false;
+    public GameObject lw;
     [SerializeField] private UnityEvent<BlockAct> _onMouseDown = new();
     [SerializeField] private UnityEvent<BlockAct> _onMouseUp = new();
     private void Start()
@@ -35,10 +36,16 @@ public class BlockAct: MonoBehaviour
         if (isELC && !isELCbool)
         {
             AudioManager.Instance.PlayEffect("ElectricShock");
-            Instantiate(ResourceManager.Instance.Load<GameObject>("Prefabs/SpecialEffect/LightWater"));
+            lw = Instantiate(ResourceManager.Instance.Load<GameObject>("Prefabs/SpecialEffect/LightWater"));
+            lw.transform.position = transform.position;
             isELCbool = true;
         }
 
+        if (!isELC)
+        {
+            isELCbool = false;
+            Destroy(lw);
+        }
     }
 
     IEnumerator WaitForSecondsExample()
