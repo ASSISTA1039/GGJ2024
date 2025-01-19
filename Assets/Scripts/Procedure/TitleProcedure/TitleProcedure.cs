@@ -22,7 +22,7 @@ public class TitleProcedure : ProcedureBase {
         base.OnEnter(args);
         AudioManager.Instance.Init();
         //UIManager.Instance.StartBlackoutAndReveal(2,null,"StartUI",null);
-        AudioManager.Instance.PlayBGM("chapter 1 childhood");
+        AudioManager.Instance.PlayBGM("BGM_main");
         UIManager.Instance.Open("StartPage",2, "StartPage");
         //副流程，Startmodule
         //AddSubmodule(new StartModule());

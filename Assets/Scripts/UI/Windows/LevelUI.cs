@@ -26,6 +26,8 @@ public class LevelUI : UIBase
     {
         GameManager.Instance.GameStart(0);
         UIManager.Instance.Open("GameUI");
+        AudioManager.Instance.StopBGM();
+        AudioManager.Instance.PlayBGM("chapter 1 childhood");
         OnClose();
     }
     private void OnLevel0Enter(GameObject obj, PointerEventData pData)
