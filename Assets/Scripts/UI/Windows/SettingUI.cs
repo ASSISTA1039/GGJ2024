@@ -11,13 +11,22 @@ public class SettingUI : UIBase
     public override void OnDisplay(object args)
     {
         //RegisterTrigger("Mode1").onClick = OnMusicUp;
+        RegisterTrigger("Continue").onClick = Continue;
         RegisterTrigger("Quit").onClick = Quit;
-       
+
     }
+    private void Continue(GameObject obj, PointerEventData pData)
+    {
+        DoClose();
+        //UIManager.Instance.CloseAll();
+        //UIManager.Instance.Open("LevelUI",2,"LevelUI");
+    }
+
     private void Quit(GameObject obj, PointerEventData pData)
     {
+        OnClose();
         UIManager.Instance.CloseAll();
-        UIManager.Instance.Open("LevelUI",2,"LevelUI");
+        UIManager.Instance.Open("StartPage",2,"LevelUI");
     }
 
     private void Update()
