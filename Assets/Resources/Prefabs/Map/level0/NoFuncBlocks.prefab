@@ -181,9 +181,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 6791731405891521351, guid: e4ebd56b61e681f45b03aa64fe2a5e09, type: 3}
-  - {fileID: -2025005358584782538, guid: e4ebd56b61e681f45b03aa64fe2a5e09, type: 3}
-  - {fileID: -1356951325256099565, guid: e4ebd56b61e681f45b03aa64fe2a5e09, type: 3}
+  - {fileID: 2100000, guid: 83255767ef57e5e4da8d463ca78dbea9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -399,6 +397,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isELC: 0
+  isELCbool: 0
   targetposition: {x: 0, y: 0, z: 0}
   raycastDistance: 1
   collisionLayer:
@@ -406,6 +405,7 @@ MonoBehaviour:
     m_Bits: 0
   isdes: 0
   isdesbool: 0
+  lw: {fileID: 0}
   _onMouseDown:
     m_PersistentCalls:
       m_Calls: []
@@ -502,6 +502,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isELC: 0
+  isELCbool: 0
   targetposition: {x: 0, y: 0, z: 0}
   raycastDistance: 1
   collisionLayer:
@@ -509,6 +510,7 @@ MonoBehaviour:
     m_Bits: 0
   isdes: 0
   isdesbool: 0
+  lw: {fileID: 0}
   _onMouseDown:
     m_PersistentCalls:
       m_Calls: []
@@ -846,6 +848,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isELC: 0
+  isELCbool: 0
   targetposition: {x: 0, y: 0, z: 0}
   raycastDistance: 1
   collisionLayer:
@@ -853,6 +856,7 @@ MonoBehaviour:
     m_Bits: 0
   isdes: 0
   isdesbool: 0
+  lw: {fileID: 0}
   _onMouseDown:
     m_PersistentCalls:
       m_Calls: []

@@ -25,9 +25,10 @@ public class LevelUI : UIBase
     private void OnLevel0Select(GameObject obj, PointerEventData pData)
     {
         GameManager.Instance.GameStart(0);
-        UIManager.Instance.Open("GameUI");
+        //UIManager.Instance.Open("GameUI");
         AudioManager.Instance.StopBGM();
         AudioManager.Instance.PlayBGM("chapter 1 childhood");
+        UIManager.Instance.Open("VideoUI",4,"VideoUI","1");
         OnClose();
     }
     private void OnLevel0Enter(GameObject obj, PointerEventData pData)
@@ -48,9 +49,10 @@ public class LevelUI : UIBase
         if (obj.GetComponent<Button>().interactable == true)
         {
             GameManager.Instance.GameStart(1);
-            UIManager.Instance.Open("GameUI");
+            //UIManager.Instance.Open("GameUI");
             AudioManager.Instance.StopBGM();
             AudioManager.Instance.PlayBGM("chapter 2 broken");
+            UIManager.Instance.Open("VideoUI", 4, "VideoUI", "2");
             OnClose();
         }
     }
@@ -60,9 +62,10 @@ public class LevelUI : UIBase
         if (obj.GetComponent<Button>().interactable == true)
         {
             GameManager.Instance.GameStart(2);
-            UIManager.Instance.Open("GameUI");
+            //UIManager.Instance.Open("GameUI");
             AudioManager.Instance.StopBGM();
-            AudioManager.Instance.PlayBGM("chapter 3 salvation"); 
+            AudioManager.Instance.PlayBGM("chapter 3 salvation");
+            UIManager.Instance.Open("VideoUI", 4, "VideoUI", "3");
             OnClose();
         }
     }

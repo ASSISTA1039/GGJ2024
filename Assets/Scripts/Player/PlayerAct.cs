@@ -66,7 +66,15 @@ public class PlayerAct : MonoBehaviour
             if (CurBoxCollider.gameObject.tag == "Block 5"&&QXData.Instance.Get<PlayerData>().PMoney>0)
             {
                 this.gameObject.SetActive(false);
-                UIManager.Instance.Open("PassUI", 3, "PassUI");
+                if (QXData.Instance.Get<PlayerData>().PLevel == 2)
+                {
+                    UIManager.Instance.Close("GameUI");
+                    UIManager.Instance.Close("PassUI");
+                    GameMgr.Get<IDataManager>().ChangePlayerLevel(3);
+                    UIManager.Instance.Open("VideoUI",3,"VideoUI","4");
+                }
+                else
+                    UIManager.Instance.Open("PassUI", 3, "PassUI");
             }
             if (CurBoxCollider.gameObject.tag == "KEY")
             {

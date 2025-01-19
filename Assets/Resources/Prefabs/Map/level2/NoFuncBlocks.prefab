@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3265456912920425537}
   - component: {fileID: 7477578587248083621}
   - component: {fileID: 6113328990450195380}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: block_brick_black_1_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -221,7 +221,7 @@ GameObject:
   - component: {fileID: 2848217610186996322}
   - component: {fileID: 2441344995043964103}
   - component: {fileID: 244645814018307126}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: block_brick_black_1_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -304,7 +304,7 @@ GameObject:
   - component: {fileID: 1660594758080704299}
   - component: {fileID: 1777118948698421260}
   - component: {fileID: 7492187925429116186}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: block_brick_black_1_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -389,7 +389,7 @@ GameObject:
   - component: {fileID: 9100487330620002801}
   - component: {fileID: 5216778900923915844}
   - component: {fileID: 7553884100863790755}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: "\u9ED1(Clone)"
   m_TagString: NormalCube
   m_Icon: {fileID: 0}
@@ -467,6 +467,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isELC: 0
+  isELCbool: 0
   targetposition: {x: 0, y: 0, z: 0}
   raycastDistance: 1
   collisionLayer:
@@ -474,6 +475,7 @@ MonoBehaviour:
     m_Bits: 0
   isdes: 0
   isdesbool: 0
+  lw: {fileID: 0}
   _onMouseDown:
     m_PersistentCalls:
       m_Calls: []
@@ -493,6 +495,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isELC: 0
+  isELCbool: 0
   targetposition: {x: 0, y: 0, z: 0}
   raycastDistance: 1
   collisionLayer:
@@ -500,6 +503,7 @@ MonoBehaviour:
     m_Bits: 0
   isdes: 0
   isdesbool: 0
+  lw: {fileID: 0}
   _onMouseDown:
     m_PersistentCalls:
       m_Calls: []
@@ -575,6 +579,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isELC: 0
+  isELCbool: 0
   targetposition: {x: 0, y: 0, z: 0}
   raycastDistance: 1
   collisionLayer:
@@ -582,6 +587,7 @@ MonoBehaviour:
     m_Bits: 0
   isdes: 0
   isdesbool: 0
+  lw: {fileID: 0}
   _onMouseDown:
     m_PersistentCalls:
       m_Calls: []
@@ -705,7 +711,7 @@ GameObject:
   - component: {fileID: 1924375447227132305}
   - component: {fileID: 3667575223302931980}
   - component: {fileID: 6880539001823025115}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: "\u9ED1(Clone)"
   m_TagString: NormalCube
   m_Icon: {fileID: 0}
@@ -783,6 +789,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isELC: 0
+  isELCbool: 0
   targetposition: {x: 0, y: 0, z: 0}
   raycastDistance: 1
   collisionLayer:
@@ -790,6 +797,7 @@ MonoBehaviour:
     m_Bits: 0
   isdes: 0
   isdesbool: 0
+  lw: {fileID: 0}
   _onMouseDown:
     m_PersistentCalls:
       m_Calls: []
@@ -809,6 +817,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isELC: 0
+  isELCbool: 0
   targetposition: {x: 0, y: 0, z: 0}
   raycastDistance: 1
   collisionLayer:
@@ -816,6 +825,7 @@ MonoBehaviour:
     m_Bits: 0
   isdes: 0
   isdesbool: 0
+  lw: {fileID: 0}
   _onMouseDown:
     m_PersistentCalls:
       m_Calls: []
@@ -833,7 +843,7 @@ GameObject:
   - component: {fileID: 746398997772381488}
   - component: {fileID: 5647832295413670405}
   - component: {fileID: 4647435316751967070}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: block_brick_black_1_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -916,7 +926,7 @@ GameObject:
   - component: {fileID: 1258060357714364618}
   - component: {fileID: 4851402653592168524}
   - component: {fileID: 5246339068300229341}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: block_brick_black_1_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -988,6 +998,38 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &1268801715959563901
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8931958182271187820}
+  m_Layer: 8
+  m_Name: KEY (1)
+  m_TagString: KEY
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8931958182271187820
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1268801715959563901}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -3, y: 0, z: 5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7085812162577922595}
+  m_Father: {fileID: 5771342948975572124}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1367935825955459519
 GameObject:
   m_ObjectHideFlags: 0
@@ -1197,6 +1239,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isELC: 0
+  isELCbool: 0
   targetposition: {x: 0, y: 0, z: 0}
   raycastDistance: 1
   collisionLayer:
@@ -1204,6 +1247,7 @@ MonoBehaviour:
     m_Bits: 0
   isdes: 0
   isdesbool: 0
+  lw: {fileID: 0}
   _onMouseDown:
     m_PersistentCalls:
       m_Calls: []
@@ -1223,7 +1267,7 @@ GameObject:
   - component: {fileID: 3180029156731702011}
   - component: {fileID: 1805295788864150321}
   - component: {fileID: 2313887318681560491}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: "\u9ED1(Clone)"
   m_TagString: NormalCube
   m_Icon: {fileID: 0}
@@ -1301,6 +1345,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isELC: 0
+  isELCbool: 0
   targetposition: {x: 0, y: 0, z: 0}
   raycastDistance: 1
   collisionLayer:
@@ -1308,6 +1353,7 @@ MonoBehaviour:
     m_Bits: 0
   isdes: 0
   isdesbool: 0
+  lw: {fileID: 0}
   _onMouseDown:
     m_PersistentCalls:
       m_Calls: []
@@ -1327,6 +1373,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isELC: 0
+  isELCbool: 0
   targetposition: {x: 0, y: 0, z: 0}
   raycastDistance: 1
   collisionLayer:
@@ -1334,6 +1381,7 @@ MonoBehaviour:
     m_Bits: 0
   isdes: 0
   isdesbool: 0
+  lw: {fileID: 0}
   _onMouseDown:
     m_PersistentCalls:
       m_Calls: []
@@ -1351,7 +1399,7 @@ GameObject:
   - component: {fileID: 8816542361174578255}
   - component: {fileID: 1511888706497085407}
   - component: {fileID: 391710072008806962}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: block_brick_black_1_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1434,7 +1482,7 @@ GameObject:
   - component: {fileID: 3907464699842180677}
   - component: {fileID: 9014827991815700397}
   - component: {fileID: 2730127106640059460}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: block_brick_black_1_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1519,7 +1567,7 @@ GameObject:
   - component: {fileID: 2745828267372220357}
   - component: {fileID: 4789989232198674105}
   - component: {fileID: 8675035878078402373}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: "\u9ED1(Clone)"
   m_TagString: NormalCube
   m_Icon: {fileID: 0}
@@ -1597,6 +1645,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isELC: 0
+  isELCbool: 0
   targetposition: {x: 0, y: 0, z: 0}
   raycastDistance: 1
   collisionLayer:
@@ -1604,6 +1653,7 @@ MonoBehaviour:
     m_Bits: 0
   isdes: 0
   isdesbool: 0
+  lw: {fileID: 0}
   _onMouseDown:
     m_PersistentCalls:
       m_Calls: []
@@ -1623,6 +1673,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isELC: 0
+  isELCbool: 0
   targetposition: {x: 0, y: 0, z: 0}
   raycastDistance: 1
   collisionLayer:
@@ -1630,6 +1681,7 @@ MonoBehaviour:
     m_Bits: 0
   isdes: 0
   isdesbool: 0
+  lw: {fileID: 0}
   _onMouseDown:
     m_PersistentCalls:
       m_Calls: []
@@ -1732,7 +1784,7 @@ GameObject:
   - component: {fileID: 1307801462393727720}
   - component: {fileID: 5798139628689453537}
   - component: {fileID: 2114310952295055987}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: "\u9ED1(Clone)"
   m_TagString: NormalCube
   m_Icon: {fileID: 0}
@@ -1810,6 +1862,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isELC: 0
+  isELCbool: 0
   targetposition: {x: 0, y: 0, z: 0}
   raycastDistance: 1
   collisionLayer:
@@ -1817,6 +1870,7 @@ MonoBehaviour:
     m_Bits: 0
   isdes: 0
   isdesbool: 0
+  lw: {fileID: 0}
   _onMouseDown:
     m_PersistentCalls:
       m_Calls: []
@@ -1836,6 +1890,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isELC: 0
+  isELCbool: 0
   targetposition: {x: 0, y: 0, z: 0}
   raycastDistance: 1
   collisionLayer:
@@ -1843,6 +1898,7 @@ MonoBehaviour:
     m_Bits: 0
   isdes: 0
   isdesbool: 0
+  lw: {fileID: 0}
   _onMouseDown:
     m_PersistentCalls:
       m_Calls: []
@@ -1939,6 +1995,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isELC: 0
+  isELCbool: 0
   targetposition: {x: 0, y: 0, z: 0}
   raycastDistance: 1
   collisionLayer:
@@ -1946,6 +2003,7 @@ MonoBehaviour:
     m_Bits: 0
   isdes: 0
   isdesbool: 0
+  lw: {fileID: 0}
   _onMouseDown:
     m_PersistentCalls:
       m_Calls: []
@@ -2244,6 +2302,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isELC: 0
+  isELCbool: 0
   targetposition: {x: 0, y: 0, z: 0}
   raycastDistance: 1
   collisionLayer:
@@ -2251,6 +2310,7 @@ MonoBehaviour:
     m_Bits: 0
   isdes: 0
   isdesbool: 0
+  lw: {fileID: 0}
   _onMouseDown:
     m_PersistentCalls:
       m_Calls: []
@@ -2268,7 +2328,7 @@ GameObject:
   - component: {fileID: 5296918131670811029}
   - component: {fileID: 6949731121767536499}
   - component: {fileID: 1675635387980294869}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: block_brick_black_1_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2429,7 +2489,7 @@ GameObject:
   - component: {fileID: 6632226567251637956}
   - component: {fileID: 8558267949887817198}
   - component: {fileID: 6493826388528922144}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: "\u9ED1(Clone)"
   m_TagString: NormalCube
   m_Icon: {fileID: 0}
@@ -2507,6 +2567,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isELC: 0
+  isELCbool: 0
   targetposition: {x: 0, y: 0, z: 0}
   raycastDistance: 1
   collisionLayer:
@@ -2514,6 +2575,7 @@ MonoBehaviour:
     m_Bits: 0
   isdes: 0
   isdesbool: 0
+  lw: {fileID: 0}
   _onMouseDown:
     m_PersistentCalls:
       m_Calls: []
@@ -2533,6 +2595,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isELC: 0
+  isELCbool: 0
   targetposition: {x: 0, y: 0, z: 0}
   raycastDistance: 1
   collisionLayer:
@@ -2540,95 +2603,13 @@ MonoBehaviour:
     m_Bits: 0
   isdes: 0
   isdesbool: 0
+  lw: {fileID: 0}
   _onMouseDown:
     m_PersistentCalls:
       m_Calls: []
   _onMouseUp:
     m_PersistentCalls:
       m_Calls: []
---- !u!1 &2977824828400965556
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6729869876275370142}
-  - component: {fileID: 5530746782948099838}
-  - component: {fileID: 3113169541422064868}
-  m_Layer: 0
-  m_Name: block_brick_black_1_LOD0
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6729869876275370142
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2977824828400965556}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5084577485504260322}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &5530746782948099838
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2977824828400965556}
-  m_Mesh: {fileID: 4300000, guid: 4e202a43983787e4ebe01e96d828f0cf, type: 3}
---- !u!23 &3113169541422064868
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2977824828400965556}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 0bb6c016790392c42a521dd3c77e34c4, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &3396991888333074813
 GameObject:
   m_ObjectHideFlags: 0
@@ -2642,7 +2623,7 @@ GameObject:
   - component: {fileID: 2885504410728346950}
   - component: {fileID: 6602673015548655696}
   - component: {fileID: 8744815394906585645}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: "\u9ED1(Clone) (4)"
   m_TagString: NormalCube
   m_Icon: {fileID: 0}
@@ -2720,6 +2701,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isELC: 0
+  isELCbool: 0
   targetposition: {x: 0, y: 0, z: 0}
   raycastDistance: 1
   collisionLayer:
@@ -2727,6 +2709,7 @@ MonoBehaviour:
     m_Bits: 0
   isdes: 0
   isdesbool: 0
+  lw: {fileID: 0}
   _onMouseDown:
     m_PersistentCalls:
       m_Calls: []
@@ -2746,6 +2729,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isELC: 0
+  isELCbool: 0
   targetposition: {x: 0, y: 0, z: 0}
   raycastDistance: 1
   collisionLayer:
@@ -2753,6 +2737,7 @@ MonoBehaviour:
     m_Bits: 0
   isdes: 0
   isdesbool: 0
+  lw: {fileID: 0}
   _onMouseDown:
     m_PersistentCalls:
       m_Calls: []
@@ -2770,7 +2755,7 @@ GameObject:
   - component: {fileID: 4043362465444981003}
   - component: {fileID: 7808678908249646504}
   - component: {fileID: 1461547257627373647}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: block_brick_black_1_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2931,7 +2916,7 @@ GameObject:
   - component: {fileID: 4345210781277272887}
   - component: {fileID: 8436497827503319128}
   - component: {fileID: 755071826447072424}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: "\u9ED1(Clone) (2)"
   m_TagString: NormalCube
   m_Icon: {fileID: 0}
@@ -3009,6 +2994,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isELC: 0
+  isELCbool: 0
   targetposition: {x: 0, y: 0, z: 0}
   raycastDistance: 1
   collisionLayer:
@@ -3016,6 +3002,7 @@ MonoBehaviour:
     m_Bits: 0
   isdes: 0
   isdesbool: 0
+  lw: {fileID: 0}
   _onMouseDown:
     m_PersistentCalls:
       m_Calls: []
@@ -3035,6 +3022,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isELC: 0
+  isELCbool: 0
   targetposition: {x: 0, y: 0, z: 0}
   raycastDistance: 1
   collisionLayer:
@@ -3042,6 +3030,7 @@ MonoBehaviour:
     m_Bits: 0
   isdes: 0
   isdesbool: 0
+  lw: {fileID: 0}
   _onMouseDown:
     m_PersistentCalls:
       m_Calls: []
@@ -3059,7 +3048,7 @@ GameObject:
   - component: {fileID: 9028042736945695222}
   - component: {fileID: 9017085725160263647}
   - component: {fileID: 7557920050400852717}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: block_brick_black_1_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3142,7 +3131,7 @@ GameObject:
   - component: {fileID: 3615213851065737022}
   - component: {fileID: 2353759715936978065}
   - component: {fileID: 5171712709309565735}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: block_brick_black_1_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3310,7 +3299,7 @@ GameObject:
   - component: {fileID: 988886454832366858}
   - component: {fileID: 7897611313802433692}
   - component: {fileID: 4712586116680116201}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: "\u9ED1(Clone)"
   m_TagString: NormalCube
   m_Icon: {fileID: 0}
@@ -3388,6 +3377,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isELC: 0
+  isELCbool: 0
   targetposition: {x: 0, y: 0, z: 0}
   raycastDistance: 1
   collisionLayer:
@@ -3395,6 +3385,7 @@ MonoBehaviour:
     m_Bits: 0
   isdes: 0
   isdesbool: 0
+  lw: {fileID: 0}
   _onMouseDown:
     m_PersistentCalls:
       m_Calls: []
@@ -3414,6 +3405,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isELC: 0
+  isELCbool: 0
   targetposition: {x: 0, y: 0, z: 0}
   raycastDistance: 1
   collisionLayer:
@@ -3421,6 +3413,7 @@ MonoBehaviour:
     m_Bits: 0
   isdes: 0
   isdesbool: 0
+  lw: {fileID: 0}
   _onMouseDown:
     m_PersistentCalls:
       m_Calls: []
@@ -3438,7 +3431,7 @@ GameObject:
   - component: {fileID: 8113931375766756137}
   - component: {fileID: 692334971903494420}
   - component: {fileID: 186514594124271969}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: block_brick_black_1_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3604,7 +3597,7 @@ GameObject:
   - component: {fileID: 7673245824193449329}
   - component: {fileID: 1565030227323131138}
   - component: {fileID: 2768332362935918948}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: block_brick_black_1_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3745,6 +3738,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isELC: 0
+  isELCbool: 0
   targetposition: {x: 0, y: 0, z: 0}
   raycastDistance: 1
   collisionLayer:
@@ -3752,6 +3746,7 @@ MonoBehaviour:
     m_Bits: 0
   isdes: 0
   isdesbool: 0
+  lw: {fileID: 0}
   _onMouseDown:
     m_PersistentCalls:
       m_Calls: []
@@ -3840,9 +3835,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 6791731405891521351, guid: e4ebd56b61e681f45b03aa64fe2a5e09, type: 3}
-  - {fileID: -2025005358584782538, guid: e4ebd56b61e681f45b03aa64fe2a5e09, type: 3}
-  - {fileID: -1356951325256099565, guid: e4ebd56b61e681f45b03aa64fe2a5e09, type: 3}
+  - {fileID: 2100000, guid: 83255767ef57e5e4da8d463ca78dbea9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3929,10 +3922,10 @@ Transform:
   - {fileID: 7757275044005664426}
   - {fileID: 395129001518940315}
   - {fileID: 6507569175816341590}
-  - {fileID: 5084577485504260322}
   - {fileID: 4451124793491497266}
   - {fileID: 4199530723109395054}
   - {fileID: 6344928336259713997}
+  - {fileID: 8931958182271187820}
   - {fileID: 745216408853025116}
   m_Father: {fileID: 567293765649745573}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3949,7 +3942,7 @@ GameObject:
   - component: {fileID: 1399460301769957262}
   - component: {fileID: 357964641284204977}
   - component: {fileID: 1859815699421586974}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: "\u9ED1(Clone) (5)"
   m_TagString: NormalCube
   m_Icon: {fileID: 0}
@@ -4027,6 +4020,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isELC: 0
+  isELCbool: 0
   targetposition: {x: 0, y: 0, z: 0}
   raycastDistance: 1
   collisionLayer:
@@ -4034,6 +4028,7 @@ MonoBehaviour:
     m_Bits: 0
   isdes: 0
   isdesbool: 0
+  lw: {fileID: 0}
   _onMouseDown:
     m_PersistentCalls:
       m_Calls: []
@@ -4053,6 +4048,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isELC: 0
+  isELCbool: 0
   targetposition: {x: 0, y: 0, z: 0}
   raycastDistance: 1
   collisionLayer:
@@ -4060,6 +4056,7 @@ MonoBehaviour:
     m_Bits: 0
   isdes: 0
   isdesbool: 0
+  lw: {fileID: 0}
   _onMouseDown:
     m_PersistentCalls:
       m_Calls: []
@@ -4119,7 +4116,7 @@ GameObject:
   - component: {fileID: 7316958130357882108}
   - component: {fileID: 7917966234385948934}
   - component: {fileID: 8493631207426606719}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: "\u9ED1(Clone)"
   m_TagString: NormalCube
   m_Icon: {fileID: 0}
@@ -4197,6 +4194,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isELC: 0
+  isELCbool: 0
   targetposition: {x: 0, y: 0, z: 0}
   raycastDistance: 1
   collisionLayer:
@@ -4204,6 +4202,7 @@ MonoBehaviour:
     m_Bits: 0
   isdes: 0
   isdesbool: 0
+  lw: {fileID: 0}
   _onMouseDown:
     m_PersistentCalls:
       m_Calls: []
@@ -4223,6 +4222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isELC: 0
+  isELCbool: 0
   targetposition: {x: 0, y: 0, z: 0}
   raycastDistance: 1
   collisionLayer:
@@ -4230,6 +4230,7 @@ MonoBehaviour:
     m_Bits: 0
   isdes: 0
   isdesbool: 0
+  lw: {fileID: 0}
   _onMouseDown:
     m_PersistentCalls:
       m_Calls: []
@@ -4247,7 +4248,7 @@ GameObject:
   - component: {fileID: 6038845281500773795}
   - component: {fileID: 6056526664640330975}
   - component: {fileID: 265968864867959861}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: block_brick_black_1_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4332,7 +4333,7 @@ GameObject:
   - component: {fileID: 5068546635882030623}
   - component: {fileID: 7451726558187621784}
   - component: {fileID: 2194911857273927291}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: "\u9ED1(Clone) (1)"
   m_TagString: NormalCube
   m_Icon: {fileID: 0}
@@ -4410,6 +4411,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isELC: 0
+  isELCbool: 0
   targetposition: {x: 0, y: 0, z: 0}
   raycastDistance: 1
   collisionLayer:
@@ -4417,6 +4419,7 @@ MonoBehaviour:
     m_Bits: 0
   isdes: 0
   isdesbool: 0
+  lw: {fileID: 0}
   _onMouseDown:
     m_PersistentCalls:
       m_Calls: []
@@ -4436,6 +4439,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isELC: 0
+  isELCbool: 0
   targetposition: {x: 0, y: 0, z: 0}
   raycastDistance: 1
   collisionLayer:
@@ -4443,6 +4447,7 @@ MonoBehaviour:
     m_Bits: 0
   isdes: 0
   isdesbool: 0
+  lw: {fileID: 0}
   _onMouseDown:
     m_PersistentCalls:
       m_Calls: []
@@ -4518,6 +4523,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isELC: 0
+  isELCbool: 0
   targetposition: {x: 0, y: 0, z: 0}
   raycastDistance: 1
   collisionLayer:
@@ -4525,6 +4531,7 @@ MonoBehaviour:
     m_Bits: 0
   isdes: 0
   isdesbool: 0
+  lw: {fileID: 0}
   _onMouseDown:
     m_PersistentCalls:
       m_Calls: []
@@ -4563,7 +4570,7 @@ GameObject:
   - component: {fileID: 1250516941271426019}
   - component: {fileID: 3104813017141820345}
   - component: {fileID: 8139492561515455706}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: block_brick_black_1_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4671,6 +4678,89 @@ Transform:
   - {fileID: 7695345674358450055}
   m_Father: {fileID: 567293765649745573}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6079352337052973404
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8362076003135052811}
+  - component: {fileID: 3657151156902048196}
+  - component: {fileID: 6442616045634524298}
+  m_Layer: 8
+  m_Name: block_brick_brown_1_LOD0
+  m_TagString: KEY
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8362076003135052811
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6079352337052973404}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalScale: {x: 50, y: 50, z: 50}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 7085812162577922595}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &3657151156902048196
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6079352337052973404}
+  m_Mesh: {fileID: 6039601060960082607, guid: e4ebd56b61e681f45b03aa64fe2a5e09, type: 3}
+--- !u!23 &6442616045634524298
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6079352337052973404}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 83255767ef57e5e4da8d463ca78dbea9, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &6101427347108190128
 GameObject:
   m_ObjectHideFlags: 0
@@ -4684,7 +4774,7 @@ GameObject:
   - component: {fileID: 8391719225400574220}
   - component: {fileID: 6062726457202391148}
   - component: {fileID: 883345707317964696}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: "\u9ED1(Clone)"
   m_TagString: NormalCube
   m_Icon: {fileID: 0}
@@ -4762,6 +4852,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isELC: 0
+  isELCbool: 0
   targetposition: {x: 0, y: 0, z: 0}
   raycastDistance: 1
   collisionLayer:
@@ -4769,6 +4860,7 @@ MonoBehaviour:
     m_Bits: 0
   isdes: 0
   isdesbool: 0
+  lw: {fileID: 0}
   _onMouseDown:
     m_PersistentCalls:
       m_Calls: []
@@ -4788,6 +4880,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isELC: 0
+  isELCbool: 0
   targetposition: {x: 0, y: 0, z: 0}
   raycastDistance: 1
   collisionLayer:
@@ -4795,6 +4888,7 @@ MonoBehaviour:
     m_Bits: 0
   isdes: 0
   isdesbool: 0
+  lw: {fileID: 0}
   _onMouseDown:
     m_PersistentCalls:
       m_Calls: []
@@ -4812,7 +4906,7 @@ GameObject:
   - component: {fileID: 8545508321624798989}
   - component: {fileID: 2904134375285025628}
   - component: {fileID: 1258190274563968799}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: block_brick_black_1_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4895,7 +4989,7 @@ GameObject:
   - component: {fileID: 6242468047022521398}
   - component: {fileID: 180224117628365029}
   - component: {fileID: 1464804323426969653}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: block_brick_black_1_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4978,7 +5072,7 @@ GameObject:
   - component: {fileID: 5995036738877403831}
   - component: {fileID: 802394741988356540}
   - component: {fileID: 8871778695358633961}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: block_brick_black_1_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5061,7 +5155,7 @@ GameObject:
   - component: {fileID: 4474402509565754617}
   - component: {fileID: 8889887990114505131}
   - component: {fileID: 4829600939204584282}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: block_brick_black_1_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5146,7 +5240,7 @@ GameObject:
   - component: {fileID: 4881403748460972215}
   - component: {fileID: 7040406236639200096}
   - component: {fileID: 1948233896521688270}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: "\u9ED1(Clone) (1)"
   m_TagString: NormalCube
   m_Icon: {fileID: 0}
@@ -5224,6 +5318,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isELC: 0
+  isELCbool: 0
   targetposition: {x: 0, y: 0, z: 0}
   raycastDistance: 1
   collisionLayer:
@@ -5231,6 +5326,7 @@ MonoBehaviour:
     m_Bits: 0
   isdes: 0
   isdesbool: 0
+  lw: {fileID: 0}
   _onMouseDown:
     m_PersistentCalls:
       m_Calls: []
@@ -5250,6 +5346,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isELC: 0
+  isELCbool: 0
   targetposition: {x: 0, y: 0, z: 0}
   raycastDistance: 1
   collisionLayer:
@@ -5257,136 +5354,7 @@ MonoBehaviour:
     m_Bits: 0
   isdes: 0
   isdesbool: 0
-  _onMouseDown:
-    m_PersistentCalls:
-      m_Calls: []
-  _onMouseUp:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!1 &6565853068060873994
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5084577485504260322}
-  - component: {fileID: 512257504882550672}
-  - component: {fileID: 5924990078182609032}
-  - component: {fileID: 5994826062289123995}
-  - component: {fileID: 3459377435543008874}
-  m_Layer: 0
-  m_Name: "\u9ED1(Clone)"
-  m_TagString: NormalCube
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5084577485504260322
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6565853068060873994}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1, y: 0, z: 1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 6729869876275370142}
-  m_Father: {fileID: 5771342948975572124}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &512257504882550672
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6565853068060873994}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 4e202a43983787e4ebe01e96d828f0cf, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
---- !u!65 &5924990078182609032
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6565853068060873994}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5994826062289123995
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6565853068060873994}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ec9f51a0c38beb47a9b542728608690, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isELC: 0
-  targetposition: {x: 0, y: 0, z: 0}
-  raycastDistance: 1
-  collisionLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  isdes: 0
-  isdesbool: 0
-  _onMouseDown:
-    m_PersistentCalls:
-      m_Calls: []
-  _onMouseUp:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &3459377435543008874
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6565853068060873994}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ec9f51a0c38beb47a9b542728608690, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isELC: 0
-  targetposition: {x: 0, y: 0, z: 0}
-  raycastDistance: 1
-  collisionLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  isdes: 0
-  isdesbool: 0
+  lw: {fileID: 0}
   _onMouseDown:
     m_PersistentCalls:
       m_Calls: []
@@ -5406,7 +5374,7 @@ GameObject:
   - component: {fileID: 8413200823936593574}
   - component: {fileID: 5534437977626708517}
   - component: {fileID: 7956589937594620305}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: "\u9ED1(Clone)"
   m_TagString: NormalCube
   m_Icon: {fileID: 0}
@@ -5484,6 +5452,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isELC: 0
+  isELCbool: 0
   targetposition: {x: 0, y: 0, z: 0}
   raycastDistance: 1
   collisionLayer:
@@ -5491,6 +5460,7 @@ MonoBehaviour:
     m_Bits: 0
   isdes: 0
   isdesbool: 0
+  lw: {fileID: 0}
   _onMouseDown:
     m_PersistentCalls:
       m_Calls: []
@@ -5510,6 +5480,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isELC: 0
+  isELCbool: 0
   targetposition: {x: 0, y: 0, z: 0}
   raycastDistance: 1
   collisionLayer:
@@ -5517,6 +5488,7 @@ MonoBehaviour:
     m_Bits: 0
   isdes: 0
   isdesbool: 0
+  lw: {fileID: 0}
   _onMouseDown:
     m_PersistentCalls:
       m_Calls: []
@@ -5536,7 +5508,7 @@ GameObject:
   - component: {fileID: 6957966455319808940}
   - component: {fileID: 8223380601259507468}
   - component: {fileID: 8878381402107595449}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: "\u9ED1(Clone)"
   m_TagString: NormalCube
   m_Icon: {fileID: 0}
@@ -5614,6 +5586,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isELC: 0
+  isELCbool: 0
   targetposition: {x: 0, y: 0, z: 0}
   raycastDistance: 1
   collisionLayer:
@@ -5621,6 +5594,7 @@ MonoBehaviour:
     m_Bits: 0
   isdes: 0
   isdesbool: 0
+  lw: {fileID: 0}
   _onMouseDown:
     m_PersistentCalls:
       m_Calls: []
@@ -5640,6 +5614,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isELC: 0
+  isELCbool: 0
   targetposition: {x: 0, y: 0, z: 0}
   raycastDistance: 1
   collisionLayer:
@@ -5647,6 +5622,7 @@ MonoBehaviour:
     m_Bits: 0
   isdes: 0
   isdesbool: 0
+  lw: {fileID: 0}
   _onMouseDown:
     m_PersistentCalls:
       m_Calls: []
@@ -5698,7 +5674,7 @@ GameObject:
   - component: {fileID: 16495829741900482}
   - component: {fileID: 3681783687997768749}
   - component: {fileID: 745303151417480782}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: "\u9ED1(Clone)"
   m_TagString: NormalCube
   m_Icon: {fileID: 0}
@@ -5776,6 +5752,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isELC: 0
+  isELCbool: 0
   targetposition: {x: 0, y: 0, z: 0}
   raycastDistance: 1
   collisionLayer:
@@ -5783,6 +5760,7 @@ MonoBehaviour:
     m_Bits: 0
   isdes: 0
   isdesbool: 0
+  lw: {fileID: 0}
   _onMouseDown:
     m_PersistentCalls:
       m_Calls: []
@@ -5802,6 +5780,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isELC: 0
+  isELCbool: 0
   targetposition: {x: 0, y: 0, z: 0}
   raycastDistance: 1
   collisionLayer:
@@ -5809,6 +5788,7 @@ MonoBehaviour:
     m_Bits: 0
   isdes: 0
   isdesbool: 0
+  lw: {fileID: 0}
   _onMouseDown:
     m_PersistentCalls:
       m_Calls: []
@@ -5988,6 +5968,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isELC: 0
+  isELCbool: 0
   targetposition: {x: 0, y: 0, z: 0}
   raycastDistance: 1
   collisionLayer:
@@ -5995,6 +5976,7 @@ MonoBehaviour:
     m_Bits: 0
   isdes: 0
   isdesbool: 0
+  lw: {fileID: 0}
   _onMouseDown:
     m_PersistentCalls:
       m_Calls: []
@@ -6014,7 +5996,7 @@ GameObject:
   - component: {fileID: 5680480528730740799}
   - component: {fileID: 3842062858479540700}
   - component: {fileID: 3071916978181952636}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: "\u9ED1(Clone) (3)"
   m_TagString: NormalCube
   m_Icon: {fileID: 0}
@@ -6092,6 +6074,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isELC: 0
+  isELCbool: 0
   targetposition: {x: 0, y: 0, z: 0}
   raycastDistance: 1
   collisionLayer:
@@ -6099,6 +6082,7 @@ MonoBehaviour:
     m_Bits: 0
   isdes: 0
   isdesbool: 0
+  lw: {fileID: 0}
   _onMouseDown:
     m_PersistentCalls:
       m_Calls: []
@@ -6118,6 +6102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isELC: 0
+  isELCbool: 0
   targetposition: {x: 0, y: 0, z: 0}
   raycastDistance: 1
   collisionLayer:
@@ -6125,6 +6110,7 @@ MonoBehaviour:
     m_Bits: 0
   isdes: 0
   isdesbool: 0
+  lw: {fileID: 0}
   _onMouseDown:
     m_PersistentCalls:
       m_Calls: []
@@ -6144,7 +6130,7 @@ GameObject:
   - component: {fileID: 5039793263817118575}
   - component: {fileID: 6540738653706598425}
   - component: {fileID: 8422168214199507462}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: "\u9ED1(Clone)"
   m_TagString: NormalCube
   m_Icon: {fileID: 0}
@@ -6222,6 +6208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isELC: 0
+  isELCbool: 0
   targetposition: {x: 0, y: 0, z: 0}
   raycastDistance: 1
   collisionLayer:
@@ -6229,6 +6216,7 @@ MonoBehaviour:
     m_Bits: 0
   isdes: 0
   isdesbool: 0
+  lw: {fileID: 0}
   _onMouseDown:
     m_PersistentCalls:
       m_Calls: []
@@ -6248,6 +6236,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isELC: 0
+  isELCbool: 0
   targetposition: {x: 0, y: 0, z: 0}
   raycastDistance: 1
   collisionLayer:
@@ -6255,6 +6244,7 @@ MonoBehaviour:
     m_Bits: 0
   isdes: 0
   isdesbool: 0
+  lw: {fileID: 0}
   _onMouseDown:
     m_PersistentCalls:
       m_Calls: []
@@ -6272,7 +6262,7 @@ GameObject:
   - component: {fileID: 8670399494731660389}
   - component: {fileID: 608984234389047585}
   - component: {fileID: 2824051217126722761}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: block_brick_black_1_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6344,6 +6334,82 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &7367544230072957477
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7085812162577922595}
+  - component: {fileID: 1082037020257325624}
+  - component: {fileID: 3332403975271169092}
+  m_Layer: 8
+  m_Name: KEY
+  m_TagString: KEY
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7085812162577922595
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7367544230072957477}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 4, y: 0, z: -4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8362076003135052811}
+  m_Father: {fileID: 8931958182271187820}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1082037020257325624
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7367544230072957477}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: b0d08926a7875684cafa21bd19c7a300, type: 3}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!65 &3332403975271169092
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7367544230072957477}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7411232548128463053
 GameObject:
   m_ObjectHideFlags: 0
@@ -6355,7 +6421,7 @@ GameObject:
   - component: {fileID: 5254559318472173589}
   - component: {fileID: 1537292275329444282}
   - component: {fileID: 7315186279312613260}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: block_brick_black_1_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6440,7 +6506,7 @@ GameObject:
   - component: {fileID: 6277152474788274187}
   - component: {fileID: 3974988949665584830}
   - component: {fileID: 1882589018325880715}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: "\u9ED1(Clone)"
   m_TagString: NormalCube
   m_Icon: {fileID: 0}
@@ -6518,6 +6584,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isELC: 0
+  isELCbool: 0
   targetposition: {x: 0, y: 0, z: 0}
   raycastDistance: 1
   collisionLayer:
@@ -6525,6 +6592,7 @@ MonoBehaviour:
     m_Bits: 0
   isdes: 0
   isdesbool: 0
+  lw: {fileID: 0}
   _onMouseDown:
     m_PersistentCalls:
       m_Calls: []
@@ -6544,6 +6612,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isELC: 0
+  isELCbool: 0
   targetposition: {x: 0, y: 0, z: 0}
   raycastDistance: 1
   collisionLayer:
@@ -6551,6 +6620,7 @@ MonoBehaviour:
     m_Bits: 0
   isdes: 0
   isdesbool: 0
+  lw: {fileID: 0}
   _onMouseDown:
     m_PersistentCalls:
       m_Calls: []
@@ -6568,7 +6638,7 @@ GameObject:
   - component: {fileID: 132286976128768233}
   - component: {fileID: 2956079441065950619}
   - component: {fileID: 6538020316724488952}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: block_brick_black_1_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6651,7 +6721,7 @@ GameObject:
   - component: {fileID: 5252423900100070911}
   - component: {fileID: 2081864546169222585}
   - component: {fileID: 2501387731832575039}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: block_brick_black_1_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6768,7 +6838,7 @@ GameObject:
   - component: {fileID: 2470547028408105101}
   - component: {fileID: 6347676659731537849}
   - component: {fileID: 1107643652436711550}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: "\u9ED1(Clone)"
   m_TagString: NormalCube
   m_Icon: {fileID: 0}
@@ -6846,6 +6916,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isELC: 0
+  isELCbool: 0
   targetposition: {x: 0, y: 0, z: 0}
   raycastDistance: 1
   collisionLayer:
@@ -6853,6 +6924,7 @@ MonoBehaviour:
     m_Bits: 0
   isdes: 0
   isdesbool: 0
+  lw: {fileID: 0}
   _onMouseDown:
     m_PersistentCalls:
       m_Calls: []
@@ -6872,6 +6944,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isELC: 0
+  isELCbool: 0
   targetposition: {x: 0, y: 0, z: 0}
   raycastDistance: 1
   collisionLayer:
@@ -6879,6 +6952,7 @@ MonoBehaviour:
     m_Bits: 0
   isdes: 0
   isdesbool: 0
+  lw: {fileID: 0}
   _onMouseDown:
     m_PersistentCalls:
       m_Calls: []
@@ -6898,7 +6972,7 @@ GameObject:
   - component: {fileID: 6802980906499856115}
   - component: {fileID: 9017746686099978868}
   - component: {fileID: 3302967831119438649}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: "\u9ED1(Clone)"
   m_TagString: NormalCube
   m_Icon: {fileID: 0}
@@ -6976,6 +7050,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isELC: 0
+  isELCbool: 0
   targetposition: {x: 0, y: 0, z: 0}
   raycastDistance: 1
   collisionLayer:
@@ -6983,6 +7058,7 @@ MonoBehaviour:
     m_Bits: 0
   isdes: 0
   isdesbool: 0
+  lw: {fileID: 0}
   _onMouseDown:
     m_PersistentCalls:
       m_Calls: []
@@ -7002,6 +7078,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isELC: 0
+  isELCbool: 0
   targetposition: {x: 0, y: 0, z: 0}
   raycastDistance: 1
   collisionLayer:
@@ -7009,6 +7086,7 @@ MonoBehaviour:
     m_Bits: 0
   isdes: 0
   isdesbool: 0
+  lw: {fileID: 0}
   _onMouseDown:
     m_PersistentCalls:
       m_Calls: []
@@ -7026,7 +7104,7 @@ GameObject:
   - component: {fileID: 7052334275159087061}
   - component: {fileID: 8486306966229537858}
   - component: {fileID: 2820877789692345257}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: block_brick_black_1_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7109,7 +7187,7 @@ GameObject:
   - component: {fileID: 3709153018908903459}
   - component: {fileID: 4009674616603860400}
   - component: {fileID: 3237078133774651335}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: block_brick_black_1_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7194,7 +7272,7 @@ GameObject:
   - component: {fileID: 5828802423795271853}
   - component: {fileID: 7355872104666735159}
   - component: {fileID: 3733107854737742500}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: "\u9ED1(Clone)"
   m_TagString: NormalCube
   m_Icon: {fileID: 0}
@@ -7272,6 +7350,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isELC: 0
+  isELCbool: 0
   targetposition: {x: 0, y: 0, z: 0}
   raycastDistance: 1
   collisionLayer:
@@ -7279,6 +7358,7 @@ MonoBehaviour:
     m_Bits: 0
   isdes: 0
   isdesbool: 0
+  lw: {fileID: 0}
   _onMouseDown:
     m_PersistentCalls:
       m_Calls: []
@@ -7298,6 +7378,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isELC: 0
+  isELCbool: 0
   targetposition: {x: 0, y: 0, z: 0}
   raycastDistance: 1
   collisionLayer:
@@ -7305,6 +7386,7 @@ MonoBehaviour:
     m_Bits: 0
   isdes: 0
   isdesbool: 0
+  lw: {fileID: 0}
   _onMouseDown:
     m_PersistentCalls:
       m_Calls: []
@@ -7524,7 +7606,7 @@ GameObject:
   - component: {fileID: 251744543343690601}
   - component: {fileID: 7460095016264200499}
   - component: {fileID: 3141901504610559828}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: "\u9ED1(Clone)"
   m_TagString: NormalCube
   m_Icon: {fileID: 0}
@@ -7602,6 +7684,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isELC: 0
+  isELCbool: 0
   targetposition: {x: 0, y: 0, z: 0}
   raycastDistance: 1
   collisionLayer:
@@ -7609,6 +7692,7 @@ MonoBehaviour:
     m_Bits: 0
   isdes: 0
   isdesbool: 0
+  lw: {fileID: 0}
   _onMouseDown:
     m_PersistentCalls:
       m_Calls: []
@@ -7628,6 +7712,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isELC: 0
+  isELCbool: 0
   targetposition: {x: 0, y: 0, z: 0}
   raycastDistance: 1
   collisionLayer:
@@ -7635,6 +7720,7 @@ MonoBehaviour:
     m_Bits: 0
   isdes: 0
   isdesbool: 0
+  lw: {fileID: 0}
   _onMouseDown:
     m_PersistentCalls:
       m_Calls: []
@@ -7807,6 +7893,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isELC: 0
+  isELCbool: 0
   targetposition: {x: 0, y: 0, z: 0}
   raycastDistance: 1
   collisionLayer:
@@ -7814,6 +7901,7 @@ MonoBehaviour:
     m_Bits: 0
   isdes: 0
   isdesbool: 0
+  lw: {fileID: 0}
   _onMouseDown:
     m_PersistentCalls:
       m_Calls: []
@@ -7910,6 +7998,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isELC: 0
+  isELCbool: 0
   targetposition: {x: 0, y: 0, z: 0}
   raycastDistance: 1
   collisionLayer:
@@ -7917,6 +8006,7 @@ MonoBehaviour:
     m_Bits: 0
   isdes: 0
   isdesbool: 0
+  lw: {fileID: 0}
   _onMouseDown:
     m_PersistentCalls:
       m_Calls: []
@@ -7936,7 +8026,7 @@ GameObject:
   - component: {fileID: 7707360401836402606}
   - component: {fileID: 6610326826119809568}
   - component: {fileID: 7668612857961094071}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: "\u9ED1(Clone)"
   m_TagString: NormalCube
   m_Icon: {fileID: 0}
@@ -8014,6 +8104,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isELC: 0
+  isELCbool: 0
   targetposition: {x: 0, y: 0, z: 0}
   raycastDistance: 1
   collisionLayer:
@@ -8021,6 +8112,7 @@ MonoBehaviour:
     m_Bits: 0
   isdes: 0
   isdesbool: 0
+  lw: {fileID: 0}
   _onMouseDown:
     m_PersistentCalls:
       m_Calls: []
@@ -8040,6 +8132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isELC: 0
+  isELCbool: 0
   targetposition: {x: 0, y: 0, z: 0}
   raycastDistance: 1
   collisionLayer:
@@ -8047,6 +8140,7 @@ MonoBehaviour:
     m_Bits: 0
   isdes: 0
   isdesbool: 0
+  lw: {fileID: 0}
   _onMouseDown:
     m_PersistentCalls:
       m_Calls: []
@@ -8064,7 +8158,7 @@ GameObject:
   - component: {fileID: 1951907034069650370}
   - component: {fileID: 7545927336703733236}
   - component: {fileID: 7643560753381614681}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: block_brick_black_1_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8149,7 +8243,7 @@ GameObject:
   - component: {fileID: 4827602612540581070}
   - component: {fileID: 1165137141748015590}
   - component: {fileID: 1365596636393195683}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: "\u9ED1(Clone)"
   m_TagString: NormalCube
   m_Icon: {fileID: 0}
@@ -8227,6 +8321,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isELC: 0
+  isELCbool: 0
   targetposition: {x: 0, y: 0, z: 0}
   raycastDistance: 1
   collisionLayer:
@@ -8234,6 +8329,7 @@ MonoBehaviour:
     m_Bits: 0
   isdes: 0
   isdesbool: 0
+  lw: {fileID: 0}
   _onMouseDown:
     m_PersistentCalls:
       m_Calls: []
@@ -8253,6 +8349,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isELC: 0
+  isELCbool: 0
   targetposition: {x: 0, y: 0, z: 0}
   raycastDistance: 1
   collisionLayer:
@@ -8260,6 +8357,7 @@ MonoBehaviour:
     m_Bits: 0
   isdes: 0
   isdesbool: 0
+  lw: {fileID: 0}
   _onMouseDown:
     m_PersistentCalls:
       m_Calls: []

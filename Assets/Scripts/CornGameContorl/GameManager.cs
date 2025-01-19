@@ -78,7 +78,7 @@ public class GameManager : MonoBehaviour
         }
         if (QXData.Instance.Get<PlayerData>().PLevel == 2)
         {
-            Center = new Vector3(-19.3f, 33.4f, 22.3f);
+            Center = new Vector3(-14.2f,32f, 22f);
         }
         CameraMove(_rotationType, true);
         //ColliderMove(_rotationType);
@@ -313,6 +313,7 @@ public class GameManager : MonoBehaviour
         }
         // 返回关卡选择UI界面
         //TODO:此处应该修正为关卡胜利UI
+        UIManager.Instance.Close("GameUI");
         UIManager.Instance.Open("LevelUI",3, "LevelUI", null);
     }
 
