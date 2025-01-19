@@ -21,11 +21,24 @@ public class SettingUI : UIBase
         //UIManager.Instance.CloseAll();
         //UIManager.Instance.Open("LevelUI",2,"LevelUI");
     }
-
+    private string[] objectsToDestroy = { "Player(Clone)", "FuncBlocks(Clone)", "NoFuncBlocks(Clone)" };//TODO：此处应写需要再切换时候删除的元素
     private void Quit(GameObject obj, PointerEventData pData)
     {
         OnClose();
         UIManager.Instance.CloseAll();
+        foreach (string objName in objectsToDestroy)
+        {
+            GameObject objects = GameObject.Find(objName);
+            if (objects != null)
+            {
+                Destroy(objects); // 销毁物体
+                Debug.Log(objName + " destroyed.");
+            }
+            else
+            {
+                Debug.LogWarning(objName + " not found.");
+            }
+        }
         UIManager.Instance.Open("StartPage",2,"LevelUI");
     }
 
