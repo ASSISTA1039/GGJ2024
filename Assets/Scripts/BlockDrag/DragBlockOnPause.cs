@@ -272,45 +272,31 @@ public class DragBlockOnGrid : MonoBehaviour
         if (blockMove.rotatey) rotationAxis = Vector3.up;
         if (blockMove.rotatez) rotationAxis = new Vector3(0, 1, 1);
 
-        if (!CanRotate(rotationAxis))
+        // 优先顺时针旋转
+        if (CanRotate(rotationAxis))
         {
-            // 尝试反方向旋转
-            if (!CanRotate(-rotationAxis))
-            {
-                isRotating = false; // 无法旋转
-                return;
-            }
-            rotationAxis = -rotationAxis;
+            RotateInDirection(rotationAxis);
         }
+        else if (CanRotate(-rotationAxis)) // 尝试逆时针旋转
+        {
+            RotateInDirection(-rotationAxis);
+        }
+        else
+        {
+            isRotating = false; // 无法旋转
+        }
+    }
 
+    /// <summary>
+    /// 按指定轴进行旋转
+    /// </summary>
+    private void RotateInDirection(Vector3 rotationAxis)
+    {
         Transform pivotChild = _tran.GetChild(0);
         Vector3 pivotPosition = pivotChild.position;
 
+        // 启动协程进行旋转
         StartCoroutine(RotateAroundPivot(pivotPosition, rotationAxis, 90));
-
-        //clone = Instantiate(_tran.gameObject);
-        //clone.name = _tran.gameObject.name + "_Clone";
-        //for (int i = 0; i < clone.transform.childCount; i++)
-        //{
-        //    Transform childTransform = clone.transform.GetChild(i);
-        //    childTransform.gameObject.layer = 9;
-        //    for (int j = 0; j < childTransform.transform.childCount; j++)
-        //    {
-        //        Transform child = childTransform.transform.GetChild(j);
-        //        child.gameObject.layer = 9;
-        //    }
-        //}
-
-        //moveTween = clone.transform.DORotateQuaternion(Quaternion.Euler(0, 90, 0), 0.1f).OnUpdate(Check).OnComplete(() => {
-        //    _tran.DORotateQuaternion(Quaternion.Euler(0, 90, 0), duration)
-        //        .SetEase(Ease.Linear)
-        //        .OnComplete(() =>
-        //        {
-        //            isRotating = false;
-        //            BlockA(_tran.gameObject);
-        //        });
-        //    Destroy(clone);
-        //});
     }
 
     private IEnumerator RotateAroundPivot(Vector3 pivot, Vector3 axis, int angle)
