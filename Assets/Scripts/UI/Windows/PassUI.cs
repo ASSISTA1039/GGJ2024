@@ -14,6 +14,7 @@ public class PassUI : UIBase
     {
         //RegisterTrigger("Mode1").onClick = OnMusicUp;
         RegisterTrigger("PassButton").onClick = OnPass;
+        AudioManager.Instance.StopBGM();
 
     }
     private void OnPass(GameObject obj, PointerEventData pData)
