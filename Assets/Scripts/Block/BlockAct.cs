@@ -6,7 +6,7 @@ using QxFramework.Core;
 using Unity.VisualScripting;
 using UnityEngine.Events;
 
-public class BlockAct: MonoBehaviour
+public class BlockAct : MonoBehaviour
 {
     //tag为Block0是出生点方块，Block1红色方块，Block2紫色方块，Block3蓝色方块,Block4黑色，Block5终点方块,Block6 普通方块
     public bool isELC = false;
@@ -62,7 +62,7 @@ public class BlockAct: MonoBehaviour
             GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("Block 2");
             foreach (var obj in gameObjects)
             {
-                if (Vector3.Distance(transform.position,obj.transform.position) < 1.3f)
+                if (Vector3.Distance(transform.position, obj.transform.position) < 1.3f)
                 {
                     Boom(obj);
                     Boom(gameObject);
@@ -84,7 +84,7 @@ public class BlockAct: MonoBehaviour
             GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("Block 1");
             foreach (var obj in gameObjects)
             {
-                if (Vector3.Distance(transform.position,obj.transform.position) < 1.3f)
+                if (Vector3.Distance(transform.position, obj.transform.position) < 1.3f)
                 {
                     Boom(obj);
                     Boom(gameObject);
@@ -122,7 +122,7 @@ public class BlockAct: MonoBehaviour
 
     public void Boom(GameObject _Object)//爆炸效果
     {
-        GameObject Black = Instantiate(ResourceManager.Instance.Load<GameObject>("Prefabs/Block/Block/Black"),_Object.transform.parent.parent);
+        GameObject Black = Instantiate(ResourceManager.Instance.Load<GameObject>("Prefabs/Block/Block/Black"), _Object.transform.parent.parent);
         Black.transform.position = _Object.transform.position;
         GameObject boom = Instantiate(Resources.Load<GameObject>("Prefabs/SpecialEffect/boom"));
         boom.transform.position = _Object.transform.position;
