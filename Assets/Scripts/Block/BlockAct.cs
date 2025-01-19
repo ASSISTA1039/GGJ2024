@@ -151,7 +151,7 @@ public class BlockAct: MonoBehaviour
             Transform childTransform = transform.parent.GetChild(i);
             if (childTransform.gameObject.GetComponent<BlockAct>() != null)
             {
-                childTransform.gameObject.GetComponent<BlockAct>().isELC = true;//触发每一个子物体的带电
+                childTransform.gameObject.GetComponent<BlockAct>().isELC = false;//触发每一个子物体的带电
             }
         }
         isELC = true;
