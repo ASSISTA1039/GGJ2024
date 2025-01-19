@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using QxFramework.Core;
+using Unity.VisualScripting;
+using UnityEngine.Events;
 
 public class BlockAct: MonoBehaviour
 {
@@ -16,7 +18,8 @@ public class BlockAct: MonoBehaviour
     private Tween moveTween;
     public bool isdes;
     public bool isdesbool;
-
+    [SerializeField] private UnityEvent<BlockAct> _onMouseDown = new();
+    [SerializeField] private UnityEvent<BlockAct> _onMouseUp = new();
     private void Start()
     {
         Act();
@@ -140,4 +143,9 @@ public class BlockAct: MonoBehaviour
     }
     #endregion
 
+    public event UnityAction<BlockAct> MouseDownEvent
+    {
+        add => _onMouseDown.AddListener(value);
+        remove => _onMouseDown.RemoveListener(value);
+    }
 }

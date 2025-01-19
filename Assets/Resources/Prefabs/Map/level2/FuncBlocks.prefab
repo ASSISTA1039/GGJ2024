@@ -651,6 +651,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4323953930597393054}
     m_Modifications:
+    - target: {fileID: 4847853864606284432, guid: c0a44b64caf240c44b884c2e43409023, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -3479471231652321403, guid: ae570ca0928edd74dbbff533607b2fc8, type: 3}
+    - target: {fileID: 7251919299739930202, guid: c0a44b64caf240c44b884c2e43409023, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f148727b89c299e41a0a4c6a96b017d0, type: 2}
     - target: {fileID: 8424215043659511093, guid: c0a44b64caf240c44b884c2e43409023, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1
@@ -2154,7 +2162,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1150940668888115434, guid: 2416128452e7af04bbdd5f186f651fef, type: 3}
       propertyPath: m_Name
-      value: "Block1_I(\u6CBF\u7740x\u8F74\u5E73\u79FB)(white/purple)"
+      value: "Block1_I(\u6CBF\u7740x\u8F74\u5E73\u79FB)(White)"
       objectReference: {fileID: 0}
     - target: {fileID: 6078094744527754867, guid: 2416128452e7af04bbdd5f186f651fef, type: 3}
       propertyPath: m_LocalPosition.x
