@@ -276,17 +276,18 @@ public class DragBlockOnGrid : MonoBehaviour
 
         // 根据方向选择旋转的轴
         Vector3 targetRotation = _tran.eulerAngles; 
+
         if (_tran.GetComponent<BlockMove>().rotatex)
         {
-            targetRotation += new Vector3(90, 0, 0);
+            targetRotation += new Vector3(rotationAngle, 0, 0);
         }
         if (_tran.GetComponent<BlockMove>().rotatey)
         {
-            targetRotation += new Vector3(0, 90, 0);
+            targetRotation += new Vector3(0, rotationAngle, 0);
         }
         if (_tran.GetComponent<BlockMove>().rotatez)
         {
-            targetRotation += new Vector3(0, 90, 90);
+            targetRotation += new Vector3(0, 0, rotationAngle);
         }
         clone = Instantiate(_tran.gameObject);
         clone.name = _tran.gameObject.name + "_Clone";
@@ -331,6 +332,7 @@ public class DragBlockOnGrid : MonoBehaviour
                     isRotating = false;
                     moveTween.Kill();
                     Destroy(clone);
+                    rotationAngle = -rotationAngle;
                 }
             }
             
