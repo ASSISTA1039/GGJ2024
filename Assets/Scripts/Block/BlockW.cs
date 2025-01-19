@@ -81,7 +81,7 @@ public class BlockW : MonoBehaviour
                 Vector3 target = S1.transform.position + new Vector3(i, -i, -i);
                 foreach (var v in list)
                 {
-                    if (Vector3.Distance(S1.transform.position + v, target) <= 0.1f)
+                    if (Vector3.Distance(S2.transform.position + v, target) <= 0.1f)
                     {
                         if (S2.transform.parent == S1.transform.parent)
                         {

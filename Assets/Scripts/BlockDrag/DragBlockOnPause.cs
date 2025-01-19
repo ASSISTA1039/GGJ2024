@@ -262,7 +262,7 @@ public class DragBlockOnGrid : MonoBehaviour
         BlockMove blockMove = hit.transform.parent.GetComponent<BlockMove>();
         if (blockMove == null || (!blockMove.rotatex && !blockMove.rotatey && !blockMove.rotatez)) return;
         _tran = hit.transform.parent;
-
+        BlockA(_tran.gameObject);
         if (isRotating) return;
 
         // 设置正在旋转
