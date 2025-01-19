@@ -132,8 +132,7 @@ public class BlockAct : MonoBehaviour
 
     public void Evaporation(GameObject _Object)//漂浮效果
     {
-        Vector3 targetposition = _Object.transform.parent.position + new Vector3(0, 1, 0);
-        moveTween = _Object.transform.DOMove(targetposition, 0.5f).SetEase(Ease.InOutQuad).OnUpdate(CheckForCollision);
+        _Object.transform.parent.position += new Vector3(0, 1, 0);
     }
 
     public void Electric()
