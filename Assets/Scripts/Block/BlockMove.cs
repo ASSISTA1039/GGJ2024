@@ -9,4 +9,5 @@ public class BlockMove : MonoBehaviour
     public bool rotatex;
     public bool rotatey;
     public bool rotatez;
+    public Vector3 angle = Vector3.zero;
 }

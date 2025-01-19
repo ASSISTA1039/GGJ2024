@@ -62,7 +62,7 @@ public class BlockW : MonoBehaviour
                 {
                     if (Vector3.Distance(S1.transform.position + v, target) <= 0.1f)
                     {
-                        if (S2.transform.parent = S1.transform.parent)
+                        if (S2.transform.parent == S1.transform.parent)
                         {
                             S2.transform.position += new Vector3(i, -i, -i);
                         }
@@ -81,7 +81,7 @@ public class BlockW : MonoBehaviour
                 {
                     if (Vector3.Distance(S1.transform.position + v, target) <= 0.1f)
                     {
-                        if (S2.transform.parent = S1.transform.parent)
+                        if (S2.transform.parent == S1.transform.parent)
                         {
                             S1.transform.position += new Vector3(i, -i, -i);
                         }
