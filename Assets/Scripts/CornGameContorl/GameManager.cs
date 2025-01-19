@@ -87,7 +87,11 @@ public class GameManager : MonoBehaviour
     public void Update()
     {
         Time1 = Time.timeScale;
-        if (Input.GetMouseButton(0))
+    }
+
+    private void FixedUpdate()
+    {
+        if (Input.GetMouseButtonDown(0))
         {
             AudioManager.Instance.PlayEffect("Click");
         }

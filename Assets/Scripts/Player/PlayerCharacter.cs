@@ -29,6 +29,7 @@ public class PlayerCharacter : MonoBehaviour
         if (isInwater && !isInwaterbool)
         {
             AudioManager.Instance.PlayEffect("IntoWater");
+            isInwaterbool = true;
         }
         if (!isInwater && isInwaterbool)
         {

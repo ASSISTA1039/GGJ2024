@@ -36,6 +36,7 @@ public class BlockAct: MonoBehaviour
         {
             AudioManager.Instance.PlayEffect("ElectricShock");
             Instantiate(ResourceManager.Instance.Load<GameObject>("Prefabs/SpecialEffect/LightWater"));
+            isELCbool = true;
         }
 
     }
@@ -94,13 +95,20 @@ public class BlockAct: MonoBehaviour
         }
         if (tag == "Block 3")
         {
+            bool ise = false;
             GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("Block 2");
             foreach (var obj in gameObjects)
             {
                 if (Vector3.Distance(transform.position, obj.transform.position) < 1.3f)
                 {
                     Electric();
+                    ise = true;
                 }
+            }
+
+            if (!ise)
+            {
+                NElectric();
             }
         }
     }
@@ -122,6 +130,20 @@ public class BlockAct: MonoBehaviour
     }
 
     public void Electric()
+    {
+        for (int i = 0; i < transform.parent.childCount; i++)
+        {
+            // 获取子物体
+            Transform childTransform = transform.parent.GetChild(i);
+            if (childTransform.gameObject.GetComponent<BlockAct>() != null)
+            {
+                childTransform.gameObject.GetComponent<BlockAct>().isELC = true;//触发每一个子物体的带电
+            }
+        }
+        isELC = true;
+    }
+
+    public void NElectric()
     {
         for (int i = 0; i < transform.parent.childCount; i++)
         {
