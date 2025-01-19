@@ -295,6 +295,7 @@ public class DragBlockOnGrid : MonoBehaviour
         {
             Transform childTransform = clone.transform.GetChild(i);
             childTransform.gameObject.layer = 9;
+            childTransform.GetComponent<BoxCollider>().size *= 0.9f;
             for (int j = 0; j < childTransform.transform.childCount; j++)
             {
                 Transform child = childTransform.transform.GetChild(j);
@@ -302,7 +303,8 @@ public class DragBlockOnGrid : MonoBehaviour
             }
         }
         // 应用目标旋转
-        moveTween = clone.transform.DORotateQuaternion(Quaternion.Euler(targetRotation.x, targetRotation.y, targetRotation.z), 0.1f).OnUpdate(Check).OnComplete(() => {
+        //.OnUpdate(Check)
+        moveTween = clone.transform.DORotateQuaternion(Quaternion.Euler(targetRotation.x, targetRotation.y, targetRotation.z), 0.1f).OnComplete(() => {
             // 使用 DORotate 来旋转物体
             _tran.DORotateQuaternion(Quaternion.Euler(targetRotation.x, targetRotation.y, targetRotation.z), duration)
                 .SetEase(Ease.Linear)

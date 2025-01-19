@@ -10,21 +10,20 @@ public class BlockAct: MonoBehaviour
 {
     //tag为Block0是出生点方块，Block1红色方块，Block2紫色方块，Block3蓝色方块,Block4黑色，Block5终点方块,Block6 普通方块
     public bool isELC = false;
+    public bool isELCbool = false;
 
     public Vector3 targetposition;
     public float raycastDistance = 1f;  // 射线检测的最大距离
     public LayerMask collisionLayer;  // 碰撞层
 
     private Tween moveTween;
-    public bool isdes;
-    public bool isdesbool;
+    public bool isdes = false;
+    public bool isdesbool = false;
     [SerializeField] private UnityEvent<BlockAct> _onMouseDown = new();
     [SerializeField] private UnityEvent<BlockAct> _onMouseUp = new();
     private void Start()
     {
         Act();
-        isdes = false;
-        isdesbool = false;
     }
     private void Update()
     {
@@ -33,6 +32,12 @@ public class BlockAct: MonoBehaviour
             isdesbool = true;
             StartCoroutine(WaitForSecondsExample());
         }
+        if (isELC && !isELCbool)
+        {
+            AudioManager.Instance.PlayEffect("ElectricShock");
+            Instantiate(ResourceManager.Instance.Load<GameObject>("Prefabs/SpecialEffect/LightWater"));
+        }
+
     }
 
     IEnumerator WaitForSecondsExample()

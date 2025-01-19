@@ -16,6 +16,8 @@ public class PlayerAct : MonoBehaviour
     private Tween moveTween;
     public int money;
     
+    private bool deadbool;
+
 
     private void Start()
     {
@@ -107,6 +109,10 @@ public class PlayerAct : MonoBehaviour
                 animator.SetFloat("HP", 0f);
             }
             Debug.Log("玩家死亡");
+            if (!deadbool)
+            {
+                AudioManager.Instance.PlayEffect("Death");
+            }
             UIManager.Instance.Open("DeathUI", 4, "DeathUI");
             //TODO：玩家死亡的相关流程
         }

@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
@@ -87,6 +87,10 @@ public class GameManager : MonoBehaviour
     public void Update()
     {
         Time1 = Time.timeScale;
+        if (Input.GetMouseButton(0))
+        {
+            AudioManager.Instance.PlayEffect("Click");
+        }
     }
 
     //碰撞体移动

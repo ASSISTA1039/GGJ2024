@@ -29,7 +29,7 @@ public class BlockW : MonoBehaviour
                 S1 = hit.collider.transform.gameObject;
                 S1select = Instantiate(Resources.Load<GameObject>("Prefabs/Select/outline"));
                 S1select.transform.position = S1.transform.position;
-                //TODO:选中特效
+                AudioManager.Instance.PlayEffect("Select");
             }
         }
         else if (S2 == null&& S1 != S2)
@@ -39,6 +39,7 @@ public class BlockW : MonoBehaviour
                 S2 = hit.collider.transform.gameObject;
                 S2select = Instantiate(Resources.Load<GameObject>("Prefabs/Select/outline"));
                 S2select.transform.position = S2.transform.position;
+                AudioManager.Instance.PlayEffect("Select");
             }
         }
         else if(S1 != null && S2 != null)
