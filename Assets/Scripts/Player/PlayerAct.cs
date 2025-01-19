@@ -87,21 +87,26 @@ public class PlayerAct : MonoBehaviour
 
     public void Death()
     {
+        Animator animator = this.gameObject.GetComponent<Animator>();
         if (health <= 0)
         {
             //Animator animator=this.gameObject.GetComponent<Animator>;
-            Animator animator = this.gameObject.GetComponent<Animator>();
-                if (animator != null)
-                    animator.SetFloat ("HP", 0f);
-               
-            else
+           
+            if (animator != null)
             {
-                animator.SetBool("IsWalk", true);
+                animator.SetFloat("HP", 0f);
             }
             Debug.Log("玩家死亡");
-            UIManager.Instance.Open("DeathUI",4, "DeathUI");
+            UIManager.Instance.Open("DeathUI", 4, "DeathUI");
             //TODO：玩家死亡的相关流程
         }
+        else
+        {
+            if (animator != null)
+                animator.SetBool("IsWalk", true);
+        }
+           
+        
 
     }
 
