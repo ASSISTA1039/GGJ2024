@@ -66,9 +66,12 @@ public class PlayerAct : MonoBehaviour
             if (Physics.Raycast(transform.position, Vector3.down, out hit, Mathf.Infinity))
             {
                 // 如果射线与水体碰撞，说明人物在水中
-                if (hit.collider.GetComponent<BlockAct>().isELC)
+                if (hit.collider.GetComponent<BlockAct>() != null)
                 {
-                    health -= 1;
+                    if (hit.collider.GetComponent<BlockAct>().isELC)
+                    {
+                        health -= 1;
+                    }
                 }
             }
         }

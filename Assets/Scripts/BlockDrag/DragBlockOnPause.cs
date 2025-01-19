@@ -73,28 +73,26 @@ public class DragBlockOnGrid : MonoBehaviour
         if (Physics.Raycast(ray, out RaycastHit hit))
         {
             // 获取物体标签并根据标签设置拖动规则
+            if (hit.transform.parent.GetComponent<BlockMove>() != null)
+                return;
 
             //string hitTag = hit.collider.tag;
-            if (hit.transform.parent.GetComponent<BlockMove>().x|| hit.transform.parent.GetComponent<BlockMove>().z)
+            if (hit.transform.parent.GetComponent<BlockMove>().x && hit.transform.parent.GetComponent<BlockMove>().z)
             {
-                if (hit.transform.parent.GetComponent<BlockMove>().x && hit.transform.parent.GetComponent<BlockMove>().z)
-                {
-                    moveDirection = MoveDirection.XZ;
-                }
-                else if (!hit.transform.parent.GetComponent<BlockMove>().x)
-                {
-                    moveDirection = MoveDirection.Z;
-                }
-                else
-                {
-                    moveDirection = MoveDirection.X;
-                }
+                moveDirection = MoveDirection.XZ;
+            }
+            else if (!hit.transform.parent.GetComponent<BlockMove>().x && hit.transform.parent.GetComponent<BlockMove>().z)
+            {
+                moveDirection = MoveDirection.Z;
+            }
+            else if(hit.transform.parent.GetComponent<BlockMove>().x && !hit.transform.parent.GetComponent<BlockMove>().z)
+            {
+                moveDirection = MoveDirection.X;
             }
             else
             {
                 moveDirection = MoveDirection.None;
             }
-            moveDirection = MoveDirection.XZ;//GetMoveDirectionForTag(hitTag);
             //GameObject Player = GameObject.FindWithTag("Player");
             draggedBlock = hit.transform.parent;
            
@@ -253,6 +251,9 @@ public class DragBlockOnGrid : MonoBehaviour
         Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out RaycastHit hit))
         {
+            if (hit.transform.parent.GetComponent<BlockMove>() != null)
+                return;
+
             if (hit.transform.parent.GetComponent<BlockMove>().rotatex|| hit.transform.parent.GetComponent<BlockMove>().rotatey|| hit.transform.parent.GetComponent<BlockMove>().rotatez)
             {
                 _tran = hit.transform.parent;
