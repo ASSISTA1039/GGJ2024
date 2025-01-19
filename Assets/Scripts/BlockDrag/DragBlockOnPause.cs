@@ -77,6 +77,8 @@ public class DragBlockOnGrid : MonoBehaviour
             // 获取物体标签并根据标签设置拖动规则
 
             //string hitTag = hit.collider.tag;
+            if (hit.transform.parent.GetComponent<BlockMove>() == null)
+                return;
             if (hit.transform.parent.GetComponent<BlockMove>().x || hit.transform.parent.GetComponent<BlockMove>().z)
             {
                 if (hit.transform.parent.GetComponent<BlockMove>().x && hit.transform.parent.GetComponent<BlockMove>().z)

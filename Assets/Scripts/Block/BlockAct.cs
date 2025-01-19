@@ -161,7 +161,7 @@ public class BlockAct : MonoBehaviour
                 childTransform.gameObject.GetComponent<BlockAct>().isELC = false;//触发每一个子物体的带电
             }
         }
-        isELC = true;
+        isELC = false;
     }
 
     void CheckForCollision()
