@@ -14,17 +14,21 @@ public class PlayerAct : MonoBehaviour
     public LayerMask collisionLayer;  // 碰撞层
     public LayerMask waterLayer;
     private Tween moveTween;
-
+    public int money;
+    
 
     private void Start()
     {
         health = 1;
+        GameMgr.Get<IDataManager>().ChangeMoney(0);
+        QXData.Instance.Get<PlayerData>().PMoney = 0;
     }
     private void Update()
     {
         CurBoxCollider = GetComponent<PlayerCharacter>().CurBoxCollider;
         EHurt();
         Death();
+        money= QXData.Instance.Get<PlayerData>().PMoney; 
     }
     public void BlockDrop(GameObject pref ,float height , int time)//下落的方块
     {
@@ -57,10 +61,15 @@ public class PlayerAct : MonoBehaviour
             {
                 CurBoxCollider.gameObject.GetComponent<BlockAct>().isdes = true;
             }
-            if (CurBoxCollider.gameObject.tag == "Block 5")
+            if (CurBoxCollider.gameObject.tag == "Block 5"&&QXData.Instance.Get<PlayerData>().PMoney>0)
             {
                 this.gameObject.SetActive(false);
                 UIManager.Instance.Open("PassUI", 3, "PassUI");
+            }
+            if (CurBoxCollider.gameObject.tag == "KEY")
+            {
+                GameMgr.Get<IDataManager>().ChangeMoney(1);
+                //NEED Sound
             }
             RaycastHit hit;
 

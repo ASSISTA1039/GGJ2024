@@ -106,6 +106,11 @@ public class DataManager : LogicModuleBase,IDataManager
         PlayerData.PHealth = _hp;
     }
 
+    public void ChangeMoney(int money)
+    { 
+        PlayerData.PMoney=money;
+    }
+
     #endregion
 
     #region 基础数据处理
@@ -157,6 +162,8 @@ interface IDataManager
     void ChangeMaxHp(int hp);
     void ChangeHp(int hp);
     void ChangePlayerLevel(int _level);
+
+    void ChangeMoney(int money);
 
     #endregion
 

@@ -57,6 +57,8 @@ public class LevelUI : UIBase
         {
             GameManager.Instance.GameStart(2);
             UIManager.Instance.Open("GameUI");
+            Camera camera = Camera.main;
+                camera.transform.position=new Vector3(-10, 26, 15);
             OnClose();
         }
     }
